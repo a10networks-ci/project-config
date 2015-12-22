@@ -10,7 +10,7 @@ cron:
 # party ci systems start building images at the same time.
 # Doing so is easy: update the first '17' below with a random number between 0 to 23
 # This references the hour of the day when images will be built.
-  image-update: '0 0 * * *'
+  image-update: '0 5 * * *'
 
 zmq-publishers:
   - tcp://localhost:8888
@@ -41,10 +41,9 @@ diskimages:
 
 providers:
   - name: local_01
-#TODO: Update the provider username, password, and authurl
-    username: '<%= provider_username %>'
-    password: '<%= provider_password %>'
-    auth-url: 'http://<openstack cloud>:5000/v2.0'
+    username: 'os-jenkins'
+    password: '70dcdc67b11b5c789293f2b11627742d'
+    auth-url: 'http://10.48.1.6:5000/v2.0'
     project-name: 'admin'
     max-servers: 2
     images:
