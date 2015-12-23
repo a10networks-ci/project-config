@@ -23,7 +23,7 @@ labels:
     image: dpc
     min-ready: 1
     providers:
-      - name: local_01
+      - name: local_02
 
 diskimages:
     - name: dpc
@@ -40,7 +40,7 @@ diskimages:
         DIB_IMAGE_CACHE: /opt/dib_cache
 
 providers:
-  - name: local_01
+  - name: local_02
     username: 'os-jenkins'
     password: '70dcdc67b11b5c789293f2b11627742d'
     auth-url: 'http://10.48.1.2:5000/v2.0'
