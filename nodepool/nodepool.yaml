@@ -55,3 +55,4 @@ providers:
 
 targets:
   - name: jenkins1
+    hostname: localhost
