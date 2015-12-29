@@ -43,12 +43,13 @@ providers:
   - name: local_02
     username: 'os-jenkins'
     password: '70dcdc67b11b5c789293f2b11627742d'
-    auth-url: 'http://10.48.1.2:5000/v2.0'
+    auth-url: 'http://10.48.1.6:5000/v2.0'
     project-name: 'admin'
     max-servers: 2
     images:
       - name: dpc
-        min-ram: 8192
+        min-ram: 4096
+        setup: prepare_node_devstack.sh
         diskimage: dpc
         username: jenkins
         private-key: '/home/nodepool/.ssh/id_rsa'
