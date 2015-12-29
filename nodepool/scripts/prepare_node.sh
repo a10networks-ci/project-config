@@ -224,6 +224,7 @@ sudo rm -f /etc/cron.{monthly,weekly,daily,hourly,d}/*
 # https://bugs.launchpad.net/ubuntu/+source/python2.7/+bug/839588
 git clone /opt/git/openstack-infra/zuul /tmp/zuul
 sudo virtualenv /usr/zuul-env
+sudo -H /usr/zuul-env/bin/pip install testrepository
 sudo -H /usr/zuul-env/bin/pip install /tmp/zuul
 sudo rm -fr /tmp/zuul
 
