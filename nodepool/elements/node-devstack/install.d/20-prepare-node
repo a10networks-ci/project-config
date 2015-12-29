@@ -24,7 +24,7 @@ set -e
 export SUDO='true'
 export THIN='true'
 
-sudo pip install -U urllib3 pip testrepository
+sudo pip install -U pip testrepository
 
 prepare-node
 
