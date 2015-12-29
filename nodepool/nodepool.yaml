@@ -49,7 +49,6 @@ providers:
     images:
       - name: dpc
         min-ram: 4096
-        setup: prepare_node_devstack.sh
         diskimage: dpc
         username: jenkins
         private-key: '/home/nodepool/.ssh/id_rsa'

@@ -24,6 +24,8 @@ set -e
 export SUDO='true'
 export THIN='true'
 
+sudo pip install -U urllib3 pip testrepository
+
 prepare-node
 
 mkdir -p ~jenkins/cache/files
