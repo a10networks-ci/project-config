@@ -42,6 +42,8 @@ diskimages:
 providers:
   - name: local_02
     max-servers: 20
+    networks:
+      - net-id: '71263faf-e1ed-494f-bc6f-eff6f449040a'
     images:
       - name: dpc
         min-ram: 4096
