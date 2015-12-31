@@ -41,8 +41,6 @@ diskimages:
 
 providers:
   - name: local_02
-    auth_url: 'http://10.48.1.6:5000/v2.0'
-    username: os-jenkins
     max-servers: 20
     networks:
       - net-id: '71263faf-e1ed-494f-bc6f-eff6f449040a'
