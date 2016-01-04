@@ -50,6 +50,7 @@ providers:
       - net-id: '71263faf-e1ed-494f-bc6f-eff6f449040a'
     images:
       - name: dpc
+        name-filter: m1.medium
         min-ram: 4096
         diskimage: dpc
         username: jenkins
