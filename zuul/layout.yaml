@@ -15,14 +15,16 @@ pipelines:
           comment: (?i)^(Patch Set [0-9]+:)?( [\w\\+-]*)*(\n\n)?\s*recheck a10\s*$
     success:
       gerrit:
-        verified: 1
+#        verified: 1
+        verified: 0
       smtp:
         to: dougwig@parkside.io
         from: a10-openstack-ci-DL@a10networks.com
         subject: 'Silent check of {change.project} {change.number},{change.patchset} passed'
     failure:
       gerrit:
-        verified: -1
+#        verified: -1
+        verified: 0
       smtp:
         to: dougwig@parkside.io
         from: a10-openstack-ci-DL@a10networks.com
