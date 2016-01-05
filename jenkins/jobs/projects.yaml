@@ -1,12 +1,18 @@
 - project:
-    name: sandbox
-    github-org: openstack-dev
-    node: master
-    vendor: myvendor
+  name: a10-project-config
+  node: bare-trusty
 
-    jobs:
-        - noop-check-communication
-        - dsvm-tempest-full:
-            node: 'devstack_slave || devstack-precise-check || d-p-c'
-        - dsvm-tempest-my-cinder-driver:
-            node: 'd-p-c'
+  jobs:
+    - gate-{name}-linters
+
+- project:
+  name: sandbox
+  github-org: openstack-dev
+  node: master
+  vendor: a10networks
+
+  jobs:
+    - noop-check-communication
+        node: bare-trusty
+    - dsvm-tempest-full:
+        node: 'devstack-trusty || d-p-c'

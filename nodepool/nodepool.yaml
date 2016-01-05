@@ -21,23 +21,48 @@ gearman-servers:
 labels:
   - name: d-p-c
     image: dpc
+    min-ready: 0
+    providers:
+      - name: local_02
+  - name: devstack-trusty
+    image: devstack-trusty
     min-ready: 1
+    providers:
+      - name: local_02
+  - name: bare-trusty
+    image: bare-trusty
+    min-ready: 4
     providers:
       - name: local_02
 
 diskimages:
-    - name: dpc
-      elements:
-        - ubuntu
-        - vm
-        - openstack-repos
-        - puppet
-        - nodepool-base
-        - node-devstack
-      release: trusty
-      env-vars:
-        TMPDIR: /opt/dib_tmp
-        DIB_IMAGE_CACHE: /opt/dib_cache
+  - name: dpc
+    elements:
+      - ubuntu
+      - vm
+      - openstack-repos
+      - puppet
+      - nodepool-base
+      - node-devstack
+    release: trusty
+    env-vars:
+      TMPDIR: /opt/dib_tmp
+      DIB_IMAGE_CACHE: /opt/dib_cache
+  - name: devstack-trusty
+    elements:
+      - ubuntu
+      - vm
+      - openstack-repos
+      - nodepool-base
+      - node-devstack
+      - cache-bindep
+    release: trusty
+    env-vars:
+      TMPDIR: /opt/dib_tmp
+      DIB_IMAGE_CACHE: /opt/dib_cache
+      DIB_APT_LOCAL_CACHE: '0'
+      DIB_DISABLE_APT_CLEANUP: '1'
+      QEMU_IMG_OPTIONS: compat=0.10
 
 providers:
   - name: local_02
@@ -45,7 +70,7 @@ providers:
     username: os-jenkins
     password: 0e8d15309ea30a8aebfa2f098ad4d121
     project-id: 3b9cd8bc8bc94ba9aea326990aba7f7a
-    max-servers: 20
+    max-servers: 32
     use-private-ip-as-public: True
     networks:
       - net-id: '71263faf-e1ed-494f-bc6f-eff6f449040a'
@@ -56,6 +81,20 @@ providers:
         diskimage: dpc
         username: jenkins
         private-key: '/home/nodepool/.ssh/id_rsa'
+      - name: devstack-trusty
+        base-image: 'Ubuntu 14.04 LTS 64-bit'
+        name-filter: m1.medium
+        min-ram: 4096
+        setup: prepare_node_devstack.sh
+        username: jenkins
+        private-key: /home/nodepool/.ssh/id_rsa
+      - name: bare-trusty
+        base-image: 'Ubuntu 14.04 LTS 64-bit'
+        name-filter: m2.medium
+        min-ram: 4096
+        setup: prepare_node_bare.sh
+        username: jenkins
+        private-key: /home/nodepool/.ssh/id_rsa
 
 targets:
   - name: jenkins1
