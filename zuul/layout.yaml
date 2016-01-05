@@ -1,6 +1,5 @@
 includes:
-    #TODO: Rename this file. These functions are what enables single use nodes in nodepool.
-  - python-file: openstack_functions.py
+  - python-file: a10_functions.py
 
 pipelines:
   - name: check
