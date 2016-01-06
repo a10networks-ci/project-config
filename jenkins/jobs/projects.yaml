@@ -1,18 +1,18 @@
 - project:
-  name: a10-project-config
-  node: bare-trusty
+    name: a10-project-config
+    node: bare-trusty
 
-  jobs:
-    - gate-{name}-linters
+    jobs:
+        - gate-{name}-linters
 
 - project:
-  name: sandbox
-  github-org: openstack-dev
-  node: master
-  vendor: a10networks
+    name: sandbox
+    github-org: openstack-dev
+    node: master
+    vendor: a10networks
 
-  jobs:
-    - noop-check-communication:
-      node: bare-trusty
-    - dsvm-tempest-full:
-      node: 'devstack-trusty || d-p-c'
+    jobs:
+        - noop-check-communication:
+            node: bare-trusty
+        - dsvm-tempest-full:
+            node: 'devstack-trusty || d-p-c'
