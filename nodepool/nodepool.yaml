@@ -98,14 +98,12 @@ providers:
         username: jenkins
         private-key: '/home/nodepool/.ssh/id_rsa'
       - name: devstack-trusty
-        base-image: 'Ubuntu 14.04 LTS 64-bit'
         name-filter: m1.medium
         min-ram: 4000
         setup: prepare_node_devstack.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
       - name: bare-trusty
-        base-image: 'Ubuntu 14.04 LTS 64-bit'
         name-filter: m2.medium
         min-ram: 2000
         setup: prepare_node_bare.sh
