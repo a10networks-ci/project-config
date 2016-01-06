@@ -87,7 +87,6 @@ providers:
     password: 0e8d15309ea30a8aebfa2f098ad4d121
     project-id: 3b9cd8bc8bc94ba9aea326990aba7f7a
     max-servers: 32
-    use-private-ip-as-public: True
     networks:
       - name: 'quarantine-net'
         public: True
