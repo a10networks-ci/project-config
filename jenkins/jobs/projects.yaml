@@ -12,7 +12,7 @@
   vendor: a10networks
 
   jobs:
-    - noop-check-communication
-        node: bare-trusty
+    - noop-check-communication:
+      node: bare-trusty
     - dsvm-tempest-full:
-        node: 'devstack-trusty || d-p-c'
+      node: 'devstack-trusty || d-p-c'
