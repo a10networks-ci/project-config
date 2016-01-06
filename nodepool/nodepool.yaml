@@ -21,12 +21,12 @@ gearman-servers:
 labels:
   - name: d-p-c
     image: dpc
-    min-ready: 4
+    min-ready: 0
     providers:
       - name: local_02
   - name: devstack-trusty
     image: devstack-trusty
-    min-ready: 1
+    min-ready: 4
     providers:
       - name: local_02
   - name: bare-trusty
@@ -105,7 +105,7 @@ providers:
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
       - name: bare-trusty
-        name-filter: m2.medium
+        name-filter: m1.small
         min-ram: 2000
         diskimage: bare-trusty
         setup: prepare_node_bare.sh
