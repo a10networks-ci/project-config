@@ -13,6 +13,6 @@
 
     jobs:
         - noop-check-communication:
-            node: j-master
+            node: 'j-master || d-p-c'
         - dsvm-tempest-full:
             node: 'devstack-trusty || d-p-c'
