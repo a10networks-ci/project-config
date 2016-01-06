@@ -73,7 +73,8 @@ providers:
     max-servers: 32
     use-private-ip-as-public: True
     networks:
-      - net-id: '71263faf-e1ed-494f-bc6f-eff6f449040a'
+      - name: 'quarantine-net'
+        public: True
     images:
       - name: dpc
         name-filter: m1.medium
