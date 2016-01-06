@@ -8,11 +8,9 @@
 - project:
     name: sandbox
     github-org: openstack-dev
-    node: master
     vendor: a10networks
 
     jobs:
-        - noop-check-communication:
-            node: 'j-master || d-p-c'
+        - noop-check-communication
         - dsvm-tempest-full:
-            node: 'devstack-trusty || d-p-c'
+            node: devstack-trusty
