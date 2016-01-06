@@ -100,12 +100,14 @@ providers:
       - name: devstack-trusty
         name-filter: m1.medium
         min-ram: 4000
+	diskimage: devstack-trusty
         setup: prepare_node_devstack.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
       - name: bare-trusty
         name-filter: m2.medium
         min-ram: 2000
+	diskimage: bare-trusty
         setup: prepare_node_bare.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
