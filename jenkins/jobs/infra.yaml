@@ -79,6 +79,9 @@
     name: gate-project-config-projects-yaml
     node: bare-trusty
 
+    scm:
+      - scm-a10-project-config
+
     builders:
       - revoke-sudo
       - gerrit-git-prep

@@ -1,0 +1,8 @@
+- scm:
+    name: scm-a10-project-config
+    scm:
+      - git:
+         url: https://github.com/a10networks-ci/project-config.git
+         branches:
+          - origin/master
+
