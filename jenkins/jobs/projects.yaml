@@ -5,6 +5,20 @@
     vendor: a10networks
 
     jobs:
-        - noop-check-communication
+        - noop-check-communication:
+            node: bare-trusty
         - dsvm-tempest-full:
             node: devstack-trusty
+
+- project:
+    name: neutron-lbaas
+    node: bare-trusty
+
+    jobs:
+      - '{pipeline}-neutron-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
+          pipeline: gate
+          node: devstack-trusty
+          job-suffix: ''
+          branch-override: default
+          lbaasversion: lbaasv1
+          lbaastest: api
