@@ -4,17 +4,21 @@ includes:
 pipelines:
   - name: check
     description: Newly uploaded patchsets enter this pipeline to receive an initial +/-1 Verified vote from Jenkins.
-    failure-message: "Build failed. For 3rd party CI contact info: https://wiki.openstack.org/wiki/ThirdPartySystems"
+    #failure-message: "Build failed. For 3rd party CI contact info: https://wiki.openstack.org/wiki/ThirdPartySystems"
+    footer-message: "Recheck: see wiki link\n\nContact: a10-openstack-ci@a10netw
+orks.com\n\nAdditional information: https://wiki.openstack.org/wiki/ThirdPartySy
+stems/A10_Networks_CI"
+
     manager: IndependentPipelineManager
     trigger:
       gerrit:
         - event: patchset-created
         - event: change-restored
         - event: comment-added
-          comment: (?i)^(Patch Set [0-9]+:)?( [\w\\+-]*)*(\n\n)?\s*recheck a10\s*$
+          comment: (?i)^(Patch Set [0-9]+:)?( [\w\\+-]*)*(\n\n)?\s*(recheck a10|redo\ -a10)\s*$
     success:
       gerrit:
-        verified: 0
+        verified: 1
       smtp:
         to: dougwig@parkside.io
         from: a10-openstack-ci-DL@a10networks.com
@@ -41,7 +45,7 @@ pipelines:
         - event: patchset-created
         - event: change-restored
         - event: comment-added
-          comment: (?i)^(Patch Set [0-9]+:)?( [\w\\+-]*)*(\n\n)?\s*recheck a10\s*$
+          comment: (?i)^(Patch Set [0-9]+:)?( [\w\\+-]*)*(\n\n)?\s*(recheck a10|redo\-a10)\s*$
     success:
       smtp:
         to: dougwig@parkside.io
@@ -52,11 +56,34 @@ pipelines:
         to: dougwig@parkside.io
         from: a10-openstack-ci-DL@a10networks.com
         subject: 'Silent check of {change.project} {change.number},{change.patchset} failed'
-
+    merge-failure:
+      smtp:
+        to: dougwig@parkside.io
+        from: a10-openstack-ci-DL@a10networks.com
+        subject: Upstream change {change} has a merge failure
 
 jobs:
+  - name: ^noop-.*$
+    parameter-function: single_use_node
+    voting: false
   - name: ^dsvm-tempest.*$
     parameter-function: single_use_node
+    voting: false
+  # - name: a10-neutron-lbaas
+  #   parameter-function: single_use_node
+  #   branch: (master|stable\/juno|stable\/kilo)
+  #   voting: false
+  # - name: a10-neutron-lbaasv2
+  #   parameter-function: single_use_node
+  #   branch: (master|stable\/kilo)
+  #   voting: false
+  - name: ^a10-lbaasv1-dsvm-api.*$
+    parameter-function: single_use_node
+    branch: (master|stable\/juno|stable\/kilo)
+    voting: false
+  - name: ^gate-neutron-lbaasv1-dsvm-api$
+    branch: ^(?!stable/kilo).*$
+    voting: false
 
 projects:
   - name: openstack-dev/ci-sandbox
@@ -68,3 +95,16 @@ projects:
       # Uncomment this job when you have a jenkins slave running and want to
       # test a full Tempest run within devstack.
       - dsvm-tempest-full
+  - name: openstack/neutron-lbaas
+    check:
+      - noop-check-communication
+    silent:
+      - gate-neutron-lbaasv1-dsvm-api
+      # - a10-lbaasv1-dsvm-api
+#    check:
+#      - a10-neutron-lbaas
+#      - a10-neutron-lbaasv2
+#  - name: openstack/neutron
+#    check:
+#      - a10-neutron-lbaas
+#      - a10-neutron-lbaasv2
