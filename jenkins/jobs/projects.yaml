@@ -1,9 +1,3 @@
-- project:
-    name: a10-project-config
-    node: bare-trusty
-
-    jobs:
-        - gate-{name}-linters
 
 - project:
     name: sandbox

@@ -1,13 +1,35 @@
 - job:
-    name: gate-project-config
+    name: a10-project-config-master
     node: bare-trusty
 
     scm:
-      - scm-a10-project-config
+        - scm-a10-project-config
 
     builders:
-      - revoke-sudo
-      - tox
+        - revoke-sudo
+        - tox:
+            envlist: all
 
     publishers:
-      - console-log
+        - console-log
+
+    triggers:
+        - sqs
+
+- job:
+    name: a10-project-config-pulls
+    node: bare-trusty
+
+    scm:
+        - scm-a10-project-config
+
+    builders:
+        - revoke-sudo
+        - tox:
+            envlist: all
+
+    publishers:
+        - console-log
+
+    triggers:
+        - github-pull-request-all
