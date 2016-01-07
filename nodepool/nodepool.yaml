@@ -21,7 +21,7 @@ gearman-servers:
 labels:
   - name: d-p-c
     image: dpc
-    min-ready: 0
+    min-ready: -1
     providers:
       - name: local_02
   - name: devstack-trusty
