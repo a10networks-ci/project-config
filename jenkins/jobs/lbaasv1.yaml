@@ -64,8 +64,8 @@
       - shell: |
           #!/bin/bash -xe
 
-          SLAVE_SCRIPT_URL=${SLAVE_SCRIPT_URL:-https://github.com/a10networks-ci/slave-scripts.git}
-          export SLAVE_SCRIPT_DIR=${SLAVE_SCRIPT_DIR:-/usr/local/ci}
+          SLAVE_SCRIPT_URL="https://github.com/a10networks-ci/slave-scripts.git"
+          export SLAVE_SCRIPT_DIR=/usr/local/ci
           sudo mkdir $SLAVE_SCRIPT_DIR
           sudo chmod a+rwx $SLAVE_SCRIPT_DIR
           git clone $SLAVE_SCRIPT_URL $SLAVE_SCRIPT_DIR
