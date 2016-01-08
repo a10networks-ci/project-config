@@ -46,50 +46,61 @@
       - devstack-logs
       - console-log
 
-# - job-template:
-#     name: 'a10-{lbaasversion}-dsvm-{lbaastest}{job-suffix}'
-#     node: '{node}'
+- job-template:
+    name: 'a10-{lbaasversion}-dsvm-{lbaastest}{job-suffix}'
+    node: '{node}'
 
-#     wrappers:
-#       - build-timeout:
-#           timeout: 125
-#       - timestamps
+    wrappers:
+      - build-timeout:
+          timeout: 125
+      - timestamps
 
-#     builders:
-#       - print-template-name:
-#           template-name: "{template-name}"
-#       - link-logs
-#       - net-info
-#       - devstack-checkout
-#       - shell: |
-#           #!/bin/bash -xe
-#           export PYTHONUNBUFFERED=true
-#           export DEVSTACK_GATE_TIMEOUT=120
-#           export DEVSTACK_GATE_TEMPEST=1
-#           export DEVSTACK_GATE_TEMPEST_NOTESTS=1
-#           export DEVSTACK_GATE_EXERCISES=0
-#           export DEVSTACK_GATE_NEUTRON=1
-#           export DEVSTACK_GATE_INSTALL_TESTONLY=1
-#           export BRANCH_OVERRIDE={branch-override}
-#           if [ "$BRANCH_OVERRIDE" != "default" ] ; then
-#               export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
-#           fi
-#           export PROJECTS="openstack/barbican $PROJECTS"
-#           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - link-logs
+      - net-info
+      - devstack-checkout
+      - shell: |
+          #!/bin/bash -xe
 
-#           function gate_hook {{
-#               $BASE/new/neutron-lbaas/neutron_lbaas/tests/contrib/gate_hook.sh {lbaasversion} {lbaastest}
-#           }}
-#           export -f gate_hook
+          SLAVE_SCRIPT_URL=${SLAVE_SCRIPT_URL:-https://github.com/a10networks-ci/slave-scripts.git}
+          export SLAVE_SCRIPT_DIR=${SLAVE_SCRIPT_DIR:-/usr/local/ci}
+          sudo mkdir $SLAVE_SCRIPT_DIR
+          sudo chmod a+rwx $SLAVE_SCRIPT_DIR
+          git clone $SLAVE_SCRIPT_URL $SLAVE_SCRIPT_DIR
 
-#           function post_test_hook {{
-#               $BASE/new/neutron-lbaas/neutron_lbaas/tests/contrib/post_test_hook.sh {lbaasversion} {lbaastest}
-#           }}
-#           export -f post_test_hook
+          export PYTHONUNBUFFERED=true
+          export DEVSTACK_GATE_TIMEOUT=120
+          export DEVSTACK_GATE_TEMPEST=1
+          export DEVSTACK_GATE_TEMPEST_NOTESTS=1
+          export DEVSTACK_GATE_EXERCISES=0
+          export DEVSTACK_GATE_NEUTRON=1
+          export DEVSTACK_GATE_INSTALL_TESTONLY=1
+          export BRANCH_OVERRIDE={branch-override}
+          if [ "$BRANCH_OVERRIDE" != "default" ] ; then
+              export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
+          fi
+          export PROJECTS="openstack/barbican $PROJECTS"
+          export PROJECTS="openstack/python-barbicanclient $PROJECTS"
 
-#           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
-#           ./safe-devstack-vm-gate-wrap.sh
+          function gate_hook {{
+              $SLAVE_SCRIPT_DIR/gate_hook.sh {lbaasversion} {lbaastest}
+          }}
+          export -f gate_hook
 
-#     publishers:
-#       - devstack-logs
-#       - console-log
+          function post_test_hook {{
+              $SLAVE_SCRIPT_DIR/post_test_hook.sh {lbaasversion} {lbaastest}
+          }}
+          export -f post_test_hook
+
+          $SLAVE_SCRIPT_DIR/pre_setup_hook.sh {lbaasversion} {lbaastest}
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+
+          $SLAVE_SCRIPT_DIR/post_cleanup_hook.sh {lbaasversion} {lbaastest}
+
+    publishers:
+      - devstack-logs
+      - console-log
