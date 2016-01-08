@@ -1,4 +1,18 @@
 - job-template:
+    name: 'noop-check-communication'
+    node: '{node}'
+
+    builders:
+      - shell: |
+          #!/bin/bash -xe
+          echo "Hello world, this is the {vendor} Testing System"
+      - link-logs
+
+    publishers:
+      - devstack-logs
+      - console-log
+
+- job-template:
     name: 'gate-{name}-run-tests'
 
     builders:
