@@ -1,14 +1,5 @@
 
 - project:
-    name: sandbox
-    github-org: openstack-dev
-    vendor: a10networks
-
-    jobs:
-        - noop-check-communication:
-            node: bare-trusty
-
-- project:
     name: neutron-lbaas
     node: devstack-trusty
 
@@ -24,3 +15,12 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
+
+- project:
+    name: sandbox
+    github-org: openstack-dev
+    vendor: a10networks
+
+    jobs:
+        - noop-check-communication:
+            node: bare-trusty
