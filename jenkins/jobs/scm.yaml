@@ -6,3 +6,11 @@
          branches:
           - origin/master
 
+- scm:
+    name: scm-a10-dougwig-project-config
+    scm:
+      - git:
+         url: https://github.com/dougwig/project-config.git
+         branches:
+          - origin/master
+

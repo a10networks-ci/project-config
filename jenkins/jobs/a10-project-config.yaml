@@ -5,13 +5,12 @@
           sudo apt-get update
           sudo apt-get install -y libjpeg-dev zlib1g-dev
 
-
-- job:
-    name: a10-project-config-master
+- job-template:
+    name: 'a10-project-config-{which}'
     node: bare-trusty
 
     scm:
-        - scm-a10-project-config
+        - '{src}'
 
     builders:
         - zuul-dev-install
@@ -23,23 +22,4 @@
         - console-log
 
     triggers:
-        - sqs
-
-- job:
-    name: a10-project-config-pulls
-    node: bare-trusty
-
-    scm:
-        - scm-a10-project-config
-
-    builders:
-        - zuul-dev-install
-        - revoke-sudo
-        - tox:
-            envlist: 'pep8,jjb,jenkins-project,zuul'
-
-    publishers:
-        - console-log
-
-    triggers:
-        - github-pull-request-all
+        - '{trig}'

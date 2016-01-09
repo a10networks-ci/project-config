@@ -92,9 +92,9 @@ projects:
   #     - dsvm-tempest-full
   - name: openstack/neutron-lbaas
     check:
-      - noop-check-communication
-    silent:
       - gate-neutron-lbaasv1-dsvm-api
+#      - noop-check-communication
+#    silent:
       # - a10-lbaasv1-dsvm-api
 #    check:
 #      - a10-neutron-lbaas
