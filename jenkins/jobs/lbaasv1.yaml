@@ -39,6 +39,8 @@
           }}
           export -f post_test_hook
 
+          env
+
           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
           ./safe-devstack-vm-gate-wrap.sh
 
@@ -65,7 +67,7 @@
           #!/bin/bash -xe
 
           SLAVE_SCRIPT_URL="https://github.com/a10networks-ci/slave-scripts.git"
-          export SLAVE_SCRIPT_DIR=/usr/local/ci
+          export SLAVE_SCRIPT_DIR=/usr/local/a10-ci
           sudo mkdir $SLAVE_SCRIPT_DIR
           sudo chmod a+rwx $SLAVE_SCRIPT_DIR
           git clone $SLAVE_SCRIPT_URL $SLAVE_SCRIPT_DIR
@@ -93,6 +95,8 @@
               $SLAVE_SCRIPT_DIR/post_test_hook.sh {lbaasversion} {lbaastest}
           }}
           export -f post_test_hook
+
+          env
 
           $SLAVE_SCRIPT_DIR/pre_setup_hook.sh {lbaasversion} {lbaastest}
 
