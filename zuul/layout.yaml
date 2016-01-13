@@ -81,8 +81,9 @@ jobs:
     voting: false
 
 projects:
-  # - name: openstack-dev/ci-sandbox
-  #   check:
+  - name: openstack-dev/ci-sandbox
+    check:
+      - a10-lbaasv1-dsvm-api
   #     # Remove this after successfully verifying communication with upstream
   #     # and seeing a posted successful review.
   #     - noop-check-communication
