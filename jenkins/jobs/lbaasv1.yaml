@@ -4,7 +4,7 @@
 
     wrappers:
       - build-timeout:
-          timeout: 125
+          timeout: 180
       - timestamps
 
     builders:
@@ -54,7 +54,7 @@
 
     wrappers:
       - build-timeout:
-          timeout: 125
+          timeout: 180
       - timestamps
 
     builders:
