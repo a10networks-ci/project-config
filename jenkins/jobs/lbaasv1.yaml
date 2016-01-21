@@ -91,6 +91,11 @@
           }}
           export -f gate_hook
 
+          function pre_test_hook {{
+              $SLAVE_SCRIPT_DIR/pre_test_hook.sh {lbaasversion} {lbaastest}
+          }}
+          export -f pre_test_hook
+
           function post_test_hook {{
               $SLAVE_SCRIPT_DIR/post_test_hook.sh {lbaasversion} {lbaastest}
           }}
