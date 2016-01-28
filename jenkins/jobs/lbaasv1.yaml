@@ -86,13 +86,15 @@
           export PROJECTS="openstack/barbican $PROJECTS"
           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
 
+          export DEVSTACK_GATE_TEMPEST_REGEX='(?!.*(agent))'
+
           function gate_hook {{
               $SLAVE_SCRIPT_DIR/gate_hook.sh {lbaasversion} {lbaastest}
           }}
           export -f gate_hook
 
           function pre_test_hook {{
-              $SLAVE_SCRIPT_DIR/pre_test_hook.sh {lbaasversion} {lbaastest}
+              . $SLAVE_SCRIPT_DIR/pre_test_hook.sh {lbaasversion} {lbaastest}
           }}
           export -f pre_test_hook
 
