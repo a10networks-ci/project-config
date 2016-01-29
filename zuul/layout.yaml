@@ -81,9 +81,9 @@ jobs:
     voting: false
 
 projects:
-  - name: openstack-dev/ci-sandbox
-    check:
-      - a10-lbaasv1-dsvm-api
+#  - name: openstack-dev/ci-sandbox
+#    check:
+#      - a10-lbaasv1-dsvm-api
   #     # Remove this after successfully verifying communication with upstream
   #     # and seeing a posted successful review.
   #     - noop-check-communication
@@ -94,9 +94,9 @@ projects:
   - name: openstack/neutron-lbaas
     check:
       - gate-neutron-lbaasv1-dsvm-api
+      - a10-lbaasv1-dsvm-api
 #      - noop-check-communication
 #    silent:
-      # - a10-lbaasv1-dsvm-api
 #    check:
 #      - a10-neutron-lbaas
 #      - a10-neutron-lbaasv2
