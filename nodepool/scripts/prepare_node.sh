@@ -26,6 +26,7 @@ GIT_BASE=${GIT_BASE:-git://git.openstack.org}
 sudo hostname $HOSTNAME
 if [ -n "$HOSTNAME" ] && ! grep -q $HOSTNAME /etc/hosts ; then
     echo "127.0.1.1 $HOSTNAME" | sudo tee -a /etc/hosts
+    echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
 fi
 
 echo $HOSTNAME > /tmp/image-hostname.txt
