@@ -74,7 +74,9 @@ jobs:
   #   voting: false
   - name: ^a10-lbaasv1-dsvm-api.*$
     parameter-function: single_use_node
-    branch: (master|stable\/juno|stable\/kilo)
+    voting: false
+  - name: ^a10-lbaasv2-dsvm-api.*$
+    parameter-function: single_use_node
     voting: false
   - name: ^gate-neutron-lbaasv1-dsvm-api$
     branch: ^(?!stable/kilo).*$
@@ -95,6 +97,7 @@ projects:
     check:
       - gate-neutron-lbaasv1-dsvm-api
       - a10-lbaasv1-dsvm-api
+      - a10-lbaasv2-dsvm-api
 #      - noop-check-communication
 #    silent:
 #    check:

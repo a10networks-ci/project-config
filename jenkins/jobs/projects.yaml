@@ -29,6 +29,11 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
+          job-suffix: ''
+          branch-override: default
+          lbaasversion: lbaasv2
+          lbaastest: api
 
 - project:
     name: sandbox
