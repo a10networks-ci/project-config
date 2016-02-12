@@ -16,7 +16,8 @@ pipelines:
           comment: (?i)^(Patch Set [0-9]+:)?( [\w\\+-]*)*(\n\n)?\s*(recheck a10|redo\ -a10)\s*$
     success:
       gerrit:
-        verified: 1
+#        verified: 1
+        verified: 0
       smtp:
         to: dougwig@parkside.io
         from: a10-openstack-ci-DL@a10networks.com
@@ -72,15 +73,11 @@ jobs:
   #   parameter-function: single_use_node
   #   branch: (master|stable\/kilo)
   #   voting: false
-  - name: ^a10-lbaasv1-dsvm-api.*$
-    parameter-function: single_use_node
-    voting: false
-  - name: ^a10-lbaasv2-dsvm-api.*$
+  - name: ^a10-lbaas-.*-dsvm-api.*$
     parameter-function: single_use_node
     voting: false
   - name: ^gate-neutron-lbaasv1-dsvm-api$
     branch: ^(?!stable/kilo).*$
-    voting: false
 
 projects:
 #  - name: openstack-dev/ci-sandbox
@@ -96,8 +93,10 @@ projects:
   - name: openstack/neutron-lbaas
     check:
       - gate-neutron-lbaasv1-dsvm-api
-      - a10-lbaasv1-dsvm-api
-      - a10-lbaasv2-dsvm-api
+      - a10-lbaasv1-dsvm-api-acos-272
+      - a10-lbaasv1-dsvm-api-acos-401
+      - a10-lbaasv2-dsvm-api-acos-272
+      - a10-lbaasv2-dsvm-api-acos-401
 #      - noop-check-communication
 #    silent:
 #    check:

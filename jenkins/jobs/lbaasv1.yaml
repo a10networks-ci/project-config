@@ -51,7 +51,7 @@
       - console-log
 
 - job-template:
-    name: 'a10-{lbaasversion}-dsvm-{lbaastest}{job-suffix}'
+    name: 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
     node: '{node}'
 
     wrappers:
@@ -87,6 +87,9 @@
           fi
           export PROJECTS="openstack/barbican $PROJECTS"
           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
+
+          export ACOS_VERSION={acos-version}
+          export AXAPI_VERSION={axapi-version}
 
           #export DEVSTACK_GATE_TEMPEST_REGEX='(v1)(?!.*(lbaas_agent))'
 

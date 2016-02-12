@@ -24,15 +24,33 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
           job-suffix: ''
           branch-override: default
           lbaasversion: lbaasv1
+          axapi-version: '2.1'
+          acos-version: '272'
           lbaastest: api
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+          job-suffix: ''
+          branch-override: default
+          lbaasversion: lbaasv1
+          axapi-version: '3.0'
+          acos-version: '401'
+          lbaastest: api
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
           job-suffix: ''
           branch-override: default
           lbaasversion: lbaasv2
+          axapi-version: '2.1'
+          acos-version: '272'
+          lbaastest: api
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+          job-suffix: ''
+          branch-override: default
+          lbaasversion: lbaasv2
+          axapi-version: '3.0'
+          acos-version: '401'
           lbaastest: api
 
 - project:
