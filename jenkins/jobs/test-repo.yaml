@@ -4,7 +4,7 @@
 
     properties:
       - github:
-          url: https://github.com/a10networks-ci/test-repo.git
+          url: https://github.com/a10networks-ci/test-repo
 
     scm:
       - git:
