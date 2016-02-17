@@ -1,19 +1,5 @@
 
 - project:
-    name: a10-project-config
-    which:
-        - master:
-            trig: sqs
-        - pulls:
-            trig: github-pull-request-all
-    # src:
-    #     - scm-a10-project-config
-    #     - scm-a10-dougwig-project-config
-    jobs:
-        - 'a10-project-config-{which}':
-            src: scm-a10-dougwig-project-config
-
-- project:
     name: neutron-lbaas
     node: devstack-trusty
 

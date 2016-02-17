@@ -5,12 +5,17 @@
           sudo apt-get update
           sudo apt-get install -y libjpeg-dev zlib1g-dev
 
-- job-template:
-    name: 'a10-project-config-{which}'
+- job:
+    name: a10-project-config
     node: bare-trusty
 
+    properties:
+      - github:
+          url: https://github.com/a10networks-ci/project-config.git
+
     scm:
-        - '{src}'
+      - git:
+         url: https://github.com/a10networks-ci/project-config.git
 
     builders:
         - zuul-dev-install
@@ -22,4 +27,4 @@
         - console-log
 
     triggers:
-        - '{trig}'
+        - github

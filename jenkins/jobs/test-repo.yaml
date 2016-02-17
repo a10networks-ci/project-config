@@ -1,0 +1,19 @@
+- job:
+    name: test-repo
+    node: bare-trusty
+
+    properties:
+      - github:
+          url: https://github.com/a10networks-ci/test-repo.git
+
+    scm:
+      - git:
+         url: https://github.com/a10networks-ci/test-repo.git
+
+    builders:
+      - shell: |
+          #!/bin/bash -xe
+          echo "Hello world, this is the {vendor} Testing System"
+
+    triggers:
+        - github
