@@ -11,7 +11,7 @@
 
     properties:
       - github:
-          url: https://github.com/a10networks-ci/project-config.git
+          url: https://github.com/a10networks-ci/project-config
 
     scm:
       - git:
@@ -28,3 +28,4 @@
 
     triggers:
         - github
+        - github-pull-requests
