@@ -39,6 +39,17 @@
             scm:
               - git:
                 url: '{github-url}.git'
+        - 'gate-{name}-pep8-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
         - 'gate-{name}-python26-{which}':
             which: master
             trigger: github
@@ -48,6 +59,17 @@
             scm:
               - git:
                 url: '{github-url}.git'
+        - 'gate-{name}-python26-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
         - 'gate-{name}-python27-{which}':
             which: master
             trigger: github
@@ -57,6 +79,17 @@
             scm:
               - git:
                 url: '{github-url}.git'
+        - 'gate-{name}-python27-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
         - 'gate-{name}-python34-{which}':
             which: master
             trigger: github
@@ -66,6 +99,17 @@
             scm:
               - git:
                 url: '{github-url}.git'
+        - 'gate-{name}-python34-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
         - 'gate-{name}-pypy-{which}':
             which: master
             trigger: github
@@ -75,6 +119,17 @@
             scm:
               - git:
                 url: '{github-url}.git'
+        - 'gate-{name}-pypy-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
 
 - project:
     name: neutron-lbaas
