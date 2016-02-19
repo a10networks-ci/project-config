@@ -17,7 +17,8 @@
         - git:
             url: '{github-url}.git'
             refspec: '{refspec}'
-            branches: '{branches}'
+            branches:
+                - '{branch-specifier}'
 
     builders:
         - install-zuul-dev-libs
