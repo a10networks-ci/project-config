@@ -1,24 +1,16 @@
 - builder:
-    name: zuul-dev-install
+    name: install-zuul-dev-libs
     builders:
       - shell: |
           sudo apt-get update
           sudo apt-get install -y libjpeg-dev zlib1g-dev
 
-- job:
-    name: a10-project-config
+- job-template:
+    name: 'a10-project-config-{which}'
     node: bare-trusty
 
-    properties:
-      - github:
-          url: https://github.com/a10networks-ci/project-config
-
-    scm:
-      - git:
-         url: https://github.com/a10networks-ci/project-config.git
-
     builders:
-        - zuul-dev-install
+        - install-zuul-dev-libs
         - revoke-sudo
         - tox:
             envlist: 'pep8,jjb,jenkins-project,zuul'
@@ -27,5 +19,4 @@
         - console-log
 
     triggers:
-        - github
-        - github-pull-requests
+        - '{trigger}'
