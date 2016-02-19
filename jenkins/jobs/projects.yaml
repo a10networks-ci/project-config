@@ -8,7 +8,7 @@
             which: master
             trigger: github
             refspec: '+refs/heads/*:refs/remotes/origin/*'
-            branches: '**'
+            branch-specifier: '**'
             properties:
                 - github:
                     url: dummy
@@ -19,7 +19,7 @@
             which: pulls
             trigger: github-pull-requests
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-            branches: '${{sha1}}'
+            branch-specifier: '${{sha1}}'
             properties:
                 - github:
                     url: dummy
