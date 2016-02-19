@@ -28,6 +28,7 @@
 - project:
     name: acos-client
     github-url: https://github.com/a10networks/acos-client
+    node: bare-trusty
 
     jobs:
         - '{name}-pep8-{which}':
