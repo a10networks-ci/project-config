@@ -16,6 +16,8 @@
     scm:
         - git:
             url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches: '{branches}'
 
     builders:
         - install-zuul-dev-libs
