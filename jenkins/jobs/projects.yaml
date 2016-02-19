@@ -7,23 +7,25 @@
         - 'a10-project-config-{which}':
             which: master
             trigger: github
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branches: '**'
             properties:
                 - github:
-                    url: '{github-url}'
+                    url: dummy
             scm:
                 - git:
-                    url: '{github-url}.git'
+                    url: dummy
         - 'a10-project-config-{which}':
             which: pulls
             trigger: github-pull-requests
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches: '${{sha1}}'
             properties:
                 - github:
-                    url: '{github-url}'
+                    url: dummy
             scm:
                 - git:
-                    url: '{github-url}.git'
-                    refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-                    branches: '${{sha1}}'
+                    url: dummy
 
 - project:
     name: acos-client
