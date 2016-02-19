@@ -47,3 +47,10 @@
     jobs:
         - noop-check-communication:
             node: bare-trusty
+
+- project:
+    name: acos-client
+    github-url: https://github.com/a10networks/acos-client.git
+
+    jobs:
+        - python-jobs

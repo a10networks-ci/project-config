@@ -1,0 +1,226 @@
+- job-template:
+    name: '{name}-coverage'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - gerrit-git-prep
+      - coverage:
+          env: cover
+
+    publishers:
+        - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+
+- job-template:
+    name: 'gate-{name}-pep8'
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - zuul-git-prep-upper-constraints
+      - pep8:
+          env: pep8
+
+    publishers:
+        - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+- job-template:
+    name: 'gate-{name}-python26'
+
+    wrappers:
+      - build-timeout:
+          timeout: 50
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - python26
+      - assert-no-extra-files
+
+    publishers:
+      - test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+- job-template:
+    name: 'gate-{name}-python27'
+
+    wrappers:
+      - build-timeout:
+          timeout: 50
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - python27
+      - assert-no-extra-files
+
+    publishers:
+      - test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+- job-template:
+    name: 'gate-{name}-python34'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - python34
+      - assert-no-extra-files
+
+    publishers:
+      - test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+- job-template:
+    name: 'gate-{name}-pypy'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - pypy
+      - assert-no-extra-files
+
+    publishers:
+      - test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+- job-template:
+    name: 'gate-{name}-tox-{envlist}'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - tox:
+          envlist: '{envlist}'
+      - assert-no-extra-files
+
+    publishers:
+      - test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+      - github:
+          url: {github-url}
+    scm:
+      - git:
+         url: {github-url}.git
+    triggers:
+        - github
+        - github-pull-requests
+
+- job-group:
+    name: python-jobs
+    jobs:
+      #- '{name}-coverage'
+      - 'gate-{name}-pep8'
+      - 'gate-{name}-python26'
+      - 'gate-{name}-python27'
+      - 'gate-{name}-python34'
+      - 'gate-{name}-pypy'
+      # pylint isn't standard
+      # gate-{name}-tox-{envlist} also isn't standard, but is reserved for
+      # projects that want to run specific jobs via tox
