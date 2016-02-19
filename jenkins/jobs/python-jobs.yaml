@@ -19,6 +19,17 @@
 
     node: '{node}'
 
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
+
     triggers:
         - '{trigger}'
 
@@ -36,6 +47,17 @@
         - console-log
 
     node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
 
     triggers:
         - '{trigger}'
@@ -61,6 +83,17 @@
 
     node: '{node}'
 
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
+
     triggers:
         - '{trigger}'
 
@@ -84,6 +117,17 @@
       - console-log
 
     node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
 
     triggers:
         - '{trigger}'
@@ -109,6 +153,17 @@
 
     node: '{node}'
 
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
+
     triggers:
         - '{trigger}'
 
@@ -132,6 +187,17 @@
       - console-log
 
     node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
 
     triggers:
         - '{trigger}'
@@ -157,6 +223,17 @@
       - console-log
 
     node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
 
     triggers:
         - '{trigger}'
