@@ -172,14 +172,6 @@
           lbaastest: api
 
 - project:
-    name: sandbox
-    vendor: a10networks
-
-    jobs:
-        - noop-check-communication:
-            node: bare-trusty
-
-- project:
     name: test-repo
     github-url: 'https://github.com/a10networks-ci/test-repo'
     vendor: a10networks
