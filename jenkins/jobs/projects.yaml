@@ -1,5 +1,137 @@
 
 - project:
+    name: a10-project-config
+    github-url: https://github.com/a10networks-ci/project-config
+
+    jobs:
+        - 'a10-project-config-{which}':
+            which: master
+            trigger: github
+            properties:
+                - github:
+                    url: '{github-url}'
+            scm:
+                - git:
+                    url: '{github-url}.git'
+        - 'a10-project-config-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+                - github:
+                    url: '{github-url}'
+            scm:
+                - git:
+                    url: '{github-url}.git'
+                    refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                    branches: '${{sha1}}'
+
+- project:
+    name: acos-client
+    github-url: https://github.com/a10networks/acos-client
+
+    jobs:
+        - 'gate-{name}-pep8-{which}':
+            which: master
+            trigger: github
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+        - 'gate-{name}-pep8-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
+        - 'gate-{name}-python26-{which}':
+            which: master
+            trigger: github
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+        - 'gate-{name}-python26-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
+        - 'gate-{name}-python27-{which}':
+            which: master
+            trigger: github
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+        - 'gate-{name}-python27-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
+        - 'gate-{name}-python34-{which}':
+            which: master
+            trigger: github
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+        - 'gate-{name}-python34-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
+        - 'gate-{name}-pypy-{which}':
+            which: master
+            trigger: github
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+        - 'gate-{name}-pypy-{which}':
+            which: pulls
+            trigger: github-pull-requests
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
+                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+                branches: '${{sha1}}'
+
+- project:
     name: neutron-lbaas
     node: devstack-trusty
 
@@ -41,7 +173,6 @@
 
 - project:
     name: sandbox
-    github-org: openstack-dev
     vendor: a10networks
 
     jobs:
@@ -49,8 +180,15 @@
             node: bare-trusty
 
 - project:
-    name: acos-client
-    github-url: https://github.com/a10networks/acos-client.git
+    name: test-repo
+    github-url: 'https://github.com/a10networks-ci/test-repo'
+    vendor: a10networks
 
     jobs:
-        - python-jobs
+        - test-repo:
+            properties:
+              - github:
+                url: '{github-url}'
+            scm:
+              - git:
+                url: '{github-url}.git'
