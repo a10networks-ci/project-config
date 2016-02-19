@@ -30,7 +30,7 @@
     github-url: https://github.com/a10networks/acos-client
 
     jobs:
-        - 'gate-{name}-pep8-{which}':
+        - '{name}-pep8-{which}':
             which: master
             trigger: github
             properties:
@@ -39,7 +39,7 @@
             scm:
               - git:
                 url: '{github-url}.git'
-        - 'gate-{name}-pep8-{which}':
+        - '{name}-pep8-{which}':
             which: pulls
             trigger: github-pull-requests
             properties:
@@ -50,7 +50,7 @@
                 url: '{github-url}.git'
                 refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
                 branches: '${{sha1}}'
-        - 'gate-{name}-python26-{which}':
+        - '{name}-python26-{which}':
             which: master
             trigger: github
             properties:
@@ -59,7 +59,7 @@
             scm:
               - git:
                 url: '{github-url}.git'
-        - 'gate-{name}-python26-{which}':
+        - '{name}-python26-{which}':
             which: pulls
             trigger: github-pull-requests
             properties:
@@ -70,7 +70,7 @@
                 url: '{github-url}.git'
                 refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
                 branches: '${{sha1}}'
-        - 'gate-{name}-python27-{which}':
+        - '{name}-python27-{which}':
             which: master
             trigger: github
             properties:
@@ -79,7 +79,7 @@
             scm:
               - git:
                 url: '{github-url}.git'
-        - 'gate-{name}-python27-{which}':
+        - '{name}-python27-{which}':
             which: pulls
             trigger: github-pull-requests
             properties:
@@ -90,7 +90,7 @@
                 url: '{github-url}.git'
                 refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
                 branches: '${{sha1}}'
-        - 'gate-{name}-python34-{which}':
+        - '{name}-python34-{which}':
             which: master
             trigger: github
             properties:
@@ -99,7 +99,7 @@
             scm:
               - git:
                 url: '{github-url}.git'
-        - 'gate-{name}-python34-{which}':
+        - '{name}-python34-{which}':
             which: pulls
             trigger: github-pull-requests
             properties:
@@ -110,7 +110,7 @@
                 url: '{github-url}.git'
                 refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
                 branches: '${{sha1}}'
-        - 'gate-{name}-pypy-{which}':
+        - '{name}-pypy-{which}':
             which: master
             trigger: github
             properties:
@@ -119,7 +119,7 @@
             scm:
               - git:
                 url: '{github-url}.git'
-        - 'gate-{name}-pypy-{which}':
+        - '{name}-pypy-{which}':
             which: pulls
             trigger: github-pull-requests
             properties:
@@ -170,14 +170,6 @@
           axapi-version: '3.0'
           acos-version: '401'
           lbaastest: api
-
-- project:
-    name: sandbox
-    vendor: a10networks
-
-    jobs:
-        - noop-check-communication:
-            node: bare-trusty
 
 - project:
     name: test-repo

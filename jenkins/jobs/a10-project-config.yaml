@@ -9,6 +9,14 @@
     name: 'a10-project-config-{which}'
     node: bare-trusty
 
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+
     builders:
         - install-zuul-dev-libs
         - revoke-sudo
