@@ -1,74 +1,14 @@
 
-# - job-template:
-#     name: 'mj-{name}-pep8-{which}'
-
-#     builders:
-#       - print-template-name:
-#           template-name: "{template-name}"
-#       - revoke-sudo
-#       - pep8:
-#           env: pep8
-
-#     publishers:
-#         - console-log
-
-#     node: '{node}'
-
-#     properties:
-#         - github:
-#             url: '{github-url}'
-
-#     scm:
-#         - git:
-#             url: '{github-url}.git'
-#             refspec: '{refspec}'
-#             branches:
-#                 - '{branch-specifier}'
-
-#     triggers:
-#         - '{trigger}'
-
-# - job-template:
-#     name: 'mj-{name}-python27-{which}'
-
-#     wrappers:
-#       - build-timeout:
-#           timeout: 50
-#       - timestamps
-
-#     builders:
-#       - print-template-name:
-#           template-name: "{template-name}"
-#       - revoke-sudo
-#       - python27
-#       - assert-no-extra-files
-
-#     publishers:
-#       #- test-results
-#       - console-log
-
-#     node: '{node}'
-
-#     properties:
-#         - github:
-#             url: '{github-url}'
-
-#     scm:
-#         - git:
-#             url: '{github-url}.git'
-#             refspec: '{refspec}'
-#             branches:
-#                 - '{branch-specifier}'
-
-#     triggers:
-#         - '{trigger}'
-
 - job:
-    name: acos-client-master
+    name: batch-master-acos-client
     project-type: multijob
 
-    github-url: https://github.com/a10networks/acos-client
-    trigger: github
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/acos-client'
+
+    triggers:
+        - github
 
     builders:
         - multijob:
@@ -81,11 +21,15 @@
                 - name: acos-client-pypy-master
 
 - job:
-    name: acos-client-pulls
+    name: pulls-batch-acos-client
     project-type: multijob
 
-    github-url: https://github.com/a10networks/acos-client
-    trigger: github-pull-requests
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/acos-client'
+
+    triggers:
+        - github-pull-requests
 
     builders:
         - multijob:
