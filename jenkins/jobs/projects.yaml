@@ -33,7 +33,7 @@
     node: bare-trusty
 
     jobs:
-        - '{name}-pep8-{which}':
+        - '{which}-{name}-pep8':
             which: master
             refspec: '+refs/heads/*:refs/remotes/origin/*'
             branch-specifier: '**'
@@ -43,7 +43,7 @@
             scm:
                 - git:
                     url: dummy
-        - '{name}-pep8-{which}':
+        - '{which}-{name}-pep8':
             which: pulls
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branch-specifier: '${{sha1}}'
@@ -53,7 +53,7 @@
             scm:
                 - git:
                     url: dummy
-        - '{name}-python26-{which}':
+        - '{which}-{name}-python26':
             which: master
             refspec: '+refs/heads/*:refs/remotes/origin/*'
             branch-specifier: '**'
@@ -63,7 +63,7 @@
             scm:
                 - git:
                     url: dummy
-        - '{name}-python26-{which}':
+        - '{which}-{name}-python26':
             which: pulls
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branch-specifier: '${{sha1}}'
@@ -73,7 +73,7 @@
             scm:
                 - git:
                     url: dummy
-        - '{name}-python27-{which}':
+        - '{which}-{name}-python27':
             which: master
             refspec: '+refs/heads/*:refs/remotes/origin/*'
             branch-specifier: '**'
@@ -83,7 +83,7 @@
             scm:
                 - git:
                     url: dummy
-        - '{name}-python27-{which}':
+        - '{which}-{name}-python27':
             which: pulls
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branch-specifier: '${{sha1}}'
@@ -93,7 +93,7 @@
             scm:
                 - git:
                     url: dummy
-        # - '{name}-python34-{which}':
+        # - '{which}-{name}-python34':
         #     which: master
         #     refspec: '+refs/heads/*:refs/remotes/origin/*'
         #     branch-specifier: '**'
@@ -103,7 +103,7 @@
         #     scm:
         #         - git:
         #             url: dummy
-        # - '{name}-python34-{which}':
+        # - '{which}-{name}-python34':
         #     which: pulls
         #     refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
         #     branch-specifier: '${{sha1}}'
@@ -113,7 +113,7 @@
         #     scm:
         #         - git:
         #             url: dummy
-        - '{name}-pypy-{which}':
+        - '{which}-{name}-pypy':
             which: master
             refspec: '+refs/heads/*:refs/remotes/origin/*'
             branch-specifier: '**'
@@ -123,7 +123,7 @@
             scm:
                 - git:
                     url: dummy
-        - '{name}-pypy-{which}':
+        - '{which}-{name}-pypy':
             which: pulls
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branch-specifier: '${{sha1}}'
