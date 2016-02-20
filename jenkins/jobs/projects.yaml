@@ -36,103 +36,113 @@
         - '{name}-pep8-{which}':
             which: master
             trigger: github
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
+                - git:
+                    url: dummy
         - '{name}-pep8-{which}':
             which: pulls
             trigger: github-pull-requests
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
-                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-                branches: '${{sha1}}'
+                - git:
+                    url: dummy
         - '{name}-python26-{which}':
             which: master
             trigger: github
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
+                - git:
+                    url: dummy
         - '{name}-python26-{which}':
             which: pulls
             trigger: github-pull-requests
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
-                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-                branches: '${{sha1}}'
+                - git:
+                    url: dummy
         - '{name}-python27-{which}':
             which: master
             trigger: github
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
+                - git:
+                    url: dummy
         - '{name}-python27-{which}':
             which: pulls
             trigger: github-pull-requests
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
-                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-                branches: '${{sha1}}'
+                - git:
+                    url: dummy
         - '{name}-python34-{which}':
             which: master
             trigger: github
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
+                - git:
+                    url: dummy
         - '{name}-python34-{which}':
             which: pulls
             trigger: github-pull-requests
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
-                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-                branches: '${{sha1}}'
+                - git:
+                    url: dummy
         - '{name}-pypy-{which}':
             which: master
             trigger: github
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
+                - git:
+                    url: dummy
         - '{name}-pypy-{which}':
             which: pulls
             trigger: github-pull-requests
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
             properties:
-              - github:
-                url: '{github-url}'
+                - github:
+                    url: dummy
             scm:
-              - git:
-                url: '{github-url}.git'
-                refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-                branches: '${{sha1}}'
+                - git:
+                    url: dummy
 
 - project:
     name: neutron-lbaas
