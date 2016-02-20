@@ -30,9 +30,6 @@
             branches:
                 - '{branch-specifier}'
 
-    triggers:
-        - '{trigger}'
-
 - job-template:
     name: '{name}-pep8-{which}'
 
@@ -58,9 +55,6 @@
             refspec: '{refspec}'
             branches:
                 - '{branch-specifier}'
-
-    triggers:
-        - '{trigger}'
 
 - job-template:
     name: '{name}-python26-{which}'
@@ -95,9 +89,6 @@
             branches:
                 - '{branch-specifier}'
 
-    triggers:
-        - '{trigger}'
-
 - job-template:
     name: '{name}-python27-{which}'
 
@@ -130,9 +121,6 @@
             branches:
                 - '{branch-specifier}'
 
-    triggers:
-        - '{trigger}'
-
 - job-template:
     name: '{name}-python34-{which}'
 
@@ -164,9 +152,6 @@
             refspec: '{refspec}'
             branches:
                 - '{branch-specifier}'
-
-    triggers:
-        - '{trigger}'
 
 - job-template:
     name: '{name}-pypy-{which}'
@@ -201,9 +186,6 @@
             branches:
                 - '{branch-specifier}'
 
-    triggers:
-        - '{trigger}'
-
 - job-template:
     name: '{name}-tox-{envlist}-{which}'
 
@@ -236,9 +218,6 @@
             refspec: '{refspec}'
             branches:
                 - '{branch-specifier}'
-
-    triggers:
-        - '{trigger}'
 
 # - job-group:
 #     name: python-jobs

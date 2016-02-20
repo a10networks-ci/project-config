@@ -1,83 +1,98 @@
 
-- job-template:
-    name: 'mj-{name}-pep8-{which}'
+# - job-template:
+#     name: 'mj-{name}-pep8-{which}'
 
-    builders:
-      - print-template-name:
-          template-name: "{template-name}"
-      - revoke-sudo
-      - pep8:
-          env: pep8
+#     builders:
+#       - print-template-name:
+#           template-name: "{template-name}"
+#       - revoke-sudo
+#       - pep8:
+#           env: pep8
 
-    publishers:
-        - console-log
+#     publishers:
+#         - console-log
 
-    node: '{node}'
+#     node: '{node}'
 
-    properties:
-        - github:
-            url: '{github-url}'
+#     properties:
+#         - github:
+#             url: '{github-url}'
 
-    scm:
-        - git:
-            url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
+#     scm:
+#         - git:
+#             url: '{github-url}.git'
+#             refspec: '{refspec}'
+#             branches:
+#                 - '{branch-specifier}'
 
-    triggers:
-        - '{trigger}'
+#     triggers:
+#         - '{trigger}'
 
-- job-template:
-    name: 'mj-{name}-python27-{which}'
+# - job-template:
+#     name: 'mj-{name}-python27-{which}'
 
-    wrappers:
-      - build-timeout:
-          timeout: 50
-      - timestamps
+#     wrappers:
+#       - build-timeout:
+#           timeout: 50
+#       - timestamps
 
-    builders:
-      - print-template-name:
-          template-name: "{template-name}"
-      - revoke-sudo
-      - python27
-      - assert-no-extra-files
+#     builders:
+#       - print-template-name:
+#           template-name: "{template-name}"
+#       - revoke-sudo
+#       - python27
+#       - assert-no-extra-files
 
-    publishers:
-      #- test-results
-      - console-log
+#     publishers:
+#       #- test-results
+#       - console-log
 
-    node: '{node}'
+#     node: '{node}'
 
-    properties:
-        - github:
-            url: '{github-url}'
+#     properties:
+#         - github:
+#             url: '{github-url}'
 
-    scm:
-        - git:
-            url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
+#     scm:
+#         - git:
+#             url: '{github-url}.git'
+#             refspec: '{refspec}'
+#             branches:
+#                 - '{branch-specifier}'
 
-    triggers:
-        - '{trigger}'
+#     triggers:
+#         - '{trigger}'
 
 - job:
-    name: test_job
+    name: acos-client-master
     project-type: multijob
 
     github-url: https://github.com/a10networks/acos-client
-    node: bare-trusty
-    which: master
     trigger: github
-    refspec: '+refs/heads/*:refs/remotes/origin/*'
-    branch-specifier: '**'
 
     builders:
         - multijob:
             name: PhaseOne
             condition: SUCCESSFUL
             projects:
-                - name: 'mj-{name}-pep8-{which}'
-                - name: 'mj-{name}-python27-{which}'
+                - name: acos-client-pep8-master
+                - name: acos-client-py26-master
+                - name: acos-client-py27-master
+                - name: acos-client-pypy-master
+
+- job:
+    name: acos-client-pulls
+    project-type: multijob
+
+    github-url: https://github.com/a10networks/acos-client
+    trigger: github-pull-requests
+
+    builders:
+        - multijob:
+            name: PhaseOne
+            condition: SUCCESSFUL
+            projects:
+                - name: acos-client-pep8-pulls
+                - name: acos-client-py26-pulls
+                - name: acos-client-py27-pulls
+                - name: acos-client-pypy-pulls
