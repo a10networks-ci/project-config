@@ -2,6 +2,7 @@
 - job:
     name: batch-master-acos-client
     project-type: multijob
+    node: master
 
     properties:
         - github:
@@ -23,6 +24,7 @@
 - job:
     name: pulls-batch-acos-client
     project-type: multijob
+    node: master
 
     properties:
         - github:
