@@ -284,13 +284,13 @@
     name: install-pypy
     builders:
       - shell: |
-            sudo apt-get update
-            sudo apt-get install -y pypy pypy-dev
+            sudo apt-get -y update
+            sudo apt-get -y install pypy pypy-dev
 
 - builder:
     name: install-py26
     builders:
       - shell: |
-            sudo add-apt-repository ppa:fkrull/deadsnakes
-            sudo apt-get update
-            sudo apt-get install -y python2.6 python2.6-dev
+            sudo add-apt-repository -y ppa:fkrull/deadsnakes
+            sudo apt-get -y update
+            sudo apt-get -y install python2.6 python2.6-dev
