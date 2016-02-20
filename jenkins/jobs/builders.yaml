@@ -279,3 +279,18 @@
           elif [ -f /usr/bin/apt-get ]; then
               sudo service ssh restart
           fi
+
+- builder:
+    name: install-pypy
+    builders:
+      - shell: |
+            sudo apt-get update
+            sudo apt-get install -y pypy pypy-dev
+
+- builder:
+    name: install-py26
+    builders:
+      - shell: |
+            sudo add-apt-repository ppa:fkrull/deadsnakes
+            sudo apt-get update
+            sudo apt-get install -y python2.6 python2.6-dev
