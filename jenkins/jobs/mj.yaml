@@ -1,0 +1,83 @@
+
+- job-template:
+    name: 'mj-{name}-pep8-{which}'
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - pep8:
+          env: pep8
+
+    publishers:
+        - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
+
+    triggers:
+        - '{trigger}'
+
+- job-template:
+    name: 'mj-{name}-python27-{which}'
+
+    wrappers:
+      - build-timeout:
+          timeout: 50
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - revoke-sudo
+      - python27
+      - assert-no-extra-files
+
+    publishers:
+      #- test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '{refspec}'
+            branches:
+                - '{branch-specifier}'
+
+    triggers:
+        - '{trigger}'
+
+- job:
+    name: test_job
+    project-type: multijob
+
+    github-url: https://github.com/a10networks/acos-client
+    node: bare-trusty
+    which: master
+    trigger: github
+    refspec: '+refs/heads/*:refs/remotes/origin/*'
+    branch-specifier: '**'
+
+    builders:
+        - multijob:
+            name: PhaseOne
+            condition: SUCCESSFUL
+            projects:
+                - name: 'mj-{name}-pep8-{which}'
+                - name: 'mj-{name}-python27-{which}'
