@@ -19,10 +19,10 @@
                 - name: master-acos-client-pep8
                   current-parameters: true
                   git-revision: true
-                - name: master-acos-client-py26
+                - name: master-acos-client-python26
                   current-parameters: true
                   git-revision: true
-                - name: master-acos-client-py27
+                - name: master-acos-client-python27
                   current-parameters: true
                   git-revision: true
                 - name: master-acos-client-pypy
@@ -49,10 +49,10 @@
                 - name: pulls-acos-client-pep8
                   current-parameters: true
                   git-revision: true
-                - name: pulls-acos-client-py26
+                - name: pulls-acos-client-python26
                   current-parameters: true
                   git-revision: true
-                - name: pulls-acos-client-py27
+                - name: pulls-acos-client-python27
                   current-parameters: true
                   git-revision: true
                 - name: pulls-acos-client-pypy
