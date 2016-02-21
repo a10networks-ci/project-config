@@ -2,6 +2,7 @@
 - job:
     name: batch-master-acos-client
     project-type: multijob
+    node: master
 
     properties:
         - github:
@@ -12,17 +13,26 @@
 
     builders:
         - multijob:
-            name: PhaseOne
+            name: bare-phase
             condition: SUCCESSFUL
             projects:
                 - name: acos-client-pep8-master
+                  current-parameters: true
+                  git-revision: true
                 - name: acos-client-py26-master
+                  current-parameters: true
+                  git-revision: true
                 - name: acos-client-py27-master
+                  current-parameters: true
+                  git-revision: true
                 - name: acos-client-pypy-master
+                  current-parameters: true
+                  git-revision: true
 
 - job:
     name: pulls-batch-acos-client
     project-type: multijob
+    node: master
 
     properties:
         - github:
@@ -33,7 +43,7 @@
 
     builders:
         - multijob:
-            name: PhaseOne
+            name: base-phase
             condition: SUCCESSFUL
             projects:
                 - name: acos-client-pep8-pulls
