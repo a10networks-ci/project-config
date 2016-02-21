@@ -16,16 +16,16 @@
             name: bare-phase
             condition: SUCCESSFUL
             projects:
-                - name: acos-client-pep8-master
+                - name: master-acos-client-pep8
                   current-parameters: true
                   git-revision: true
-                - name: acos-client-py26-master
+                - name: master-acos-client-py26
                   current-parameters: true
                   git-revision: true
-                - name: acos-client-py27-master
+                - name: master-acos-client-py27
                   current-parameters: true
                   git-revision: true
-                - name: acos-client-pypy-master
+                - name: master-acos-client-pypy
                   current-parameters: true
                   git-revision: true
 
@@ -46,7 +46,15 @@
             name: base-phase
             condition: SUCCESSFUL
             projects:
-                - name: acos-client-pep8-pulls
-                - name: acos-client-py26-pulls
-                - name: acos-client-py27-pulls
-                - name: acos-client-pypy-pulls
+                - name: pulls-acos-client-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-acos-client-py26
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-acos-client-py27
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-acos-client-pypy
+                  current-parameters: true
+                  git-revision: true
