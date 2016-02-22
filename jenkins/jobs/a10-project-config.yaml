@@ -2,8 +2,8 @@
     name: install-zuul-dev-libs
     builders:
       - shell: |
-          sudo apt-get update
-          sudo apt-get install -y libjpeg-dev zlib1g-dev
+          sudo apt-get -y update
+          sudo apt-get -y install -y libjpeg-dev zlib1g-dev
 
 - job-template:
     name: 'a10-project-config-{which}'
