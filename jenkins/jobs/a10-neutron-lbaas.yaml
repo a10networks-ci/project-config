@@ -1,0 +1,167 @@
+
+- project:
+    name: a10-neutron-lbaas
+    github-url: https://github.com/a10networks/a10-neutron-lbaas
+    node: bare-trusty
+
+    jobs:
+        - '{which}-{name}-pep8':
+            which: master
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        - '{which}-{name}-pep8':
+            which: pulls
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        - '{which}-{name}-python26':
+            which: master
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        - '{which}-{name}-python26':
+            which: pulls
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        - '{which}-{name}-python27':
+            which: master
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        - '{which}-{name}-python27':
+            which: pulls
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        # - '{which}-{name}-python34':
+        #     which: master
+        #     refspec: '+refs/heads/*:refs/remotes/origin/*'
+        #     branch-specifier: '**'
+        #     properties:
+        #         - github:
+        #             url: dummy
+        #     scm:
+        #         - git:
+        #             url: dummy
+        # - '{which}-{name}-python34':
+        #     which: pulls
+        #     refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+        #     branch-specifier: '${{sha1}}'
+        #     properties:
+        #         - github:
+        #             url: dummy
+        #     scm:
+        #         - git:
+        #             url: dummy
+        - '{which}-{name}-pypy':
+            which: master
+            refspec: '+refs/heads/*:refs/remotes/origin/*'
+            branch-specifier: '**'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+        - '{which}-{name}-pypy':
+            which: pulls
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branch-specifier: '${{sha1}}'
+            properties:
+                - github:
+                    url: dummy
+            scm:
+                - git:
+                    url: dummy
+
+- job:
+    name: batch-master-a10-neutron-lbaas
+    project-type: multijob
+    node: master
+
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/a10-neutron-lbaas'
+
+    triggers:
+        - github
+
+    builders:
+        - multijob:
+            name: bare-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: master-a10-neutron-lbaas-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-python26
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-python27
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-pypy
+                  current-parameters: true
+                  git-revision: true
+
+- job:
+    name: pulls-batch-a10-neutron-lbaas
+    project-type: multijob
+    node: master
+
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/a10-neutron-lbaas'
+
+    triggers:
+        - github-pull-requests
+
+    builders:
+        - multijob:
+            name: base-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: pulls-a10-neutron-lbaas-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-python26
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-python27
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-pypy
+                  current-parameters: true
+                  git-revision: true
