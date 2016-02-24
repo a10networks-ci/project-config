@@ -8,11 +8,11 @@
     project-type: freestyle
     concurrent: true
 
-    parameters:
-        - bool:
-            name: OFFLINE_NODE_WHEN_COMPLETE
-            default: true
-            description: "Single use nodes here."
+#    parameters:
+#        - bool:
+#            name: OFFLINE_NODE_WHEN_COMPLETE
+#            default: true
+#            description: "Single use nodes here."
 
     wrappers:
       - timeout:
