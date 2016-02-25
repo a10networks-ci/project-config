@@ -1,3 +1,12 @@
+
+- builder:
+    name: install-pyjobs-dev-libs
+    builders:
+      - shell: |
+          sudo apt-get -y update
+          sudo apt-get -y install -y libffi-dev
+
+
 - job-template:
     name: '{which}-{name}-coverage'
 
@@ -9,6 +18,7 @@
     builders:
       - print-template-name:
           template-name: "{template-name}"
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - gerrit-git-prep
       - coverage:
@@ -36,6 +46,7 @@
     builders:
       - print-template-name:
           template-name: "{template-name}"
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - pep8:
           env: pep8
@@ -68,6 +79,7 @@
       - print-template-name:
           template-name: "{template-name}"
       - install-py26
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - python26
       - assert-no-extra-files
@@ -100,6 +112,7 @@
     builders:
       - print-template-name:
           template-name: "{template-name}"
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - python27
       - assert-no-extra-files
@@ -132,6 +145,7 @@
     builders:
       - print-template-name:
           template-name: "{template-name}"
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - python34
       - assert-no-extra-files
@@ -165,6 +179,7 @@
       - print-template-name:
           template-name: "{template-name}"
       - install-pypy
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - pypy
       - assert-no-extra-files
@@ -197,6 +212,7 @@
     builders:
       - print-template-name:
           template-name: "{template-name}"
+      - install-pyjobs-dev-libs
       - revoke-sudo
       - tox:
           envlist: '{envlist}'
