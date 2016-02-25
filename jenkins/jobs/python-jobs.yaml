@@ -4,7 +4,7 @@
     builders:
       - shell: |
           sudo apt-get -y update
-          sudo apt-get -y install -y libffi-dev
+          sudo apt-get -y install -y libffi-dev libssl-dev
 
 
 - job-template:
