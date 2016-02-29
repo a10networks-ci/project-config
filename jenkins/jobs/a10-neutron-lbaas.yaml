@@ -25,26 +25,6 @@
             scm:
                 - git:
                     url: dummy
-        - '{which}-{name}-python26':
-            which: master
-            refspec: '+refs/heads/*:refs/remotes/origin/*'
-            branch-specifier: '**'
-            properties:
-                - github:
-                    url: dummy
-            scm:
-                - git:
-                    url: dummy
-        - '{which}-{name}-python26':
-            which: pulls
-            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-            branch-specifier: '${{sha1}}'
-            properties:
-                - github:
-                    url: dummy
-            scm:
-                - git:
-                    url: dummy
         - '{which}-{name}-python27':
             which: master
             refspec: '+refs/heads/*:refs/remotes/origin/*'
@@ -65,46 +45,7 @@
             scm:
                 - git:
                     url: dummy
-        # - '{which}-{name}-python34':
-        #     which: master
-        #     refspec: '+refs/heads/*:refs/remotes/origin/*'
-        #     branch-specifier: '**'
-        #     properties:
-        #         - github:
-        #             url: dummy
-        #     scm:
-        #         - git:
-        #             url: dummy
-        # - '{which}-{name}-python34':
-        #     which: pulls
-        #     refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-        #     branch-specifier: '${{sha1}}'
-        #     properties:
-        #         - github:
-        #             url: dummy
-        #     scm:
-        #         - git:
-        #             url: dummy
-        - '{which}-{name}-pypy':
-            which: master
-            refspec: '+refs/heads/*:refs/remotes/origin/*'
-            branch-specifier: '**'
-            properties:
-                - github:
-                    url: dummy
-            scm:
-                - git:
-                    url: dummy
-        - '{which}-{name}-pypy':
-            which: pulls
-            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-            branch-specifier: '${{sha1}}'
-            properties:
-                - github:
-                    url: dummy
-            scm:
-                - git:
-                    url: dummy
+
 
 - job:
     name: batch-master-a10-neutron-lbaas
@@ -126,13 +67,7 @@
                 - name: master-a10-neutron-lbaas-pep8
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-python26
-                  current-parameters: true
-                  git-revision: true
                 - name: master-a10-neutron-lbaas-python27
-                  current-parameters: true
-                  git-revision: true
-                - name: master-a10-neutron-lbaas-pypy
                   current-parameters: true
                   git-revision: true
 
@@ -156,12 +91,6 @@
                 - name: pulls-a10-neutron-lbaas-pep8
                   current-parameters: true
                   git-revision: true
-                - name: pulls-a10-neutron-lbaas-python26
-                  current-parameters: true
-                  git-revision: true
                 - name: pulls-a10-neutron-lbaas-python27
-                  current-parameters: true
-                  git-revision: true
-                - name: pulls-a10-neutron-lbaas-pypy
                   current-parameters: true
                   git-revision: true
