@@ -1,5 +1,18 @@
 
 - project:
+    name: a10-neutron-lbaas
+    node: devstack-trusty
+
+    jobs:
+      - 'z-a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+          job-suffix: ''
+          branch-override: default
+          lbaasversion: lbaasv1
+          axapi-version: '2.1'
+          acos-version: '272'
+          lbaastest: api
+
+- project:
     name: a10-project-config
     github-url: https://github.com/a10networks-ci/project-config
 
