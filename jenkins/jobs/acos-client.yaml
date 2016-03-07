@@ -135,6 +135,9 @@
                 - name: master-acos-client-pypy
                   current-parameters: true
                   git-revision: true
+                - name: a10-lbaasv1-dsvm-api-acos-272
+                  current-parameters: true
+                  git-revision: true
 
 - job:
     name: pulls-batch-acos-client
