@@ -11,8 +11,9 @@
     properties:
       - inject:
           properties-content: |
-            LOG_PATH=test
-            DEST=/opt/stack/new
+            LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
+            ZUUL_BRANCH=master
+            ACOS_CLIENT_GIT=1
 
     builders:
 
