@@ -45,14 +45,18 @@
             scm:
                 - git:
                     url: dummy
-        # - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-        #     node: devstack-trusty
-        #     job-suffix: ''
-        #     branch-override: default
-        #     lbaasversion: lbaasv1
-        #     axapi-version: '2.1'
-        #     acos-version: '272'
-        #     lbaastest: api
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: ''
+            branch-override: default
+            lbaasversion: lbaasv1
+            axapi-version: '2.1'
+            acos-version: '272'
+            lbaastest: api
+            which: 'master-a10-neutron-lbaas'
+            zuul-branch: master
+            acos-client-git: ''
+            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
 
 
 - job:
@@ -76,6 +80,9 @@
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-python27
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272
                   current-parameters: true
                   git-revision: true
 
