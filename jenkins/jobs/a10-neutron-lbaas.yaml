@@ -45,15 +45,14 @@
             scm:
                 - git:
                     url: dummy
-
-        - 'z-a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: ''
-            branch-override: default
-            lbaasversion: lbaasv1
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
+        # - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+        #     node: devstack-trusty
+        #     job-suffix: ''
+        #     branch-override: default
+        #     lbaasversion: lbaasv1
+        #     axapi-version: '2.1'
+        #     acos-version: '272'
+        #     lbaastest: api
 
 
 - job:
