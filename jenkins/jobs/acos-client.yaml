@@ -105,20 +105,15 @@
             scm:
                 - git:
                     url: dummy
-        - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{which}{job-suffix}':
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: ''
             branch-override: default
             lbaasversion: lbaasv1
             axapi-version: '2.1'
             acos-version: '272'
             lbaastest: api
-            which: '-acos-client-github'
-            properties:
-                - inject:
-                    properties-content: |
-                        LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
-                        ZUUL_BRANCH=master
-                        ACOS_CLIENT_GIT='https://github.com/a10networks/acos-client.git'
+            which: 'master-acos-client'
+            acos-client-wrapper: 'acos-client-github-master'
 
 - job:
     name: batch-master-acos-client
@@ -149,7 +144,7 @@
                 - name: master-acos-client-pypy
                   current-parameters: true
                   git-revision: true
-                - name: a10-lbaasv1-dsvm-api-acos-272-acos-client-github
+                - name: master-acos-client-lbaasv1-dsvm-api-acos-272
                   current-parameters: true
                   git-revision: true
 
