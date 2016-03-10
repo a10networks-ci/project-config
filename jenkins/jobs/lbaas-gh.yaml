@@ -7,7 +7,13 @@
       - build-timeout:
           timeout: 125
       - timestamps
-      - test-inject-with-macros
+
+    properties:
+        - inject:
+            properties-content: |
+                LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
+                ZUUL_BRANCH={zuul-branch}
+                ACOS_CLIENT_GIT={acos-client-git}
 
     builders:
       - print-template-name:

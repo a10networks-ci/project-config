@@ -6,32 +6,32 @@
           timeout-var: 'BUILD_TIMEOUT'
           fail: true
 
-- wrapper:
-    name: jenkins-logs
-    wrappers:
-        - inject:
-            properties-content: |
-                LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
+# - wrapper:
+#     name: jenkins-logs
+#     wrappers:
+#         - inject:
+#             properties-content: |
+#                 LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
 
-- wrapper:
-    name: mimic-zuul-branch-master
-    wrappers:
-        - inject:
-            properties-content: |
-                ZUUL_BRANCH=master
+# - wrapper:
+#     name: mimic-zuul-branch-master
+#     wrappers:
+#         - inject:
+#             properties-content: |
+#                 ZUUL_BRANCH=master
 
-- wrapper:
-    name: acos-client-github-master
-    wrappers:
-        - inject:
-            properties-content: |
-                ACOS_CLIENT_GIT='https://github.com/a10networks/acos-client.git'
+# - wrapper:
+#     name: acos-client-github-master
+#     wrappers:
+#         - inject:
+#             properties-content: |
+#                 ACOS_CLIENT_GIT='https://github.com/a10networks/acos-client.git'
 
-- wrapper:
-    name: test-inject-with-macros
-    wrappers:
-        - inject:
-            properties-content: |
-                LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
-                ZUUL_BRANCH={zuul-branch}
-                ACOS_CLIENT_GIT={acos-client-git}
+# - wrapper:
+#     name: test-inject-with-macros
+#     wrappers:
+#         - inject:
+#             properties-content: |
+#                 LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
+#                 ZUUL_BRANCH={zuul-branch}
+#                 ACOS_CLIENT_GIT={acos-client-git}
