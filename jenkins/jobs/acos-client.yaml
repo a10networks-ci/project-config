@@ -113,7 +113,8 @@
             acos-version: '272'
             lbaastest: api
             which: 'master-acos-client'
-            acos-client-wrapper: 'acos-client-github-master'
+            zuul-branch: master
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
 
 - job:
     name: batch-master-acos-client

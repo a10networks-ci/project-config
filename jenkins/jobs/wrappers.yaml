@@ -26,3 +26,12 @@
         - inject:
             properties-content: |
                 ACOS_CLIENT_GIT='https://github.com/a10networks/acos-client.git'
+
+- wrapper:
+    name: test-inject-with-macros
+    wrappers:
+        - inject:
+            properties-content: |
+                LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
+                ZUUL_BRANCH={zuul-branch}
+                ACOS_CLIENT_GIT={acos-client-git}

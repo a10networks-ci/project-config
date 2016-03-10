@@ -7,9 +7,7 @@
       - build-timeout:
           timeout: 125
       - timestamps
-      - jenkins-logs
-      - mimic-zuul-branch-master
-      - '{acos-client-wrapper}'
+      - test-inject-with-macros
 
     builders:
       - print-template-name:
