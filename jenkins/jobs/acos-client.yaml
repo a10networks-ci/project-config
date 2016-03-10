@@ -105,6 +105,7 @@
             scm:
                 - git:
                     url: dummy
+
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             node: devstack-trusty
             job-suffix: ''
@@ -115,6 +116,139 @@
             lbaastest: api
             which: 'master-acos-client'
             zuul-branch: master
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-liberty'
+            branch-override: 'stable/liberty'
+            lbaasversion: lbaasv1
+            axapi-version: '2.1'
+            acos-version: '272'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable/liberty'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-kilo'
+            branch-override: 'stable/kilo'
+            lbaasversion: lbaasv1
+            axapi-version: '2.1'
+            acos-version: '272'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable-kilo'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: ''
+            branch-override: default
+            lbaasversion: lbaasv1
+            axapi-version: '3.0'
+            acos-version: '401'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: master
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-liberty'
+            branch-override: 'stable/liberty'
+            lbaasversion: lbaasv1
+            axapi-version: '3.0'
+            acos-version: '401'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable/liberty'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-kilo'
+            branch-override: 'stable/kilo'
+            lbaasversion: lbaasv1
+            axapi-version: '3.0'
+            acos-version: '401'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable-kilo'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: ''
+            branch-override: default
+            lbaasversion: lbaasv2
+            axapi-version: '2.1'
+            acos-version: '272'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: master
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-liberty'
+            branch-override: 'stable/liberty'
+            lbaasversion: lbaasv2
+            axapi-version: '2.1'
+            acos-version: '272'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable/liberty'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-kilo'
+            branch-override: 'stable/kilo'
+            lbaasversion: lbaasv2
+            axapi-version: '2.1'
+            acos-version: '272'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable-kilo'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: ''
+            branch-override: default
+            lbaasversion: lbaasv2
+            axapi-version: '3.0'
+            acos-version: '401'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: master
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-liberty'
+            branch-override: 'stable/liberty'
+            lbaasversion: lbaasv2
+            axapi-version: '3.0'
+            acos-version: '401'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable/liberty'
+            acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
+            job-suffix: '-kilo'
+            branch-override: 'stable/kilo'
+            lbaasversion: lbaasv2
+            axapi-version: '3.0'
+            acos-version: '401'
+            lbaastest: api
+            which: 'master-acos-client'
+            zuul-branch: 'stable-kilo'
             acos-client-git: 'https://github.com/a10networks/acos-client.git'
             a10-neutron-lbaas-git: ''
 
