@@ -11,6 +11,7 @@
     properties:
         - inject:
             properties-content: |
+                OFFLINE_NODE_WHEN_COMPLETE=1
                 LOG_PATH="/r/$JOB_NAME/$BUILD_ID"
                 ZUUL_BRANCH={zuul-branch}
                 ACOS_CLIENT_GIT={acos-client-git}
