@@ -116,6 +116,7 @@
             which: 'master-acos-client'
             zuul-branch: master
             acos-client-git: 'https://github.com/a10networks/acos-client.git'
+            a10-neutron-lbaas-git: ''
 
 - job:
     name: batch-master-acos-client
