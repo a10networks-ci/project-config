@@ -47,7 +47,11 @@
           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
 
           export ACOS_VERSION={acos-version}
-          export AXAPI_VERSION={axapi-version}
+          if [ $ACOS_VERSION -ge 400 ]; then
+              export AXAPI_VERSION='3.0'
+          else
+              export AXAPI_VERSION='2.1'
+          fi
 
           #export DEVSTACK_GATE_TEMPEST_REGEX='(v1)(?!.*(lbaas_agent))'
 
