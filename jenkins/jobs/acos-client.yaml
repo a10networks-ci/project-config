@@ -106,6 +106,7 @@
                 - git:
                     url: dummy
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            node: devstack-trusty
             job-suffix: ''
             branch-override: default
             lbaasversion: lbaasv1
