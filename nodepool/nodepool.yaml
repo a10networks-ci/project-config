@@ -26,12 +26,12 @@ labels:
       - name: local_02
   - name: devstack-trusty
     image: devstack-trusty
-    min-ready: 12
+    min-ready: 20
     providers:
       - name: local_02
   - name: bare-trusty
     image: bare-trusty
-    min-ready: 8
+    min-ready: 6
     providers:
       - name: local_02
 
