@@ -46,151 +46,36 @@
                 - git:
                     url: dummy
 
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: ''
-            branch-override: default
-            lbaasversion: lbaasv1
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: master
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: '-liberty'
-            branch-override: 'stable/liberty'
-            lbaasversion: lbaasv1
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: 'stable/liberty'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: '-kilo'
-            branch-override: 'stable/kilo'
-            lbaasversion: lbaasv1
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: 'stable/kilo'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: ''
-            branch-override: default
-            lbaasversion: lbaasv1
-            axapi-version: '3.0'
-            acos-version: '401'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: master
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: '-liberty'
-            branch-override: 'stable/liberty'
-            lbaasversion: lbaasv1
-            axapi-version: '3.0'
-            acos-version: '401'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: 'stable/liberty'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: '-kilo'
-            branch-override: 'stable/kilo'
-            lbaasversion: lbaasv1
-            axapi-version: '3.0'
-            acos-version: '401'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: 'stable/kilo'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+- project:
+    name: a10-neutron-lbaas-dsvm
+    github-url: https://github.com/a10networks/a10-neutron-lbaas
+    node: devstack-trusty
 
+    a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+    acos-client-git: ''
+    branch-override: default
+    lbaastest: api
+
+    acos-version:
+        - '272'
+        - '401'
+    lbaasversion:
+        - 'lbaasv1'
+        - 'lbaasv2'
+    which:
+        - 'master-a10-neutron-lbaas'
+        - 'pulls-a10-neutron-lbaas'
+
+    jobs:
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
             job-suffix: ''
-            branch-override: default
-            lbaasversion: lbaasv2
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
             zuul-branch: master
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: '-liberty'
-            branch-override: 'stable/liberty'
-            lbaasversion: lbaasv2
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: 'stable/liberty'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
             job-suffix: '-kilo'
-            branch-override: 'stable/kilo'
-            lbaasversion: lbaasv2
-            axapi-version: '2.1'
-            acos-version: '272'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
             zuul-branch: 'stable/kilo'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: ''
-            branch-override: default
-            lbaasversion: lbaasv2
-            axapi-version: '3.0'
-            acos-version: '401'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: master
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
             job-suffix: '-liberty'
-            branch-override: 'stable/liberty'
-            lbaasversion: lbaasv2
-            axapi-version: '3.0'
-            acos-version: '401'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
             zuul-branch: 'stable/liberty'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            node: devstack-trusty
-            job-suffix: '-kilo'
-            branch-override: 'stable/kilo'
-            lbaasversion: lbaasv2
-            axapi-version: '3.0'
-            acos-version: '401'
-            lbaastest: api
-            which: 'master-a10-neutron-lbaas'
-            zuul-branch: 'stable/kilo'
-            acos-client-git: ''
-            a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
 
 - job:
     name: batch-master-a10-neutron-lbaas
@@ -215,9 +100,47 @@
                 - name: master-a10-neutron-lbaas-python27
                   current-parameters: true
                   git-revision: true
+        - multijob:
+            name: dsvm-phase
+            condition: SUCCESSFUL
+            projects:
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272
                   current-parameters: true
                   git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-kilo
+                  current-parameters: true
+                  git-revision: true
+
 
 - job:
     name: pulls-batch-a10-neutron-lbaas
@@ -240,5 +163,45 @@
                   current-parameters: true
                   git-revision: true
                 - name: pulls-a10-neutron-lbaas-python27
+                  current-parameters: true
+                  git-revision: true
+        - multijob:
+            name: dsvm-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
