@@ -6,7 +6,7 @@
           sudo apt-get -y install -y libjpeg-dev zlib1g-dev
 
 - job-template:
-    name: 'a10-project-config-{which}'
+    name: a10-project-config-master
     node: bare-trusty
 
     properties:
@@ -16,9 +16,9 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
+            # refspec: '+refs/heads/*:refs/remotes/origin/*'
+            # branches:
+            #     - '{branch-specifier}'
 
     builders:
         - install-zuul-dev-libs
@@ -30,4 +30,31 @@
         - console-log
 
     triggers:
-        - '{trigger}'
+        - github
+
+- job-template:
+    name: a10-project-config-pulls
+    node: bare-trusty
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+    builders:
+        - install-zuul-dev-libs
+        - revoke-sudo
+        - tox:
+            envlist: 'pep8,jjb,jenkins-project,zuul'
+
+    publishers:
+        - console-log
+
+    triggers:
+        - github-pull-requests
