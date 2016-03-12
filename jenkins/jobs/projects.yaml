@@ -131,17 +131,3 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
-
-- project:
-    name: test-repo
-    github-url: 'https://github.com/a10networks-ci/test-repo'
-    vendor: a10networks
-
-    jobs:
-        - test-repo:
-            properties:
-              - github:
-                url: '{github-url}'
-            scm:
-              - git:
-                url: '{github-url}.git'
