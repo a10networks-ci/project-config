@@ -16,6 +16,7 @@
     scm:
         - git:
             url: '{github-url}.git'
+            skip-tag: true
             # refspec: '+refs/heads/*:refs/remotes/origin/*'
             # branches:
             #     - '{branch-specifier}'
@@ -43,6 +44,7 @@
     scm:
         - git:
             url: '{github-url}.git'
+            skip-tag: true
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branches:
                 - '${{sha1}}'
