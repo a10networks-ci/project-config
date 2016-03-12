@@ -75,19 +75,13 @@
 
     jobs:
         - python-jobs
+        - 'master-{name}-py26'
+        - 'master-{name}-pypy'
+        - 'test-master-{name}-pep8'
         - python-pull-request-jobs
-        - '{which}-acos-client-py26':
-            which: master
-        - '{which}-acos-client-pypy':
-            which: master
-        - '{which}-acos-client-py26':
-            which: pulls
-        - '{which}-acos-client-pypy':
-            which: pulls
-        - 'test-{which}-acos-client-pep8':
-            which: master
-        - 'test-{which}-acos-client-pep8':
-            which: pulls
+        - 'pulls-{name}-py26'
+        - 'pulls-{name}-pypy'
+        - 'test-pulls-{name}-pep8'
 
 - project:
     name: acos-client-dsvm
