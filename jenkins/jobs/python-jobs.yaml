@@ -6,9 +6,8 @@
           sudo apt-get -y update
           sudo apt-get -y install -y libffi-dev libssl-dev
 
-
 - job-template:
-    name: '{which}-{name}-coverage'
+    name: 'master-{name}-coverage'
 
     wrappers:
       - build-timeout:
@@ -20,7 +19,6 @@
           template-name: "{template-name}"
       - install-pyjobs-dev-libs
       - revoke-sudo
-      - gerrit-git-prep
       - coverage:
           env: cover
 
@@ -36,12 +34,41 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
 - job-template:
-    name: '{which}-{name}-pep8'
+    name: 'pulls-{name}-coverage'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - coverage:
+          env: cover
+
+    publishers:
+        - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-template:
+    name: 'master-{name}-pep8'
 
     builders:
       - print-template-name:
@@ -63,12 +90,36 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
 - job-template:
-    name: '{which}-{name}-python26'
+    name: 'pulls-{name}-pep8'
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - pep8:
+          env: pep8
+
+    publishers:
+        - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-template:
+    name: 'master-{name}-python26'
 
     wrappers:
       - build-timeout:
@@ -97,12 +148,43 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
 - job-template:
-    name: '{which}-{name}-python27'
+    name: 'pulls-{name}-python26'
+
+    wrappers:
+      - build-timeout:
+          timeout: 50
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-py26
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - python26
+      - assert-no-extra-files
+
+    publishers:
+      #- test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-template:
+    name: 'master-{name}-python27'
 
     wrappers:
       - build-timeout:
@@ -130,12 +212,42 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
 - job-template:
-    name: '{which}-{name}-python34'
+    name: 'pulls-{name}-python27'
+
+    wrappers:
+      - build-timeout:
+          timeout: 50
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - python27
+      - assert-no-extra-files
+
+    publishers:
+      #- test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-template:
+    name: 'master-{name}-python34'
 
     wrappers:
       - build-timeout:
@@ -163,12 +275,42 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
 - job-template:
-    name: '{which}-{name}-pypy'
+    name: 'pulls-{name}-python34'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - python34
+      - assert-no-extra-files
+
+    publishers:
+      #- test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-template:
+    name: 'master-{name}-pypy'
 
     wrappers:
       - build-timeout:
@@ -197,12 +339,43 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
 - job-template:
-    name: '{which}-{name}-tox-{envlist}'
+    name: 'pulls-{name}-pypy'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pypy
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - pypy
+      - assert-no-extra-files
+
+    publishers:
+      #- test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-template:
+    name: 'master-{name}-tox-{envlist}'
 
     wrappers:
       - build-timeout:
@@ -231,19 +404,56 @@
     scm:
         - git:
             url: '{github-url}.git'
-            refspec: '{refspec}'
-            branches:
-                - '{branch-specifier}'
 
-# - job-group:
-#     name: python-jobs
-#     jobs:
-#       #- '{name}-coverage'
-#       - '{name}-pep8'
-#       - '{name}-python26'
-#       - '{name}-python27'
-#       - '{name}-python34'
-#       - '{name}-pypy'
-#       # pylint isn't standard
-#       # {name}-tox-{envlist} also isn't standard, but is reserved for
-#       # projects that want to run specific jobs via tox
+- job-template:
+    name: 'pulls-{name}-tox-{envlist}'
+
+    wrappers:
+      - build-timeout:
+          timeout: 40
+      - timestamps
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - tox:
+          envlist: '{envlist}'
+      - assert-no-extra-files
+
+    publishers:
+      #- test-results
+      - console-log
+
+    node: '{node}'
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
+- job-group:
+    name: python-jobs
+    jobs:
+      #- '{which}-{name}-coverage'
+      - 'master-{name}-pep8'
+      - 'master-{name}-python27'
+      - 'master-{name}-python34'
+      # pylint isn't standard
+      # {name}-tox-{envlist} also isn't standard, but is reserved for
+      # projects that want to run specific jobs via tox
+
+- job-group:
+    name: python-pull-request-jobs
+    jobs:
+      #- 'pulls-{name}-coverage'
+      - 'pulls-{name}-pep8'
+      - 'pulls-{name}-python27'
+      - 'pulls-{name}-python34'
