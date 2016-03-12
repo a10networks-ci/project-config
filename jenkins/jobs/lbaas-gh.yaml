@@ -13,7 +13,7 @@
             properties-content: |
                 OFFLINE_NODE_WHEN_COMPLETE=1
                 LOG_PATH=/r/$JOB_NAME/$BUILD_ID
-                ZUUL_BRANCH={zuul-branch}
+                ZUUL_BRANCH={devstack-branch}
                 ACOS_CLIENT_GIT={acos-client-git}
                 A10_NEUTRON_LBAAS_GIT={a10-neutron-lbaas-git}
 
