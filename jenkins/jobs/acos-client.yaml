@@ -93,7 +93,7 @@
             skip-tag: true
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branches:
-                - '${{sha1}}'
+                - '${sha1}'
 
     triggers:
         - github-pull-requests

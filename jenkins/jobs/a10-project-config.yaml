@@ -15,6 +15,7 @@
 
     scm:
         - git:
+            credentials-id: '6188d1d6-bfb6-42f2-994b-645db349f8f9'
             url: '{github-url}.git'
             skip-tag: true
             # refspec: '+refs/heads/*:refs/remotes/origin/*'
@@ -43,6 +44,7 @@
 
     scm:
         - git:
+            credentials-id: '6188d1d6-bfb6-42f2-994b-645db349f8f9'
             url: '{github-url}.git'
             skip-tag: true
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
