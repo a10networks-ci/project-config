@@ -51,7 +51,7 @@
 
 - project:
     name: a10-project-config
-    github-url: https://github.com/a10networks-ci/project-config.git
+    github-url: https://github.com/a10networks-ci/project-config
 
     jobs:
         - a10-project-config-master
