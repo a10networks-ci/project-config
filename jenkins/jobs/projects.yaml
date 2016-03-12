@@ -75,11 +75,11 @@
 
     jobs:
         - python-jobs
-        - 'master-{name}-py26'
+        - 'master-{name}-python26'
         - 'master-{name}-pypy'
         - 'test-master-{name}-pep8'
         - python-pull-request-jobs
-        - 'pulls-{name}-py26'
+        - 'pulls-{name}-python26'
         - 'pulls-{name}-pypy'
         - 'test-pulls-{name}-pep8'
 
