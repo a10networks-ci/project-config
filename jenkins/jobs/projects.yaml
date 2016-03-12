@@ -57,18 +57,6 @@
         - a10-project-config-pulls
 
 - project:
-    name: neutron-lbaas-openstack
-    node: devstack-trusty
-
-    jobs:
-      - '{pipeline}-neutron-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
-          pipeline: gate
-          job-suffix: ''
-          branch-override: default
-          lbaasversion: lbaasv1
-          lbaastest: api
-
-- project:
     name: acos-client
     github-url: https://github.com/a10networks/acos-client
     node: bare-trusty
@@ -131,6 +119,18 @@
 
     jobs:
       - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
+
+- project:
+    name: neutron-lbaas-openstack
+    node: devstack-trusty
+
+    jobs:
+      - '{pipeline}-neutron-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
+          pipeline: gate
+          job-suffix: ''
+          branch-override: default
+          lbaasversion: lbaasv1
+          lbaastest: api
 
 - project:
     name: test-repo
