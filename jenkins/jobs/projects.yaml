@@ -1,5 +1,54 @@
 
 - project:
+    name: a10-neutron-lbaas
+    github-url: https://github.com/a10networks/a10-neutron-lbaas
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+
+- project:
+    name: a10-neutron-lbaas-dsvm
+    github-url: https://github.com/a10networks/a10-neutron-lbaas
+    node: devstack-trusty
+
+    a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+    acos-client-git: ''
+    branch-override: default
+    lbaastest: api
+
+    acos-version:
+        - '272'
+        - '401'
+    lbaasversion:
+        - 'lbaasv1'
+        - 'lbaasv2'
+    which:
+        - 'master-a10-neutron-lbaas'
+        - 'pulls-a10-neutron-lbaas'
+
+    jobs:
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: ''
+            devstack-branch: master
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-kilo'
+            devstack-branch: 'stable/kilo'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-liberty'
+            devstack-branch: 'stable/liberty'
+
+- project:
+    name: a10-openstack
+    github-url: https://github.com/a10networks/a10-openstack
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+
+- project:
     name: a10-project-config
     github-url: https://github.com/a10networks-ci/project-config.git
 
@@ -18,6 +67,58 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
+
+- project:
+    name: acos-client
+    github-url: https://github.com/a10networks/acos-client
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+        - '{which}-acos-client-py26'
+            which: master
+        - '{which}-acos-client-pypy'
+            which: master
+        - '{which}-acos-client-py26'
+            which: pulls
+        - '{which}-acos-client-pypy'
+            which: pulls
+        - 'test-{which}-acos-client-pep8'
+            which: master
+        - 'test-{which}-acos-client-pep8'
+            which: pulls
+
+- project:
+    name: acos-client-dsvm
+    github-url: https://github.com/a10networks/acos-client
+    node: devstack-trusty
+
+    a10-neutron-lbaas-git: ''
+    acos-client-git: 'https://github.com/a10networks/acos-client.git'
+    branch-override: default
+    lbaastest: api
+
+    acos-version:
+        - '272'
+        - '401'
+    lbaasversion:
+        - 'lbaasv1'
+        - 'lbaasv2'
+    which:
+        - 'master-acos-client'
+        - 'pulls-acos-client'
+
+    jobs:
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: ''
+            devstack-branch: master
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-kilo'
+            devstack-branch: 'stable/kilo'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-liberty'
+            devstack-branch: 'stable/liberty'
 
 - project:
     name: neutron-lbaas

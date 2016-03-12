@@ -92,6 +92,20 @@
             url: '{github-url}.git'
 
 - job-template:
+    name: 'test-master-{name}-pep8'
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - pep8:
+          env: pep8
+
+    publishers:
+        - console-log
+
+- job-template:
     name: 'pulls-{name}-pep8'
 
     builders:
@@ -117,6 +131,20 @@
             refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
             branches:
                 - '${{sha1}}'
+
+- job-template:
+    name: 'test-pulls-{name}-pep8'
+
+    builders:
+      - print-template-name:
+          template-name: "{template-name}"
+      - install-pyjobs-dev-libs
+      - revoke-sudo
+      - pep8:
+          env: pep8
+
+    publishers:
+        - console-log
 
 - job-template:
     name: 'master-{name}-python26'

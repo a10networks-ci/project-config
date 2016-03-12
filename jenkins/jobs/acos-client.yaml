@@ -1,47 +1,4 @@
 
-- project:
-    name: acos-client
-    github-url: https://github.com/a10networks/acos-client
-    node: bare-trusty
-
-    jobs:
-        - python-jobs
-        - python-pull-request-jobs
-        - master-acos-client-py26
-        - master-acos-client-pypy
-        - pulls-acos-client-py26
-        - pulls-acos-client-pypy
-
-- project:
-    name: acos-client-dsvm
-    github-url: https://github.com/a10networks/acos-client
-    node: devstack-trusty
-
-    a10-neutron-lbaas-git: ''
-    acos-client-git: 'https://github.com/a10networks/acos-client.git'
-    branch-override: default
-    lbaastest: api
-
-    acos-version:
-        - '272'
-        - '401'
-    lbaasversion:
-        - 'lbaasv1'
-        - 'lbaasv2'
-    which:
-        - 'master-acos-client'
-        - 'pulls-acos-client'
-
-    jobs:
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: ''
-            devstack-branch: master
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-kilo'
-            devstack-branch: 'stable/kilo'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-liberty'
-            devstack-branch: 'stable/liberty'
 
 - job:
     name: batch-master-acos-client
@@ -52,6 +9,10 @@
         - github:
             url: 'https://github.com/a10networks/acos-client'
 
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/acos-client.git'
+
     triggers:
         - github
 
@@ -61,6 +22,9 @@
             condition: SUCCESSFUL
             projects:
                 - name: master-acos-client-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: test-master-acos-client-pep8
                   current-parameters: true
                   git-revision: true
                 - name: master-acos-client-python26
@@ -122,6 +86,13 @@
         - github:
             url: 'https://github.com/a10networks/acos-client'
 
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/acos-client.git'
+            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
+            branches:
+                - '${{sha1}}'
+
     triggers:
         - github-pull-requests
 
@@ -131,6 +102,9 @@
             condition: SUCCESSFUL
             projects:
                 - name: pulls-acos-client-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: test-pulls-acos-client-pep8
                   current-parameters: true
                   git-revision: true
                 - name: pulls-acos-client-python26

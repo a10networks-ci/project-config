@@ -1,13 +1,4 @@
 
-- project:
-    name: a10-openstack
-    github-url: https://github.com/a10networks/a10-openstack
-    node: bare-trusty
-
-    jobs:
-        - python-jobs
-        - python-pull-request-jobs
-
 - job:
     name: batch-master-a10-openstack
     project-type: multijob
