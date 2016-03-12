@@ -131,7 +131,6 @@
 
     jobs:
       - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
 
 - project:
     name: test-repo
