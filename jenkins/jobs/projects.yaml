@@ -1,34 +1,14 @@
 
 - project:
     name: a10-project-config
-    github-url: https://github.com/a10networks-ci/project-config
+    github-url: https://github.com/a10networks-ci/project-config.git
 
     jobs:
-        - 'a10-project-config-{which}':
-            which: master
-            trigger: github
-            refspec: '+refs/heads/*:refs/remotes/origin/*'
-            branch-specifier: '**'
-            properties:
-                - github:
-                    url: dummy
-            scm:
-                - git:
-                    url: dummy
-        - 'a10-project-config-{which}':
-            which: pulls
-            trigger: github-pull-requests
-            refspec: '+refs/pull/*:refs/remotes/origin/pr/*'
-            branch-specifier: '${{sha1}}'
-            properties:
-                - github:
-                    url: dummy
-            scm:
-                - git:
-                    url: dummy
+        - a10-project-config-master
+        - a10-project-config-pulls
 
 - project:
-    name: neutron-lbaas
+    name: neutron-lbaas-openstack
     node: devstack-trusty
 
     jobs:
@@ -38,34 +18,25 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-          job-suffix: ''
-          branch-override: default
-          lbaasversion: lbaasv1
-          axapi-version: '2.1'
-          acos-version: '272'
-          lbaastest: api
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-          job-suffix: ''
-          branch-override: default
-          lbaasversion: lbaasv1
-          axapi-version: '3.0'
-          acos-version: '401'
-          lbaastest: api
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-          job-suffix: ''
-          branch-override: default
-          lbaasversion: lbaasv2
-          axapi-version: '2.1'
-          acos-version: '272'
-          lbaastest: api
-      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-          job-suffix: ''
-          branch-override: default
-          lbaasversion: lbaasv2
-          axapi-version: '3.0'
-          acos-version: '401'
-          lbaastest: api
+
+- project:
+    name: neutron-lbaas
+    node: devstack-trusty
+
+    branch-override: default
+    job-suffix: ''
+    lbaastest: api
+
+    acos-version:
+        - '272'
+        - '401'
+    lbaasversion:
+        - lbaasv1
+        - lbaasv2
+
+    jobs:
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
+      - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
 
 - project:
     name: test-repo
