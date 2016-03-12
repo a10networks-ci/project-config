@@ -38,7 +38,7 @@
 
     properties:
         - github:
-            url: '[github-url}'
+            url: '{github-url}'
 
     scm:
         - git:
