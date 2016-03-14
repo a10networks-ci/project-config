@@ -115,6 +115,11 @@
         - github:
             url: 'https://github.com/a10networks/a10-neutron-lbaas'
 
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+            skip-tag: true
+
     triggers:
         - github-pull-requests
 
