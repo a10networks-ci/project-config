@@ -32,16 +32,10 @@
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-kilo
-                  current-parameters: true
-                  git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-liberty
-                  current-parameters: true
-                  git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
@@ -50,19 +44,60 @@
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
-                  current-parameters: true
-                  git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
                   git-revision: true
+
+
+- job:
+    name: batch-kilo-a10-neutron-lbaas
+    project-type: multijob
+    node: master
+
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/a10-neutron-lbaas'
+
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+            skip-tag: true
+            branches:
+                - 'stable/kilo'
+
+    triggers:
+        - github
+
+    builders:
+        - multijob:
+            name: bare-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: master-a10-neutron-lbaas-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-python27
+                  current-parameters: true
+                  git-revision: true
+        - multijob:
+            name: dsvm-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
-
 
 - job:
     name: pulls-batch-a10-neutron-lbaas
