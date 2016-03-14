@@ -32,16 +32,10 @@
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-kilo
-                  current-parameters: true
-                  git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-liberty
-                  current-parameters: true
-                  git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
@@ -50,16 +44,10 @@
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
-                  current-parameters: true
-                  git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
-                  current-parameters: true
-                  git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
 
