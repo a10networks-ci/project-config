@@ -8,6 +8,7 @@
 - job-template:
     name: a10-project-config-master
     node: bare-trusty
+    concurrent: false
 
     properties:
         - github:

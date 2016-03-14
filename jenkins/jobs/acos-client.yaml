@@ -4,6 +4,7 @@
     name: batch-master-acos-client
     project-type: multijob
     node: master
+    concurrent: false
 
     properties:
         - github:

@@ -3,6 +3,7 @@
     name: batch-master-a10-openstack
     project-type: multijob
     node: master
+    concurrent: false
 
     properties:
         - github:

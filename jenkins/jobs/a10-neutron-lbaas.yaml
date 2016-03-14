@@ -3,6 +3,7 @@
     name: batch-master-a10-neutron-lbaas
     project-type: multijob
     node: master
+    concurrent: false
 
     properties:
         - github:
@@ -63,6 +64,7 @@
     name: batch-kilo-a10-neutron-lbaas
     project-type: multijob
     node: master
+    concurrent: false
 
     properties:
         - github:
