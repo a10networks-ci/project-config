@@ -130,7 +130,7 @@
                 - name: pulls-a10-neutron-lbaas-python27
                   current-parameters: true
                 - name: pulls-a10-neutron-lbaas-python26
-                  enable-condition: "${ghprbTargetBranch} == 'stable/kilo'"
+                  enable-condition: '"${ghprbTargetBranch}" == "stable/kilo"'
                   current-parameters: true
         - multijob:
             name: dsvm-phase
