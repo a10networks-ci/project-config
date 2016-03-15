@@ -31,6 +31,9 @@
                 - name: master-a10-neutron-lbaas-python27
                   current-parameters: true
                   git-revision: true
+                - name: master-a10-neutron-lbaas-python34
+                  current-parameters: true
+                  git-revision: true
         - multijob:
             name: dsvm-phase
             condition: SUCCESSFUL
@@ -89,6 +92,9 @@
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-python27
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-python34
                   current-parameters: true
                   git-revision: true
         - multijob:

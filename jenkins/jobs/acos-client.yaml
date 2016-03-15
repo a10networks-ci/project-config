@@ -10,6 +10,11 @@
         - github:
             url: 'https://github.com/a10networks/acos-client'
 
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/acos-client.git'
+            skip-tag: true
+
     triggers:
         - github
 
@@ -25,6 +30,9 @@
                   current-parameters: true
                   git-revision: true
                 - name: master-acos-client-python27
+                  current-parameters: true
+                  git-revision: true
+                - name: master-acos-client-python34
                   current-parameters: true
                   git-revision: true
                 - name: master-acos-client-pypy
@@ -90,53 +98,39 @@
             projects:
                 - name: pulls-acos-client-pep8
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-python26
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-python27
                   current-parameters: true
-                  git-revision: true
+                - name: pulls-acos-client-python34
+                  current-parameters: true
                 - name: pulls-acos-client-pypy
                   current-parameters: true
-                  git-revision: true
         - multijob:
             name: dsvm-phase
             condition: SUCCESSFUL
             projects:
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-272
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-272-kilo
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-401-liberty
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-401-kilo
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-272
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-272-kilo
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-kilo
                   current-parameters: true
-                  git-revision: true
