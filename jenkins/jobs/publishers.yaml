@@ -43,5 +43,6 @@
 
 - publisher:
     name: slack-openstack-builds
+    publishers:
         - slack:
             room: '#openstack-builds'
