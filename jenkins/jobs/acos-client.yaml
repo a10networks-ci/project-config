@@ -73,6 +73,9 @@
                   current-parameters: true
                   git-revision: true
 
+    publishers:
+        - slack-openstack-builds
+
 - job:
     name: pulls-batch-acos-client
     project-type: multijob
@@ -124,3 +127,6 @@
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
+
+    publishers:
+        - slack-openstack-builds

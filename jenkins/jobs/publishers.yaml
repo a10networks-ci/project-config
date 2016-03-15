@@ -40,3 +40,8 @@
           files:
             - target: 'tarballs/{project}/'
               source: 'dist/*.whl'
+
+- publisher:
+    name: slack-openstack-builds
+        - slack:
+            room: '#openstack-builds'

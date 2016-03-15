@@ -108,6 +108,9 @@
                   current-parameters: true
                   git-revision: true
 
+    publishers:
+        - slack-openstack-builds
+
 - job:
     name: pulls-batch-a10-neutron-lbaas
     project-type: multijob
@@ -166,3 +169,6 @@
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
                   current-parameters: true
+
+    publishers:
+        - slack-openstack-builds
