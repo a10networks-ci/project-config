@@ -32,9 +32,9 @@
                 - name: master-acos-client-python27
                   current-parameters: true
                   git-revision: true
-                - name: master-acos-client-python34
-                  current-parameters: true
-                  git-revision: true
+                # - name: master-acos-client-python34
+                #   current-parameters: true
+                #   git-revision: true
                 - name: master-acos-client-pypy
                   current-parameters: true
                   git-revision: true
@@ -96,8 +96,8 @@
                   current-parameters: true
                 - name: pulls-acos-client-python27
                   current-parameters: true
-                - name: pulls-acos-client-python34
-                  current-parameters: true
+                # - name: pulls-acos-client-python34
+                #   current-parameters: true
                 - name: pulls-acos-client-pypy
                   current-parameters: true
         - multijob:
