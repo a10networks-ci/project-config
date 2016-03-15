@@ -107,12 +107,6 @@
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
-                  current-parameters: true
-                  git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-kilo
-                  current-parameters: true
-                  git-revision: true
 
 - job:
     name: pulls-batch-a10-neutron-lbaas
@@ -166,15 +160,9 @@
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
                   current-parameters: true
-                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-kilo
-                  enable-condition: '"${ghprbTargetBranch}" == "stable/kilo"'
-                  current-parameters: true
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
                   current-parameters: true
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
-                  current-parameters: true
-                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-kilo
-                  enable-condition: '"${ghprbTargetBranch}" == "stable/kilo"'
                   current-parameters: true

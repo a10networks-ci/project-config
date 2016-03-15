@@ -66,16 +66,10 @@
                 - name: master-acos-client-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-acos-client-lbaasv2-dsvm-api-acos-272-kilo
-                  current-parameters: true
-                  git-revision: true
                 - name: master-acos-client-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
                 - name: master-acos-client-lbaasv2-dsvm-api-acos-401-liberty
-                  current-parameters: true
-                  git-revision: true
-                - name: master-acos-client-lbaasv2-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
 
@@ -126,11 +120,7 @@
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
-                - name: pulls-acos-client-lbaasv2-dsvm-api-acos-272-kilo
-                  current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-liberty
-                  current-parameters: true
-                - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-kilo
                   current-parameters: true
