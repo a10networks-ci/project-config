@@ -28,9 +28,9 @@
                 - name: master-a10-openstack-python27
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-openstack-python34
-                  current-parameters: true
-                  git-revision: true
+                # - name: master-a10-openstack-python34
+                #   current-parameters: true
+                #   git-revision: true
 
 - job:
     name: pulls-batch-a10-openstack
@@ -53,5 +53,5 @@
                   current-parameters: true
                 - name: pulls-a10-openstack-python27
                   current-parameters: true
-                - name: pulls-a10-openstack-python34
-                  current-parameters: true
+                # - name: pulls-a10-openstack-python34
+                #   current-parameters: true
