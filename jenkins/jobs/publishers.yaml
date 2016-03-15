@@ -46,3 +46,4 @@
     publishers:
         - slack:
             room: '#openstack-builds'
+            team-domain: 'a10networks'
