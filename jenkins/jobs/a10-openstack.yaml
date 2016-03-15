@@ -9,6 +9,11 @@
         - github:
             url: 'https://github.com/a10networks/a10-openstack'
 
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/a10-openstack.git'
+            skip-tag: true
+
     triggers:
         - github
 
@@ -21,6 +26,9 @@
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-openstack-python27
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-openstack-python34
                   current-parameters: true
                   git-revision: true
 
@@ -43,7 +51,7 @@
             projects:
                 - name: pulls-a10-openstack-pep8
                   current-parameters: true
-                  git-revision: true
                 - name: pulls-a10-openstack-python27
                   current-parameters: true
-                  git-revision: true
+                - name: pulls-a10-openstack-python34
+                  current-parameters: true
