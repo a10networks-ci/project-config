@@ -47,3 +47,4 @@
         - slack:
             room: '#openstack-builds'
             team-domain: 'a10networks'
+            auth-token: $SLACK_AUTH_TOKEN

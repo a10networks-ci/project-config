@@ -8,6 +8,10 @@
     properties:
         - github:
             url: 'https://github.com/a10networks/a10-neutron-lbaas'
+        - slack:
+            notify-start: true
+            notify-success: true
+            notify-failure: true
 
     scm:
         - git:
