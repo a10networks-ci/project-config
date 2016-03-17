@@ -32,9 +32,9 @@
                 - name: master-acos-client-python27
                   current-parameters: true
                   git-revision: true
-                - name: master-acos-client-python34
-                  current-parameters: true
-                  git-revision: true
+                # - name: master-acos-client-python34
+                #   current-parameters: true
+                #   git-revision: true
                 - name: master-acos-client-pypy
                   current-parameters: true
                   git-revision: true
@@ -73,6 +73,9 @@
                   current-parameters: true
                   git-revision: true
 
+    # publishers:
+    #     - slack-openstack-builds
+
 - job:
     name: pulls-batch-acos-client
     project-type: multijob
@@ -96,8 +99,8 @@
                   current-parameters: true
                 - name: pulls-acos-client-python27
                   current-parameters: true
-                - name: pulls-acos-client-python34
-                  current-parameters: true
+                # - name: pulls-acos-client-python34
+                #   current-parameters: true
                 - name: pulls-acos-client-pypy
                   current-parameters: true
         - multijob:
@@ -124,3 +127,6 @@
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
+
+    # publishers:
+    #     - slack-openstack-builds

@@ -8,6 +8,10 @@
     properties:
         - github:
             url: 'https://github.com/a10networks/a10-neutron-lbaas'
+        # - slack:
+        #     notify-start: true
+        #     notify-success: true
+        #     notify-failure: true
 
     scm:
         - git:
@@ -94,6 +98,9 @@
                 - name: master-a10-neutron-lbaas-python27
                   current-parameters: true
                   git-revision: true
+                - name: master-a10-neutron-lbaas-python26
+                  current-parameters: true
+                  git-revision: true
                 # - name: master-a10-neutron-lbaas-python34
                 #   current-parameters: true
                 #   git-revision: true
@@ -107,6 +114,9 @@
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
+
+    # publishers:
+    #     - slack-openstack-builds
 
 - job:
     name: pulls-batch-a10-neutron-lbaas
@@ -166,3 +176,6 @@
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
                   current-parameters: true
+
+    # publishers:
+    #     - slack-openstack-builds
