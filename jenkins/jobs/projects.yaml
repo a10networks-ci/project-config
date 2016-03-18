@@ -96,6 +96,37 @@
         - 'pulls-{name}-pypy'
 
 - project:
+    name: acos-client-double-dsvm
+    github-url: https://github.com/a10networks/acos-client
+    node: devstack-trusty
+
+    a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+    acos-client-git: 'https://github.com/a10networks/acos-client.git'
+    branch-override: default
+    lbaastest: api
+
+    acos-version:
+        - '272'
+        - '401'
+    lbaasversion:
+        - 'lbaasv1'
+        - 'lbaasv2'
+    which:
+        - 'master-ac-double'
+        - 'pulls-ac-double'
+
+    jobs:
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: ''
+            devstack-branch: master
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-kilo'
+            devstack-branch: 'stable/kilo'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-liberty'
+            devstack-branch: 'stable/liberty'
+
+- project:
     name: acos-client-dsvm
     github-url: https://github.com/a10networks/acos-client
     node: devstack-trusty
