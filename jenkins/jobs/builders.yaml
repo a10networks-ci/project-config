@@ -224,10 +224,10 @@
     builders:
       - shell: "/usr/local/jenkins/slave_scripts/run-tox.sh pypy"
 
-- builder:
-    name: tox
-    builders:
-      - shell: "/usr/local/jenkins/slave_scripts/run-tox.sh {envlist}"
+# - builder:
+#     name: tox
+#     builders:
+#       - shell: "/usr/local/jenkins/slave_scripts/run-tox.sh {envlist}"
 
 - builder:
     name: assert-no-extra-files
