@@ -73,6 +73,37 @@
                   current-parameters: true
                   git-revision: true
 
+                - name: master-ac-double-lbaasv1-dsvm-api-acos-272
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv1-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv1-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv1-dsvm-api-acos-401
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv1-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv1-dsvm-api-acos-401-kilo
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv2-dsvm-api-acos-272
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv2-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv2-dsvm-api-acos-401
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv2-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                  git-revision: true
+
     # publishers:
     #     - slack-openstack-builds
 
@@ -126,6 +157,27 @@
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-401-liberty
+                  current-parameters: true
+
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-272
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-272-kilo
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-401
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-401-liberty
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-401-kilo
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv2-dsvm-api-acos-272
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv2-dsvm-api-acos-272-liberty
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv2-dsvm-api-acos-401
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
 
     # publishers:
