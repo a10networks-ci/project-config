@@ -130,6 +130,7 @@
     properties:
         - github:
             url: 'https://github.com/a10networks/a10-neutron-lbaas'
+        - slack-config
 
     triggers:
         - github-pull-requests
@@ -188,5 +189,5 @@
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
                   current-parameters: true
 
-    # publishers:
-    #     - slack-openstack-builds
+    publishers:
+        - slack-notify
