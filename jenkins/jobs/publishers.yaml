@@ -45,5 +45,10 @@
     name: slack-notify
     publishers:
         - raw:
-            xml:
-                !include-raw: '/etc/slack.xml'
+            xml: |
+                <jenkins.plugins.slack.SlackNotifier plugin="slack@1.8.1">
+                  <teamDomain>a10networks</teamDomain>
+                  <authToken>notmyrealtokenbutitseemstonotusethisone</authToken>
+                  <buildServerUrl>http://area51:8080/</buildServerUrl>
+                  <room></room>
+                </jenkins.plugins.slack.SlackNotifier>
