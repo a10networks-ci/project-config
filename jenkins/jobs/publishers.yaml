@@ -41,10 +41,9 @@
             - target: 'tarballs/{project}/'
               source: 'dist/*.whl'
 
-# - publisher:
-#     name: slack-openstack-builds
-#     publishers:
-#         - slack:
-#             room: '#openstack-builds'
-#             team-domain: 'a10networks'
-#             auth-token: $SLACK_AUTH_TOKEN
+- publisher:
+    name: slack-notify
+    publishers:
+        - raw:
+            xml:
+                !include-raw: '/etc/slack.xml'

@@ -8,10 +8,7 @@
     properties:
         - github:
             url: 'https://github.com/a10networks/a10-neutron-lbaas'
-        # - slack:
-        #     notify-start: true
-        #     notify-success: true
-        #     notify-failure: true
+        - slack-config
 
     scm:
         - git:
@@ -74,6 +71,9 @@
                   current-parameters: true
                   git-revision: true
 
+    publishers:
+        - slack-notify
+
 - job:
     name: batch-kilo-a10-neutron-lbaas
     project-type: multijob
@@ -121,9 +121,6 @@
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-kilo
                   current-parameters: true
                   git-revision: true
-
-    # publishers:
-    #     - slack-openstack-builds
 
 - job:
     name: pulls-batch-a10-neutron-lbaas

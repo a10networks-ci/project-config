@@ -1,0 +1,23 @@
+
+- property:
+    name: slack-config
+    properties:
+        - raw:
+            xml: |
+                <jenkins.plugins.slack.SlackNotifier_-SlackJobProperty plugin="slack@1.8.1">
+                  <teamDomain></teamDomain>
+                  <token></token>
+                  <room></room>
+                  <startNotification>true</startNotification>
+                  <notifySuccess>true</notifySuccess>
+                  <notifyAborted>false</notifyAborted>
+                  <notifyNotBuilt>false</notifyNotBuilt>
+                  <notifyUnstable>false</notifyUnstable>
+                  <notifyFailure>true</notifyFailure>
+                  <notifyBackToNormal>false</notifyBackToNormal>
+                  <notifyRepeatedFailure>false</notifyRepeatedFailure>
+                  <includeTestSummary>false</includeTestSummary>
+                  <showCommitList>false</showCommitList>
+                  <includeCustomMessage>false</includeCustomMessage>
+                  <customMessage></customMessage>
+                </jenkins.plugins.slack.SlackNotifier_-SlackJobProperty>
