@@ -182,5 +182,10 @@
                 - name: pulls-ac-double-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
 
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-410
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv2-dsvm-api-acos-410
+                  current-parameters: true
+
     publishers:
         - slack-notify
