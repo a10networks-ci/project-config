@@ -189,5 +189,12 @@
                   enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
                   current-parameters: true
 
+                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
+                  enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
+                  current-parameters: true
+                - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
+                  enable-condition: '"${ghprbTargetBranch}" != "stable/kilo"'
+                  current-parameters: true
+
     publishers:
         - slack-notify
