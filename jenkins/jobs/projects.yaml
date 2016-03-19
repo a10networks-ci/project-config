@@ -24,6 +24,7 @@
     acos-version:
         - '272'
         - '401'
+        - '410'
     lbaasversion:
         - 'lbaasv1'
         - 'lbaasv2'

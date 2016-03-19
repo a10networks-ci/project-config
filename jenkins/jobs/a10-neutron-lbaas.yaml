@@ -71,6 +71,13 @@
                   current-parameters: true
                   git-revision: true
 
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
+                  current-parameters: true
+                  git-revision: true
+
     publishers:
         - slack-notify
 
