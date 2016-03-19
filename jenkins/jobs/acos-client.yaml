@@ -9,6 +9,7 @@
     properties:
         - github:
             url: 'https://github.com/a10networks/acos-client'
+        - slack-config
 
     scm:
         - git:
@@ -104,8 +105,8 @@
                   current-parameters: true
                   git-revision: true
 
-    # publishers:
-    #     - slack-openstack-builds
+    publishers:
+        - slack-notify
 
 - job:
     name: pulls-batch-acos-client
@@ -115,6 +116,7 @@
     properties:
         - github:
             url: 'https://github.com/a10networks/acos-client'
+        - slack-config
 
     triggers:
         - github-pull-requests
@@ -180,5 +182,5 @@
                 - name: pulls-ac-double-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
 
-    # publishers:
-    #     - slack-openstack-builds
+    publishers:
+        - slack-notify
