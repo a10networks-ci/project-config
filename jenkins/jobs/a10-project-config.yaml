@@ -14,8 +14,9 @@
             skip-tag: true
 
     builders:
-        - tox:
-            envlist: 'pep8,jjb,jenkins-project,zuul'
+        - shell:
+            #!/bin/sh
+            tox -e pep8,jjb,jenkins-project,zuul
 
     publishers:
         - console-log
@@ -40,8 +41,9 @@
                 - '${{sha1}}'
 
     builders:
-        - tox:
-            envlist: 'pep8,jjb,jenkins-project,zuul'
+        - shell:
+            #!/bin/sh
+            tox -e pep8,jjb,jenkins-project,zuul
 
     publishers:
         - console-log
