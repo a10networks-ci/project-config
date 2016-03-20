@@ -1,13 +1,7 @@
-- builder:
-    name: install-zuul-dev-libs
-    builders:
-      - shell: |
-          sudo apt-get -y update
-          sudo apt-get -y install -y libjpeg-dev zlib1g-dev
 
 - job-template:
     name: a10-project-config-master
-    node: bare-trusty
+    node: slave-project-config
     concurrent: false
 
     properties:
@@ -18,13 +12,8 @@
         - git:
             url: '{github-url}.git'
             skip-tag: true
-            # refspec: '+refs/heads/*:refs/remotes/origin/*'
-            # branches:
-            #     - '{branch-specifier}'
 
     builders:
-        - install-zuul-dev-libs
-        - revoke-sudo
         - tox:
             envlist: 'pep8,jjb,jenkins-project,zuul'
 
@@ -36,7 +25,7 @@
 
 - job-template:
     name: a10-project-config-pulls
-    node: bare-trusty
+    node: slave-project-config
 
     properties:
         - github:
@@ -51,8 +40,6 @@
                 - '${{sha1}}'
 
     builders:
-        - install-zuul-dev-libs
-        - revoke-sudo
         - tox:
             envlist: 'pep8,jjb,jenkins-project,zuul'
 
