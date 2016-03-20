@@ -39,8 +39,6 @@
           }}
           export -f post_test_hook
 
-          env
-
           echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
 
           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
@@ -111,8 +109,6 @@
               $SLAVE_SCRIPT_DIR/post_test_hook.sh {lbaasversion} {lbaastest}
           }}
           export -f post_test_hook
-
-          env
 
           $SLAVE_SCRIPT_DIR/pre_setup_hook.sh {lbaasversion} {lbaastest}
 

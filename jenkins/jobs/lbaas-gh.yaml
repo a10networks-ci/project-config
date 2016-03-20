@@ -71,8 +71,6 @@
           }}
           export -f post_test_hook
 
-          env
-
           $SLAVE_SCRIPT_DIR/pre_setup_hook.sh {lbaasversion} {lbaastest}
 
           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
