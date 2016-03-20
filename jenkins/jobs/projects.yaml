@@ -33,7 +33,7 @@
         - 'pulls-a10-neutron-lbaas'
 
     jobs:
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+        - '{which}-{lbaasversion}-dm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: ''
             devstack-branch: master
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
