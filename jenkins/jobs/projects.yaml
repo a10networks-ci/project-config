@@ -69,30 +69,6 @@
 # TODO -- backport lbaasv2 tests into kilo?!?
 
 - project:
-    name: a10-neutron-lbaas-dsvm-kilo
-    github-url: https://github.com/a10networks/a10-neutron-lbaas
-    node: devstack-trusty
-
-    a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
-    acos-client-git: ''
-    a10-use-database: ''
-    branch-override: default
-    lbaastest: api
-    lbaasversion: 'lbaasv1'
-
-    acos-version:
-        - '272'
-        - '401'
-    which:
-        - 'master-a10-neutron-lbaas'
-        - 'pulls-a10-neutron-lbaas'
-
-    jobs:
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-kilo'
-            devstack-branch: 'stable/kilo'
-
-- project:
     name: a10-openstack
     github-url: https://github.com/a10networks/a10-openstack
     node: bare-trusty
@@ -149,9 +125,6 @@
             job-suffix: ''
             devstack-branch: master
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-kilo'
-            devstack-branch: 'stable/kilo'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: '-liberty'
             devstack-branch: 'stable/liberty'
 
@@ -180,9 +153,6 @@
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: ''
             devstack-branch: master
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-kilo'
-            devstack-branch: 'stable/kilo'
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: '-liberty'
             devstack-branch: 'stable/liberty'
