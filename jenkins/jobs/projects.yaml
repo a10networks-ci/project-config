@@ -174,7 +174,7 @@
 
     acos-version:
         - '272'
-        - '403'
+        - '401'
     lbaasversion:
         - lbaasv1
         - lbaasv2
