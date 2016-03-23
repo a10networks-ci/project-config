@@ -47,6 +47,7 @@
     publishers:
       - devstack-logs
       - console-log
+      - slave-offline
 
 - job-template:
     name: 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
@@ -120,4 +121,4 @@
     publishers:
       - devstack-logs
       - console-log
-      # - slack-openstack-builds
+      - slave-offline

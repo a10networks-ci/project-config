@@ -10,12 +10,12 @@
                   <room></room>
                   <startNotification>true</startNotification>
                   <notifySuccess>true</notifySuccess>
-                  <notifyAborted>false</notifyAborted>
-                  <notifyNotBuilt>false</notifyNotBuilt>
-                  <notifyUnstable>false</notifyUnstable>
+                  <notifyAborted>true</notifyAborted>
+                  <notifyNotBuilt>true</notifyNotBuilt>
+                  <notifyUnstable>true</notifyUnstable>
                   <notifyFailure>true</notifyFailure>
-                  <notifyBackToNormal>false</notifyBackToNormal>
-                  <notifyRepeatedFailure>false</notifyRepeatedFailure>
+                  <notifyBackToNormal>true</notifyBackToNormal>
+                  <notifyRepeatedFailure>true</notifyRepeatedFailure>
                   <includeTestSummary>false</includeTestSummary>
                   <showCommitList>false</showCommitList>
                   <includeCustomMessage>false</includeCustomMessage>
