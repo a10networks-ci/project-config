@@ -52,3 +52,22 @@
                   <buildServerUrl>http://area51:8080/</buildServerUrl>
                   <room></room>
                 </jenkins.plugins.slack.SlackNotifier>
+
+# - publisher:
+#     name: slave-offline
+#     publishers:
+#         - raw:
+#             xml: |
+#                 <org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildRecorder plugin="groovy-postbuild@2.3.1">
+#                   <script plugin="script-security@1.17">
+#                     <script>manager.build.getBuiltOn().toComputer.setTemporarilyOffline(true)</script>
+#                     <sandbox>false</sandbox>
+#                   </script>
+#                   <behavior>0</behavior>
+#                   <runForMatrixParent>false</runForMatrixParent>
+#                 </org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildRecorder>
+- publisher:
+    name: slave-offline
+    publishers:
+        - groovy-postbuild:
+            script: "manager.build.getBuiltOn().toComputer.setTemporarilyOffline(true)"

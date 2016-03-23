@@ -14,9 +14,6 @@
         - git:
             url: 'https://github.com/a10networks/a10-neutron-lbaas.git'
             skip-tag: true
-            #branches:
-            #    - 'master'
-            #    - 'orchestration'
 
     triggers:
         - github
@@ -42,29 +39,50 @@
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403-liberty
+                  current-parameters: true
+                  git-revision: true
+
                 - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-liberty
+                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
                   current-parameters: true
                   git-revision: true
+
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
                   current-parameters: true
                   git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403
                   current-parameters: true
                   git-revision: true
-                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403-liberty
                   current-parameters: true
                   git-revision: true
 
-                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
-                - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
+                - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
+                  current-parameters: true
+                  git-revision: true
+
+                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403
+                  current-parameters: true
+                  git-revision: true
+                - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403
+                  current-parameters: true
+                  git-revision: true
+                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403-liberty
                   current-parameters: true
                   git-revision: true
 
@@ -104,24 +122,37 @@
                   current-parameters: true
                 - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403
                   current-parameters: true
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403-liberty
+                  current-parameters: true
+
                 - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
-                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401-liberty
+                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
                   current-parameters: true
-                  current-parameters: true
+
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
                   current-parameters: true
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
-                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403
                   current-parameters: true
-                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403-liberty
                   current-parameters: true
 
-                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
-                - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
+                - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
+                  current-parameters: true
+
+                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403
+                  current-parameters: true
+                - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403
+                  current-parameters: true
+                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403-liberty
+                  current-parameters: true
+                - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403-liberty
                   current-parameters: true
 
     publishers:

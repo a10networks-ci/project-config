@@ -24,6 +24,7 @@
     acos-version:
         - '272'
         - '401'
+        - '403'
         - '410'
     lbaasversion:
         - 'lbaasv1'
@@ -51,7 +52,7 @@
     branch-override: default
     lbaastest: api
 
-    acos-version: '401'
+    acos-version: '403'
     lbaasversion:
         - 'lbaasv1'
         - 'lbaasv2'
@@ -63,6 +64,9 @@
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: ''
             devstack-branch: master
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-liberty'
+            devstack-branch: 'stable/liberty'
 
 # Kilo had lbaasv2, but no tempest jobs.
 # But, we can scrounge some kilo and before jobs from an old tempest.
@@ -112,6 +116,7 @@
     acos-version:
         - '272'
         - '401'
+        - '403'
         - '410'
     lbaasversion:
         - 'lbaasv1'
@@ -142,6 +147,8 @@
     acos-version:
         - '272'
         - '401'
+        - '403'
+        - '410'
     lbaasversion:
         - 'lbaasv1'
         - 'lbaasv2'
@@ -167,7 +174,7 @@
 
     acos-version:
         - '272'
-        - '401'
+        - '403'
     lbaasversion:
         - lbaasv1
         - lbaasv2
