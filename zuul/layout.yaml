@@ -78,7 +78,6 @@ jobs:
   - name: ^a10-lbaasv2.*$
     branch: ^(?!stable/kilo).*$
     parameter-function: single_use_node
-    voting: false
   - name: ^gate-neutron-lbaasv1-dsvm-api$
     branch: ^(?!stable/kilo).*$
 
