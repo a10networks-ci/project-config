@@ -96,9 +96,9 @@ projects:
     check:
       - gate-neutron-lbaasv1-dsvm-api
       - a10-lbaasv1-dsvm-api-acos-272
-      - a10-lbaasv1-dsvm-api-acos-401
+      - a10-lbaasv1-dsvm-api-acos-403
       - a10-lbaasv2-dsvm-api-acos-272
-      - a10-lbaasv2-dsvm-api-acos-401
+      - a10-lbaasv2-dsvm-api-acos-403
 #      - noop-check-communication
 #    silent:
 #    check:
