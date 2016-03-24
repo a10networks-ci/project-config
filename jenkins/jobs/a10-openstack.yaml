@@ -5,6 +5,11 @@
     node: master
     concurrent: false
 
+    wrappers:
+      - timeout:
+          timeout: 605
+          fail: true
+
     properties:
         - github:
             url: 'https://github.com/a10networks/a10-openstack'
@@ -36,6 +41,11 @@
     name: pulls-batch-a10-openstack
     project-type: multijob
     node: master
+
+    wrappers:
+      - timeout:
+          timeout: 605
+          fail: true
 
     properties:
         - github:
