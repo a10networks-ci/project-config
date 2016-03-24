@@ -81,4 +81,3 @@
     publishers:
       - devstack-logs
       - console-log
-      - slave-offline
