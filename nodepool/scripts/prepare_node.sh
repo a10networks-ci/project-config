@@ -45,6 +45,12 @@ EOF
     fi
 fi
 
+set +e
+cat /etc/pip.conf
+cat $HOME/.pydistutils.cfg
+export DEBUG=1
+set -e
+
 # Fedora image doesn't come with wget
 if [ -f /usr/bin/yum ]; then
     sudo yum -y install wget
