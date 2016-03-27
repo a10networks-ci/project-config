@@ -241,10 +241,7 @@ function setup_pip {
     cat /etc/pip.conf
     apt-get install -y strace
 
-    set +e
-    strace -o /tmp/out -s 1024 -f python get-pip.py
-    cat /tmp/out
-    exit 1
+    python get-pip.py
     rm get-pip.py
 
     # we are about to overwrite setuptools, but some packages we
