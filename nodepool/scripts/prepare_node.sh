@@ -45,18 +45,13 @@ EOF
     fi
 fi
 
-set +e
-cat /etc/pip.conf
-cat $HOME/.pydistutils.cfg
-export DEBUG=1
-set -e
-
 # Fedora image doesn't come with wget
 if [ -f /usr/bin/yum ]; then
     sudo yum -y install wget
 fi
-wget https://git.openstack.org/cgit/openstack-infra/system-config/plain/install_puppet.sh
-sudo bash -xe install_puppet.sh
+# wget https://git.openstack.org/cgit/openstack-infra/system-config/plain/install_puppet.sh
+# sudo bash -xe install_puppet.sh
+sudo -H bash -xe /opt/nodepool-scripts/temp_install_puppet.sh
 
 sudo git clone --depth=1 $GIT_BASE/openstack-infra/system-config.git \
     /root/system-config
