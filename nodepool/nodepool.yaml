@@ -39,12 +39,12 @@ labels:
     min-ready: 6
     providers:
       - name: local_02
-  - name: native-trusty
-    image: native-trusty
-    ready-script: configure_mirror.sh
-    min-ready: 0
-    providers:
-      - name: local_02
+  # - name: native-trusty
+  #   image: native-trusty
+  #   ready-script: configure_mirror.sh
+  #   min-ready: 0
+  #   providers:
+  #     - name: local_02
 
 diskimages:
   - name: dpc
@@ -139,13 +139,13 @@ providers:
         setup: prepare_node_bare.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
-      - name: native-trusty
-        base-image: 'aefb42f3-dbb2-4181-9bc5-894ec1f9a49f'
-        name-filter: jenkins.small
-        min-ram: 2000
-        setup: prepare_node_bare.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
+      # - name: native-trusty
+      #   base-image: 'aefb42f3-dbb2-4181-9bc5-894ec1f9a49f'
+      #   name-filter: jenkins.small
+      #   min-ram: 2000
+      #   setup: prepare_node_bare.sh
+      #   username: jenkins
+      #   private-key: /home/nodepool/.ssh/id_rsa
 
 
 targets:
