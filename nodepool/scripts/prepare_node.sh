@@ -27,6 +27,7 @@ sudo hostname $HOSTNAME
 if [ -n "$HOSTNAME" ] && ! grep -q $HOSTNAME /etc/hosts ; then
     echo "127.0.1.1 $HOSTNAME" | sudo tee -a /etc/hosts
     echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
+    echo "10.48.7.97 mirror.boi.a10networks.com mirror" | sudo tee -a /etc/hosts
 fi
 
 echo $HOSTNAME > /tmp/image-hostname.txt
@@ -49,9 +50,9 @@ fi
 if [ -f /usr/bin/yum ]; then
     sudo yum -y install wget
 fi
-# wget https://git.openstack.org/cgit/openstack-infra/system-config/plain/install_puppet.sh
-# sudo bash -xe install_puppet.sh
-sudo -H bash -xe /opt/nodepool-scripts/temp_install_puppet.sh
+wget https://git.openstack.org/cgit/openstack-infra/system-config/plain/install_puppet.sh
+sudo bash -xe install_puppet.sh
+# sudo -H bash -xe /opt/nodepool-scripts/temp_install_puppet.sh
 
 sudo git clone --depth=1 $GIT_BASE/openstack-infra/system-config.git \
     /root/system-config
