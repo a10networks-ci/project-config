@@ -45,5 +45,6 @@ sudo dd of=/etc/apt/sources.list <<EOF
 deb http://mirror.boi.a10networks.com/ubuntu trusty main restricted universe multiverse
 deb http://mirror.boi.a10networks.com/ubuntu trusty-security main restricted universe multiverse
 deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
 EOF
 fi
