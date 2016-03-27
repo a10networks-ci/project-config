@@ -29,6 +29,11 @@ labels:
     min-ready: 24
     providers:
       - name: local_02
+  - name: devstack-boi-trusty
+    image: devstack-boi-trusty
+    min-ready: 1
+    providers:
+      - name: local_02
   - name: bare-trusty
     image: bare-trusty
     min-ready: 6
@@ -85,6 +90,22 @@ diskimages:
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
       QEMU_IMG_OPTIONS: compat=0.10
+  - name: devstack-boi-trusty
+    elements:
+      - ubuntu
+      - vm
+      - pypi
+      - openstack-repos
+      - nodepool-base
+      - node-devstack
+      - cache-bindep
+    release: trusty
+    env-vars:
+      TMPDIR: /opt/dib_tmp
+      DIB_IMAGE_CACHE: /opt/dib_cache
+      DIB_APT_LOCAL_CACHE: '0'
+      DIB_DISABLE_APT_CLEANUP: '1'
+      DIB_PYPI_MIRROR_URL: 'http://mirror.boi.a10networks.com:81/simple/'
 
 providers:
   - name: local_02
@@ -101,6 +122,13 @@ providers:
         name-filter: jenkins.medium
         min-ram: 4000
         diskimage: devstack-trusty
+        setup: prepare_node_devstack.sh
+        username: jenkins
+        private-key: /home/nodepool/.ssh/id_rsa
+      - name: devstack-boi-trusty
+        name-filter: jenkins.medium
+        min-ram: 4000
+        diskimage: devstack-boi-trusty
         setup: prepare_node_devstack.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
