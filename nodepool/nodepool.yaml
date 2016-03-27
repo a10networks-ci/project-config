@@ -144,7 +144,7 @@ providers:
         name-filter: jenkins.small
         min-ram: 2000
         setup: prepare_node_bare.sh
-        username: ubuntu
+        username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
 
 
