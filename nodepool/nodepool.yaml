@@ -140,7 +140,7 @@ providers:
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
       - name: native-trusty
-        base-image: '17ec1b03-2e33-4399-bd0f-f2e66e6f0beb'
+        base-image: 'b11502d5-79d2-40b6-bf13-b5c51ad698a4'
         name-filter: jenkins.small
         min-ram: 2000
         setup: prepare_node_bare.sh
