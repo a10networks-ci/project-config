@@ -31,7 +31,7 @@ EOF
 cat >/home/jenkins/.pydistutils.cfg <<EOF
 [easy_install]
 index_url = $NODEPOOL_PYPI_MIRROR
-allow_hosts = *.openstack.org
+allow_hosts = *.boi.a10networks.com
 EOF
 
 # Double check that when the node is made ready it is able
