@@ -22,16 +22,20 @@ SUDO=${SUDO:-true}
 THIN=${THIN:-true}
 ALL_MYSQL_PRIVS=${ALL_MYSQL_PRIVS:-false}
 GIT_BASE=${GIT_BASE:-git://git.openstack.org}
+GIT_MIRROR_BASE=${GIT_BASE:-http://git-openstack.boi.a10networks.com}
 
 sudo hostname $HOSTNAME
 if [ -n "$HOSTNAME" ] && ! grep -q $HOSTNAME /etc/hosts ; then
     echo "127.0.1.1 $HOSTNAME" | sudo tee -a /etc/hosts
     echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
     echo "10.48.7.97 mirror.boi.a10networks.com mirror" | sudo tee -a /etc/hosts
+    echo "10.48.7.121 git-openstack.boi.a10networks.com git-openstack" | sudo tee -a /etc/hosts
 fi
 
 echo $HOSTNAME > /tmp/image-hostname.txt
 sudo mv /tmp/image-hostname.txt /etc/image-hostname.txt
+
+git config --global url.${GIT_MIRROR_BASE}/.insteadOf ${GIT_BASE}/
 
 if [ ! -f /etc/redhat-release ]; then
     # Cloud provider apt repos break us - so stop using them
