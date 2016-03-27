@@ -20,7 +20,13 @@ source /etc/nodepool/provider
 
 NODEPOOL_PYPI_MIRROR=${NODEPOOL_PYPI_MIRROR:-http://mirror.boi.a10networks.com:81/simple/}
 
-sudo sed -i -e "s,^index-url = .*,index-url = $NODEPOOL_PYPI_MIRROR," /etc/pip.conf
+sudo dd of=/etc/pip.conf <<EOF
+[global]
+index-url = $NODEPOOL_PYPI_MIRROR
+
+[install]
+trusted-host = mirror.boi.a10networks.com
+EOF
 
 cat >/home/jenkins/.pydistutils.cfg <<EOF
 [easy_install]
