@@ -22,9 +22,14 @@ for p in python-pip python3-pip ; do
     fi
 done
 
+set +e
+cat /etc/pip.conf
+cat $HOME/.pydistutils.cfg
+set -e
+
 # install pip using get-pip
 PIP_GET_PIP_URL=https://bootstrap.pypa.io/get-pip.py
 if [ ! -f get-pip.py ] ; then
     curl -O $PIP_GET_PIP_URL || wget $PIP_GET_PIP_URL
 fi
-sudo -H python get-pip.py
+sudo -H env DEBUG=1 python get-pip.py
