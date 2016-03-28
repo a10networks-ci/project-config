@@ -19,23 +19,21 @@ gearman-servers:
   - host: 127.0.0.1
 
 labels:
-  - name: d-p-c
-    image: dpc
-    min-ready: -1
-    providers:
-      - name: local_02
   - name: devstack-trusty
     image: devstack-trusty
+    ready-script: configure_mirror.sh
     min-ready: 24
     providers:
       - name: local_02
   - name: devstack-boi-trusty
     image: devstack-boi-trusty
+    ready-script: configure_mirror.sh
     min-ready: 1
     providers:
       - name: local_02
   - name: bare-trusty
     image: bare-trusty
+    ready-script: configure_mirror.sh
     min-ready: 6
     providers:
       - name: local_02
@@ -47,18 +45,18 @@ labels:
       - name: local_02
 
 diskimages:
-  - name: dpc
-    elements:
-      - ubuntu
-      - vm
-      - openstack-repos
-      - puppet
-      - nodepool-base
-      - node-devstack
-    release: trusty
-    env-vars:
-      TMPDIR: /opt/dib_tmp
-      DIB_IMAGE_CACHE: /opt/dib_cache
+  # - name: dpc
+  #   elements:
+  #     - ubuntu
+  #     - vm
+  #     - openstack-repos
+  #     - puppet
+  #     - nodepool-base
+  #     - node-devstack
+  #   release: trusty
+  #   env-vars:
+  #     TMPDIR: /opt/dib_tmp
+  #     DIB_IMAGE_CACHE: /opt/dib_cache
   - name: bare-trusty
     elements:
       - ubuntu-minimal
@@ -146,7 +144,6 @@ providers:
         setup: prepare_node_bare.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
-
 
 targets:
   - name: jenkins1
