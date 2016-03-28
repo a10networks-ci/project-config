@@ -18,6 +18,10 @@
 
 source /etc/nodepool/provider
 
+echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
+echo "10.48.7.97 mirror.boi.a10networks.com mirror" | sudo tee -a /etc/hosts
+echo "10.48.7.121 git-openstack.boi.a10networks.com git-openstack" | sudo tee -a /etc/hosts
+
 NODEPOOL_PYPI_MIRROR=${NODEPOOL_PYPI_MIRROR:-http://mirror.boi.a10networks.com:81/simple/}
 
 sudo dd of=/etc/pip.conf <<EOF
@@ -48,3 +52,7 @@ deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted univ
 deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
 EOF
 fi
+
+GIT_BASE=${GIT_BASE:-git://git.openstack.org}
+GIT_MIRROR_BASE=${GIT_BASE:-http://git-openstack.boi.a10networks.com}
+git config --global url.${GIT_MIRROR_BASE}/.insteadOf ${GIT_BASE}/
