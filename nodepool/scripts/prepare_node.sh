@@ -49,7 +49,7 @@ deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted univ
 deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
 EOF
     fi
-    apt-get -y update
+    sudo apt-get -y update
 fi
 
 # Fedora image doesn't come with wget
