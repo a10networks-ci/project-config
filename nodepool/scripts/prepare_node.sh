@@ -22,7 +22,7 @@ SUDO=${SUDO:-true}
 THIN=${THIN:-true}
 ALL_MYSQL_PRIVS=${ALL_MYSQL_PRIVS:-false}
 GIT_BASE=${GIT_BASE:-git://git.openstack.org}
-GIT_MIRROR_BASE=${GIT_BASE:-http://git-openstack.boi.a10networks.com}
+GIT_MIRROR_BASE=${GIT_MIRROR_BASE:-http://git-openstack.boi.a10networks.com}
 
 sudo hostname $HOSTNAME
 if [ -n "$HOSTNAME" ] && ! grep -q $HOSTNAME /etc/hosts ; then
@@ -49,6 +49,7 @@ deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted univ
 deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
 EOF
     fi
+    apt-get -y update
 fi
 
 # Fedora image doesn't come with wget
@@ -159,7 +160,7 @@ dig git.openstack.org
 
 # Cache all currently known gerrit repos.
 sudo mkdir -p /opt/git
-sudo -i python /opt/nodepool-scripts/cache_git_repos.py $GIT_BASE
+sudo -i python /opt/nodepool-scripts/cache_git_repos.py $GIT_MIRROR_BASE
 
 # We don't always get ext4 from our clouds, mount ext3 as ext4 on the next
 # boot (eg when this image is used for testing).
