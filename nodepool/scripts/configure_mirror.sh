@@ -52,7 +52,8 @@ deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted univ
 deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
 EOF
 fi
+apt-get -y update
 
 GIT_BASE=${GIT_BASE:-git://git.openstack.org}
-GIT_MIRROR_BASE=${GIT_BASE:-http://git-openstack.boi.a10networks.com}
+GIT_MIRROR_BASE=${GIT_MIRROR_BASE:-http://git-openstack.boi.a10networks.com}
 git config --global url.${GIT_MIRROR_BASE}/.insteadOf ${GIT_BASE}/
