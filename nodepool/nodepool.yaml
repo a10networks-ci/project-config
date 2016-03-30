@@ -22,41 +22,17 @@ labels:
   - name: devstack-trusty
     image: devstack-trusty
     ready-script: configure_mirror.sh
-    min-ready: 24
-    providers:
-      - name: local_02
-  - name: devstack-boi-trusty
-    image: devstack-boi-trusty
-    ready-script: configure_mirror.sh
-    min-ready: 1
+    min-ready: 64
     providers:
       - name: local_02
   - name: bare-trusty
     image: bare-trusty
     ready-script: configure_mirror.sh
-    min-ready: 6
-    providers:
-      - name: local_02
-  - name: native-trusty
-    image: native-trusty
-    ready-script: configure_mirror.sh
-    min-ready: 1
+    min-ready: 8
     providers:
       - name: local_02
 
 diskimages:
-  # - name: dpc
-  #   elements:
-  #     - ubuntu
-  #     - vm
-  #     - openstack-repos
-  #     - puppet
-  #     - nodepool-base
-  #     - node-devstack
-  #   release: trusty
-  #   env-vars:
-  #     TMPDIR: /opt/dib_tmp
-  #     DIB_IMAGE_CACHE: /opt/dib_cache
   - name: bare-trusty
     elements:
       - ubuntu-minimal
@@ -88,22 +64,6 @@ diskimages:
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
       QEMU_IMG_OPTIONS: compat=0.10
-  - name: devstack-boi-trusty
-    elements:
-      - ubuntu
-      - vm
-      - pypi
-      - openstack-repos
-      - nodepool-base
-      - node-devstack
-      - cache-bindep
-    release: trusty
-    env-vars:
-      TMPDIR: /opt/dib_tmp
-      DIB_IMAGE_CACHE: /opt/dib_cache
-      DIB_APT_LOCAL_CACHE: '0'
-      DIB_DISABLE_APT_CLEANUP: '1'
-      DIB_PYPI_MIRROR_URL: 'http://mirror.boi.a10networks.com:81/simple/'
 
 providers:
   - name: local_02
@@ -123,24 +83,10 @@ providers:
         setup: prepare_node_devstack.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
-      - name: devstack-boi-trusty
-        name-filter: jenkins.medium
-        min-ram: 4000
-        diskimage: devstack-boi-trusty
-        setup: prepare_node_devstack.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
       - name: bare-trusty
         name-filter: jenkins.small
         min-ram: 2000
         diskimage: bare-trusty
-        setup: prepare_node_bare.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
-      - name: native-trusty
-        base-image: '4f4f486f-e43c-4aa2-9814-53aa77b3dd9d'
-        name-filter: jenkins.small
-        min-ram: 2000
         setup: prepare_node_bare.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
