@@ -113,7 +113,7 @@ providers:
     project-id: 3b9cd8bc8bc94ba9aea326990aba7f7a
     max-servers: 48
     networks:
-      - name: 'quarantine-net'
+      - name: 'quarantine3-net'
         public: True
     images:
       - name: devstack-trusty
