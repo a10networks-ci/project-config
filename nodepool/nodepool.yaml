@@ -22,13 +22,19 @@ labels:
   - name: devstack-trusty
     image: devstack-trusty
     ready-script: configure_mirror.sh
-    min-ready: 64
+    min-ready: 32
     providers:
       - name: local_02
   - name: bare-trusty
     image: bare-trusty
     ready-script: configure_mirror.sh
-    min-ready: 8
+    min-ready: 6
+    providers:
+      - name: local_02
+  - name: prod-icehouse
+    image: prod-icehouse
+    ready-script: configure_mirror.sh
+    min-ready: 1
     providers:
       - name: local_02
 
@@ -67,17 +73,19 @@ diskimages:
 
 providers:
   - name: local_02
+    boot-timeout: 240
+    launch-timeout: 900
     auth-url: 'http://10.48.1.6:5000/v2.0'
     username: os-jenkins
     password: 0e8d15309ea30a8aebfa2f098ad4d121
     project-id: 3b9cd8bc8bc94ba9aea326990aba7f7a
-    max-servers: 48
+    max-servers: 80
     networks:
       - name: 'quarantine3-net'
         public: True
     images:
       - name: devstack-trusty
-        name-filter: jenkins.medium
+        name-filter: jenkins.dsvm
         min-ram: 4000
         diskimage: devstack-trusty
         setup: prepare_node_devstack.sh
@@ -88,6 +96,13 @@ providers:
         min-ram: 2000
         diskimage: bare-trusty
         setup: prepare_node_bare.sh
+        username: jenkins
+        private-key: /home/nodepool/.ssh/id_rsa
+      - name: prod-icehouse
+        name-filter: jenkins.osprod
+        min-ram: 4096
+        base-image: 'bf327f61-0450-48de-8837-f717c314ec3e'
+        setup: prepare_node_osprod.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
 
