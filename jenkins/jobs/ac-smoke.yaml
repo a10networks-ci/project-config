@@ -14,7 +14,7 @@
             skip-tag: true
 
     builders:
-        - shell:
+        - shell: |
             #!/bin/bash -x
 
             sudo pip install -e .
