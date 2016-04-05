@@ -17,7 +17,10 @@
         - shell: |
             #!/bin/bash -x
 
-            sudo pip install -e .
+            mkdir v
+            virtualenv v
+            . v/bin/activate
+            pip install -e .
 
             export ACOS_VERSION={acos-version}
             z=$(echo $ACOS_VERSION | cut -c-1)
