@@ -1,0 +1,59 @@
+
+- job-template:
+    name: master-acos-client-smoke-{acos-version}
+    node: acos-client-smoke
+    concurrent: false
+
+    properties:
+        - github:
+            url: '{github-url}'
+
+    scm:
+        - git:
+            url: '{github-url}.git'
+            skip-tag: true
+
+    builders:
+        - shell: |
+            #!/bin/bash -x
+
+            sudo pip install -e .
+
+            export ACOS_VERSION={acos-version}
+            z=$(echo $ACOS_VERSION | cut -c-1)
+            if [ "$z" != "2" ]; then
+                export AXAPI_VERSION='3.0'
+            else
+                export AXAPI_VERSION='2.1'
+            fi
+
+            case $ACOS_VERSION in
+            272)
+                ACOS_HOST=10.48.7.98
+                ;;
+            272p7sp3)
+                ACOS_HOST=10.48.7.151
+                ;;
+            401)
+                ACOS_HOST=10.48.7.100
+                ;;
+            403)
+                ACOS_HOST=10.48.7.99
+                ;;
+            410)
+                ACOS_HOST=10.48.7.152
+                ;;
+            *)
+                echo "error: unknown acos-version $ACOS_VERSION"
+                exit 1
+                ;;
+            esac
+
+            python acos_client/tests/t.py --axapi-version $AXAPI_VERSION --partition all $ACOS_HOST
+            exit $?
+
+    publishers:
+        - console-log
+
+    # triggers:
+    #     - github
