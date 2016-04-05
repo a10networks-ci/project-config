@@ -87,7 +87,8 @@
           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
 
           export ACOS_VERSION={acos-version}
-          if [ $ACOS_VERSION -ge 400 ]; then
+          z=$(echo $ACOS_VERSION | cut -c-1)
+          if [ "$z" != "2" ]; then
               export AXAPI_VERSION='3.0'
           else
               export AXAPI_VERSION='2.1'
