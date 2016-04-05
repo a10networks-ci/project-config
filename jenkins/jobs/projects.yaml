@@ -190,6 +190,20 @@
             devstack-branch: 'stable/liberty'
 
 - project:
+    name: acos-client-smoke
+    github-url: https://github.com/a10networks/acos-client
+
+    acos-version:
+        - '272'
+        - '272p7sp3'
+        - '401'
+        - '403'
+        - '410'
+
+    jobs:
+        - 'master-acos-client-smoke-{acos-version}'
+
+- project:
     name: neutron-lbaas
     node: devstack-trusty
 

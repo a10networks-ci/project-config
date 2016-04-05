@@ -117,6 +117,52 @@
         - slack-notify
 
 - job:
+    name: experimental-master-acos-client
+    project-type: multijob
+    node: master
+    concurrent: false
+
+    wrappers:
+      - timeout:
+          timeout: 605
+          fail: true
+
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/acos-client'
+        - slack-config
+
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/acos-client.git'
+            skip-tag: true
+
+    builders:
+        - multijob:
+            name: experimental-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: master-acos-client-smoke-272
+                  current-parameters: true
+                  git-revision: true
+                - name: master-acos-client-smoke-272p7sp3
+                  current-parameters: true
+                  git-revision: true
+                - name: master-acos-client-smoke-401
+                  current-parameters: true
+                  git-revision: true
+                - name: master-acos-client-smoke-403
+                  current-parameters: true
+                  git-revision: true
+                - name: master-acos-client-smoke-410
+                  current-parameters: true
+                  git-revision: true
+
+    publishers:
+        - slack-notify
+
+
+- job:
     name: pulls-batch-acos-client
     project-type: multijob
     node: master
