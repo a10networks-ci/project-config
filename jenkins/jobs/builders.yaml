@@ -24,6 +24,31 @@
           fi
 
 - builder:
+    name: devstack-checkout-fork
+    builders:
+      - shell: |
+          #!/bin/bash -xe
+          if [[ ! -e devstack-gate ]]; then
+              git clone https://github.com/a10networks-ci/devstack-gate.git
+          else
+              cd devstack-gate
+              git remote set-url origin https://github.com/a10networks-ci/devstack-gate.git
+              git remote update
+              git reset --hard
+              if ! git clean -x -f ; then
+                  sleep 1
+                  git clean -x -f
+              fi
+              git checkout master
+              git reset --hard remotes/origin/master
+              if ! git clean -x -f ; then
+                  sleep 1
+                  git clean -x -f
+              fi
+              cd ..
+          fi
+
+- builder:
     name: devstack-checkout-http
     builders:
       - shell: |
