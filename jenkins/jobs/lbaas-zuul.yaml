@@ -12,6 +12,7 @@
           template-name: "{template-name}"
       - link-logs
       - net-info
+      - install-pyjobs-dev-libs
       - devstack-checkout
       - shell: |
           #!/bin/bash -xe
