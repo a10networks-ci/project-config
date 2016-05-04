@@ -24,6 +24,7 @@
       - link-logs
       - net-info
       - devstack-checkout-fork
+      - install-pyjobs-dev-libs
       - shell: |
           #!/bin/bash -xe
 
