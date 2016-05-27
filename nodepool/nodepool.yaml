@@ -22,7 +22,7 @@ labels:
   - name: devstack-trusty
     image: devstack-trusty
     ready-script: configure_mirror.sh
-    min-ready: 24
+    min-ready: 20
     providers:
       - name: local_02
   - name: bare-trusty
