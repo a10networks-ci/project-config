@@ -1,0 +1,57 @@
+- job-template:
+    name: 'a10-octavia-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
+    node: '{node}'
+
+    wrappers:
+      - build-timeout:
+          timeout: 125
+      - timestamps
+
+    builders:
+      - link-logs
+      - net-info
+      - devstack-checkout
+      - shell: |
+          #!/bin/bash -xe
+
+          SLAVE_SCRIPT_URL="https://github.com/a10networks-ci/slave-scripts.git"
+          export SLAVE_SCRIPT_DIR=/usr/local/a10-ci
+          sudo mkdir $SLAVE_SCRIPT_DIR
+          sudo chmod a+rwx $SLAVE_SCRIPT_DIR
+          git clone $SLAVE_SCRIPT_URL $SLAVE_SCRIPT_DIR
+
+          export PYTHONUNBUFFERED=true
+          export DEVSTACK_GATE_TEMPEST=1
+          export DEVSTACK_GATE_NEUTRON=1
+          export DEVSTACK_GATE_TEMPEST_ALL_PLUGINS=1
+          export BRANCH_OVERRIDE={branch-override}
+          if [ "$BRANCH_OVERRIDE" != "default" ] ; then
+              export OVERRIDE_ZUUL_BRANCH=$BRANCH_OVERRIDE
+          fi
+          export PROJECTS="openstack/barbican $PROJECTS"
+          export PROJECTS="openstack/python-barbicanclient $PROJECTS"
+
+          export ACOS_VERSION={acos-version}
+          z=$(echo $ACOS_VERSION | cut -c-1)
+          if [ "$z" != "2" ]; then
+              export AXAPI_VERSION='3.0'
+          else
+              export AXAPI_VERSION='2.1'
+          fi
+
+          function pre_test_hook {{
+              . $SLAVE_SCRIPT_DIR/pre_test_hook.sh lbaasv2 {lbaastest}
+              . $SLAVE_SCRIPT_DIR/octavia/pre_test_hook.sh
+          }}
+          export -f pre_test_hook
+
+          $SLAVE_SCRIPT_DIR/pre_setup_hook.sh lbaasv2 {lbaastest}
+
+          cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
+          ./safe-devstack-vm-gate-wrap.sh
+
+          $SLAVE_SCRIPT_DIR/post_cleanup_hook.sh lbaasv2 {lbaastest}
+
+    publishers:
+      - devstack-logs
+      - console-log

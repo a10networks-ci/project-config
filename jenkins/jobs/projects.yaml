@@ -232,3 +232,17 @@
           branch-override: default
           lbaasversion: lbaasv1
           lbaastest: api
+
+- project:
+    name: octavia
+    node: devstack-trusty
+
+    branch-override: default
+    job-suffix: ''
+    lbaastest: api
+
+    acos-version:
+        - '401'
+
+    jobs:
+      - 'a10-octavia-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
