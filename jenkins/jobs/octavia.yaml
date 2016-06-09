@@ -1,5 +1,5 @@
 - job-template:
-    name: '{pipeline}-tempest-dsvm-octavia{job-suffix}'
+    name: 'a10-octavia-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
     node: '{node}'
 
     wrappers:
@@ -45,12 +45,12 @@
           }}
           export -f pre_test_hook
 
-          $SLAVE_SCRIPT_DIR/pre_setup_hook.sh {lbaasversion} {lbaastest}
+          $SLAVE_SCRIPT_DIR/pre_setup_hook.sh lbaasv2 {lbaastest}
 
           cp devstack-gate/devstack-vm-gate-wrap.sh ./safe-devstack-vm-gate-wrap.sh
           ./safe-devstack-vm-gate-wrap.sh
 
-          $SLAVE_SCRIPT_DIR/post_cleanup_hook.sh {lbaasversion} {lbaastest}
+          $SLAVE_SCRIPT_DIR/post_cleanup_hook.sh lbaasv2 {lbaastest}
 
     publishers:
       - devstack-logs

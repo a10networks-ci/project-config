@@ -102,7 +102,7 @@ projects:
 
   - name: openstack/octavia
     check:
-      - a10-lbaasv2-dsvm-api-acos-401
+      - a10-octavia-dsvm-api-acos-401
 
 #      - noop-check-communication
 #    silent:
