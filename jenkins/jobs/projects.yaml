@@ -248,3 +248,4 @@
 
     jobs:
       - 'a10-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
+      - 'a10-octavia-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}'
