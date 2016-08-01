@@ -65,6 +65,9 @@
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: '-liberty'
             devstack-branch: 'stable/liberty'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-mitaka'
+            devstack-branch: 'stable/mitaka'
 
 - project:
     name: a10-neutron-lbaas-dsvm-double
@@ -157,6 +160,9 @@
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: '-liberty'
             devstack-branch: 'stable/liberty'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-mitaka'
+            devstack-branch: 'stable/mitaka'
 
 - project:
     name: acos-client-dsvm
@@ -188,6 +194,9 @@
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: '-liberty'
             devstack-branch: 'stable/liberty'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-mitaka'
+            devstack-branch: 'stable/mitaka'
 
 - project:
     name: acos-client-smoke

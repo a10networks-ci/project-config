@@ -54,6 +54,9 @@
                 - name: master-acos-client-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
+                - name: master-acos-client-lbaasv1-dsvm-api-acos-272-mitaka
+                  current-parameters: true
+                  git-revision: true
                 - name: master-acos-client-lbaasv1-dsvm-api-acos-403
                   current-parameters: true
                   git-revision: true
@@ -67,10 +70,16 @@
                 - name: master-acos-client-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
+                - name: master-acos-client-lbaasv2-dsvm-api-acos-272-mitaka
+                  current-parameters: true
+                  git-revision: true
                 - name: master-acos-client-lbaasv2-dsvm-api-acos-403
                   current-parameters: true
                   git-revision: true
                 - name: master-acos-client-lbaasv2-dsvm-api-acos-403-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-acos-client-lbaasv2-dsvm-api-acos-403-mitaka
                   current-parameters: true
                   git-revision: true
 
@@ -103,6 +112,9 @@
                   current-parameters: true
                   git-revision: true
                 - name: master-ac-double-lbaasv2-dsvm-api-acos-403-liberty
+                  current-parameters: true
+                  git-revision: true
+                - name: master-ac-double-lbaasv2-dsvm-api-acos-403-mitaka
                   current-parameters: true
                   git-revision: true
 
@@ -203,6 +215,8 @@
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
+                - name: pulls-acos-client-lbaasv1-dsvm-api-acos-272-mitaka
+                  current-parameters: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-403
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv1-dsvm-api-acos-403-liberty
@@ -216,6 +230,8 @@
                   current-parameters: true
                 - name: pulls-acos-client-lbaasv2-dsvm-api-acos-403-liberty
                   current-parameters: true
+                - name: pulls-acos-client-lbaasv2-dsvm-api-acos-403-mitaka
+                  current-parameters: true
 
                 - name: pulls-ac-double-lbaasv1-dsvm-api-acos-272
                   current-parameters: true
@@ -227,6 +243,8 @@
                   current-parameters: true
                 - name: pulls-ac-double-lbaasv1-dsvm-api-acos-403-liberty
                   current-parameters: true
+                - name: pulls-ac-double-lbaasv1-dsvm-api-acos-403-mitaka
+                  current-parameters: true
 
                 - name: pulls-ac-double-lbaasv2-dsvm-api-acos-272
                   current-parameters: true
@@ -237,6 +255,8 @@
                 - name: pulls-ac-double-lbaasv2-dsvm-api-acos-403
                   current-parameters: true
                 - name: pulls-ac-double-lbaasv2-dsvm-api-acos-403-liberty
+                  current-parameters: true
+                - name: pulls-ac-double-lbaasv2-dsvm-api-acos-403-mitaka
                   current-parameters: true
 
                 - name: pulls-ac-double-lbaasv1-dsvm-api-acos-401
