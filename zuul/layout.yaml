@@ -73,13 +73,14 @@ jobs:
   #   branch: (master|stable\/kilo)
   #   voting: false
   - name: ^a10-lbaasv1.*$
-    branch: ^(?!stable/kilo).*$
+    branch: stable/(liberty|mitaka)
     parameter-function: single_use_node
   - name: ^a10-lbaasv2.*$
     branch: ^(?!stable/kilo).*$
     parameter-function: single_use_node
   - name: ^gate-neutron-lbaasv1-dsvm-api$
-    branch: ^(?!stable/kilo).*$
+    branch: stable/(liberty|mitaka)
+    parameter-function: single_use_node
 
 projects:
 #  - name: openstack-dev/ci-sandbox
