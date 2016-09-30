@@ -22,13 +22,13 @@ labels:
   - name: devstack-trusty
     image: devstack-trusty
     ready-script: configure_mirror.sh
-    min-ready: 20
+    min-ready: 1
     providers:
       - name: local_02
   - name: bare-trusty
     image: bare-trusty
     ready-script: configure_mirror.sh
-    min-ready: 4
+    min-ready: 1
     providers:
       - name: local_02
   - name: prod-icehouse
