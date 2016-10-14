@@ -4,7 +4,7 @@
     builders:
       - shell: |
           sudo apt-get -y update
-          sudo apt-get -y install -y libffi-dev libssl-dev
+          sudo apt-get -y install -y libffi-dev libssl-dev mysql-server-core
 
 - job-template:
     name: 'master-{name}-coverage'
