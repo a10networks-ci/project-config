@@ -38,16 +38,10 @@
             name: dsvm-phase
             condition: SUCCESSFUL
             projects:
-                - name: master-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
-                  current-parameters: true
-                  git-revision: true
                 - name: master-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
                   current-parameters: true
                   git-revision: true
 
-                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272
-                  current-parameters: true
-                  git-revision: true
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
                   current-parameters: true
                   git-revision: true
@@ -57,13 +51,7 @@
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272p7sp3
-                  current-parameters: true
-                  git-revision: true
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272p7sp3
-                  current-parameters: true
-                  git-revision: true
-                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
                   git-revision: true
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
@@ -75,9 +63,6 @@
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
                   git-revision: true
-                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403
-                  current-parameters: true
-                  git-revision: true
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403
                   current-parameters: true
                   git-revision: true
@@ -85,9 +70,6 @@
                   current-parameters: true
                   git-revision: true
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403-liberty
-                  current-parameters: true
-                  git-revision: true
-                - name: master-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
                   current-parameters: true
                   git-revision: true
                 - name: master-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
@@ -100,13 +82,7 @@
                   current-parameters: true
                   git-revision: true
 
-                - name: master-double-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272
-                  current-parameters: true
-                  git-revision: true
                 - name: master-double-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
-                  current-parameters: true
-                  git-revision: true
-                - name: master-double-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
                   current-parameters: true
                   git-revision: true
                 - name: master-double-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
@@ -150,24 +126,16 @@
             name: dsvm-phase
             condition: SUCCESSFUL
             projects:
-                - name: pulls-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
-                  current-parameters: true
                 - name: pulls-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
                   current-parameters: true
 
-                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272
-                  current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272-liberty
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272-liberty
                   current-parameters: true
-                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-272p7sp3
-                  current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-272p7sp3
-                  current-parameters: true
-                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-401
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401
                   current-parameters: true
@@ -175,15 +143,11 @@
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-401-liberty
                   current-parameters: true
-                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403
-                  current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-403-liberty
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-403-liberty
-                  current-parameters: true
-                - name: pulls-db-a10-neutron-lbaas-lbaasv1-dsvm-api-acos-410
                   current-parameters: true
                 - name: pulls-db-a10-neutron-lbaas-lbaasv2-dsvm-api-acos-410
                   current-parameters: true
