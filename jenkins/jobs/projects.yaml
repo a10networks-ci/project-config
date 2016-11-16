@@ -1,5 +1,14 @@
 
 - project:
+    name: a10-neutronclient
+    github-url: https://github.com/a10networks/a10-neutronclient
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+
+- project:
     name: a10-neutron-lbaas
     github-url: https://github.com/a10networks/a10-neutron-lbaas
     node: bare-trusty
