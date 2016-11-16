@@ -1,14 +1,5 @@
 
 - project:
-    name: a10-neutronclient
-    github-url: https://github.com/a10networks/a10-neutronclient
-    node: bare-trusty
-
-    jobs:
-        - python-jobs
-        - python-pull-request-jobs
-
-- project:
     name: a10-neutron-lbaas
     github-url: https://github.com/a10networks/a10-neutron-lbaas
     node: bare-trusty
@@ -107,6 +98,15 @@
 # Kilo had lbaasv2, but no tempest jobs.
 # But, we can scrounge some kilo and before jobs from an old tempest.
 # TODO -- backport lbaasv2 tests into kilo?!?
+
+- project:
+    name: a10-neutronclient
+    github-url: https://github.com/a10networks/a10-neutronclient
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
 
 - project:
     name: a10-openstack
