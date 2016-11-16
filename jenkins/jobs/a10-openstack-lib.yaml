@@ -1,0 +1,62 @@
+
+- job:
+    name: batch-master-a10-openstack-lib
+    project-type: multijob
+    node: master
+    concurrent: false
+
+    wrappers:
+      - timeout:
+          timeout: 605
+          fail: true
+
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/a10-openstack-lib'
+
+    scm:
+        - git:
+            url: 'https://github.com/a10networks/a10-openstack-lib.git'
+            skip-tag: true
+
+    triggers:
+        - github
+
+    builders:
+        - multijob:
+            name: bare-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: master-a10-openstack-lib-pep8
+                  current-parameters: true
+                  git-revision: true
+                - name: master-a10-openstack-lib-python27
+                  current-parameters: true
+                  git-revision: true
+
+- job:
+    name: pulls-batch-a10-openstack-lib
+    project-type: multijob
+    node: master
+
+    wrappers:
+      - timeout:
+          timeout: 605
+          fail: true
+
+    properties:
+        - github:
+            url: 'https://github.com/a10networks/a10-openstack-lib'
+
+    triggers:
+        - github-pull-requests
+
+    builders:
+        - multijob:
+            name: base-phase
+            condition: SUCCESSFUL
+            projects:
+                - name: pulls-a10-openstack-lib-pep8
+                  current-parameters: true
+                - name: pulls-a10-openstack-lib-python27
+                  current-parameters: true

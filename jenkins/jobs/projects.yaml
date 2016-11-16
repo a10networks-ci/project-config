@@ -109,6 +109,15 @@
         - python-pull-request-jobs
 
 - project:
+    name: a10-openstack-lib
+    github-url: https://github.com/a10networks/a10-openstack-lib
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+
+- project:
     name: a10-project-config
     github-url: https://github.com/a10networks-ci/project-config
 
