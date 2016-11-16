@@ -100,8 +100,26 @@
 # TODO -- backport lbaasv2 tests into kilo?!?
 
 - project:
+    name: a10-neutronclient
+    github-url: https://github.com/a10networks/a10-neutronclient
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+
+- project:
     name: a10-openstack
     github-url: https://github.com/a10networks/a10-openstack
+    node: bare-trusty
+
+    jobs:
+        - python-jobs
+        - python-pull-request-jobs
+
+- project:
+    name: a10-openstack-lib
+    github-url: https://github.com/a10networks/a10-openstack-lib
     node: bare-trusty
 
     jobs:
