@@ -16,6 +16,7 @@
                 ZUUL_BRANCH={devstack-branch}
                 ACOS_CLIENT_GIT={acos-client-git}
                 A10_NEUTRON_LBAAS_GIT={a10-neutron-lbaas-git}
+                A10_OPENSTACK_LIB_GIT={a10-openstack-lib-git}
                 A10_USE_DATABASE={a10-use-database}
 
     builders:

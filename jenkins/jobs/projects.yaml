@@ -16,6 +16,7 @@
     node: devstack-trusty
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+    a10-openstack-lib-git: 'https://github.com/a10networks/a10-openstack-lib.git'
     acos-client-git: ''
     a10-use-database: ''
     branch-override: default
@@ -40,6 +41,7 @@
     node: devstack-trusty
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
+    a10-openstack-lib-git: 'https://github.com/a10networks/a10-openstack-lib.git'
     acos-client-git: ''
     a10-use-database: '1'
     branch-override: default
@@ -76,6 +78,7 @@
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
     acos-client-git: 'https://github.com/a10networks/acos-client.git'
+    a10-openstack-lib-git: 'https://github.com/a10networks/a10-openstack-lib.git'
     a10-use-database: '1'
     branch-override: default
     lbaastest: api
@@ -156,6 +159,7 @@
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
     acos-client-git: 'https://github.com/a10networks/acos-client.git'
+    a10-openstack-lib-git: 'https://github.com/a10networks/a10-openstack-lib.git'
     a10-use-database: '1'
     branch-override: default
     lbaastest: api
@@ -190,6 +194,7 @@
     node: devstack-trusty
 
     a10-neutron-lbaas-git: ''
+    a10-openstack-lib-git: ''
     acos-client-git: 'https://github.com/a10networks/acos-client.git'
     a10-use-database: ''
     branch-override: default
