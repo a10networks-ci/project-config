@@ -125,6 +125,8 @@
     jobs:
         - python-jobs
         - python-pull-request-jobs
+        - 'master-{name}-python26'
+        - 'pulls-{name}-python26'
 
 - project:
     name: a10-project-config
