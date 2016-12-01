@@ -126,8 +126,8 @@
     node: bare-trusty
 
     jobs:
-        - 'master-a10-openstack-lib-python26'
-        - 'pulls-a10-openstack-lib-python26'
+        - 'master-a10-openstack-lib-python27'
+        - 'pulls-a10-openstack-lib-python27'
         - 'master-a10-openstack-lib-pep8'
         - 'pulls-a10-openstack-lib-pep8'
 
