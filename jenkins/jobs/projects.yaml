@@ -126,11 +126,12 @@
     node: bare-trusty
 
     jobs:
+        - python-jobs
         - 'master-a10-openstack-lib-python27'
-        - 'pulls-a10-openstack-lib-python27'
         - 'master-a10-openstack-lib-pep8'
+        - python-pull-request-jobs
         - 'pulls-a10-openstack-lib-pep8'
-
+        - 'pulls-a10-openstack-lib-python27'
 - project:
     name: a10-project-config
     github-url: https://github.com/a10networks-ci/project-config
