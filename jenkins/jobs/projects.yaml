@@ -126,10 +126,10 @@
     node: bare-trusty
 
     jobs:
-        - python-jobs
-        - python-pull-request-jobs
-        - 'master-{name}-python26'
-        - 'pulls-{name}-python26'
+        - 'master-a10-openstack-lib-python26'
+        - 'pulls-a10-openstack-lib-python26'
+        - 'master-a10-openstack-lib-pep8'
+        - 'pulls-a10-openstack-lib-pep8'
 
 - project:
     name: a10-project-config
