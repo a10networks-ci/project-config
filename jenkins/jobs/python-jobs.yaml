@@ -6,7 +6,7 @@
           sudo apt-get -y update
           echo 'mysql-server mysql-server/root_password password secretmysql' | sudo debconf-set-selections
           echo 'mysql-server mysql-server/root_password_again password secretmysql' | sudo debconf-set-selections
-
+          echo 'Noop to kick puppet' >/dev/null
           sudo apt-get -y install -y libffi-dev libssl-dev mysql-server
 
 - job-template:
