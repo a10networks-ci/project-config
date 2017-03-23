@@ -28,7 +28,7 @@ labels:
   - name: bare-trusty
     image: bare-trusty
     ready-script: configure_mirror.sh
-    min-ready: 4
+    min-ready: 1 
     providers:
       - name: local_02
   - name: devstack-xenial
