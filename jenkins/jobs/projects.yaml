@@ -220,12 +220,12 @@
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
             job-suffix: '-legacy'
             devstack-branch: 'stable/mitaka'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-maintenance'
-            devstack-branch: 'stable/newton'
-        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-latest'
-            devstack-branch: 'stable/ocata'
+#        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+#            job-suffix: '-maintenance'
+#            devstack-branch: 'stable/newton'
+#        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+#            job-suffix: '-latest'
+#            devstack-branch: 'stable/ocata'
 
 - project:
     name: acos-client-smoke
