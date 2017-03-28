@@ -50,6 +50,8 @@
           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
           export PROJECTS="a10networks/a10-neutron-lbaas $PROJECTS"
           export OVERRIDE_A0_NEUTRON_LBAAS_GIT_BASE="https://github.com"
+          export A10_SERVICE_PROVIDER_V1="LOADBALANCER:A10Networks:neutron_lbaas.services.loadbalancer.drivers.a10networks.driver_v1.ThunderDriver:default"
+          export A10_SERVICE_PROVIDER_V2="LOADBALANCERV2:A10Networks:neutron_lbaas.drivers.a10networks.driver_v2.ThunderDriver:default"
           export ACOS_VERSION={acos-version}
           z=$(echo $ACOS_VERSION | cut -c-1)
           if [ "$z" != "2" ]; then
