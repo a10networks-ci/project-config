@@ -49,7 +49,7 @@
           export PROJECTS="openstack/barbican $PROJECTS"
           export PROJECTS="openstack/python-barbicanclient $PROJECTS"
           export PROJECTS="a10networks/a10-neutron-lbaas $PROJECTS"
-
+          export OVERRIDE_A0_NEUTRON_LBAAS_GIT_BASE="https://github.com"
           export ACOS_VERSION={acos-version}
           z=$(echo $ACOS_VERSION | cut -c-1)
           if [ "$z" != "2" ]; then
