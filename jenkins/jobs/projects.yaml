@@ -65,10 +65,10 @@
             job-suffix: ''
             devstack-branch: master
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-liberty'
+            job-suffix: '-eol-liberty'
             devstack-branch: 'stable/liberty'
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-mitaka'
+            job-suffix: '-legacy'
             devstack-branch: 'stable/mitaka'
 
 - project:
@@ -180,10 +180,10 @@
             job-suffix: ''
             devstack-branch: master
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-liberty'
+            job-suffix: '-eol-liberty'
             devstack-branch: 'stable/liberty'
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-mitaka'
+            job-suffix: '-legacy'
             devstack-branch: 'stable/mitaka'
 
 - project:
@@ -215,11 +215,17 @@
             job-suffix: ''
             devstack-branch: master
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-liberty'
+            job-suffix: '-eol-liberty'
             devstack-branch: 'stable/liberty'
         - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
-            job-suffix: '-mitaka'
+            job-suffix: '-legacy'
             devstack-branch: 'stable/mitaka'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-maintenance'
+            devstack-branch: 'stable/newton'
+        - '{which}-{lbaasversion}-dsvm-{lbaastest}-acos-{acos-version}{job-suffix}':
+            job-suffix: '-latest'
+            devstack-branch: 'stable/ocata'
 
 - project:
     name: acos-client-smoke
