@@ -37,6 +37,13 @@ labels:
     min-ready: 4
     providers:
       - name: local_02
+  - name: bare-xenial
+    image: bare-xenial
+    ready-script: configure_mirror.sh
+    min-ready: 1
+    providers:
+      - name: local_02
+
   - name: prod-icehouse
     image: prod-icehouse
     ready-script: configure_mirror.sh
