@@ -1,6 +1,6 @@
 - defaults:
     name: global
-    node: bare-trusty
+    node: bare-xenial
     description: |
       <p><b>This job is managed by puppet and will be overwritten.</b></p>
 
