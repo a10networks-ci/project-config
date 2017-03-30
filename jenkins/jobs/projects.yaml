@@ -2,7 +2,7 @@
 - project:
     name: a10-neutron-lbaas
     github-url: https://github.com/a10networks/a10-neutron-lbaas
-    node: bare-trusty
+    node: bare-xenial
 
     jobs:
         - python-jobs
@@ -13,7 +13,7 @@
 - project:
     name: a10-neutron-lbaas-dsvm
     github-url: https://github.com/a10networks/a10-neutron-lbaas
-    node: devstack-trusty
+    node: devstack-xenial
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
     a10-openstack-lib-git: 'https://github.com/a10networks/a10-openstack-lib.git'
@@ -38,7 +38,7 @@
 - project:
     name: a10-neutron-lbaas-dsvm-db
     github-url: https://github.com/a10networks/a10-neutron-lbaas
-    node: devstack-trusty
+    node: devstack-xenial
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
     a10-openstack-lib-git: 'https://github.com/a10networks/a10-openstack-lib.git'
@@ -74,7 +74,7 @@
 - project:
     name: a10-neutron-lbaas-dsvm-double
     github-url: https://github.com/a10networks/a10-neutron-lbaas
-    node: devstack-trusty
+    node: devstack-xenial
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
     acos-client-git: 'https://github.com/a10networks/acos-client.git'
@@ -105,7 +105,7 @@
 - project:
     name: a10-neutronclient
     github-url: https://github.com/a10networks/a10-neutronclient
-    node: bare-trusty
+    node: bare-xenial
 
     jobs:
         - python-jobs
@@ -114,7 +114,7 @@
 - project:
     name: a10-openstack
     github-url: https://github.com/a10networks/a10-openstack
-    node: bare-trusty
+    node: bare-xenial
 
     jobs:
         - python-jobs
@@ -123,7 +123,7 @@
 - project:
     name: a10-openstack-lib
     github-url: https://github.com/a10networks/a10-openstack-lib
-    node: bare-trusty
+    node: bare-xenial
 
     jobs:
         - python-jobs
@@ -140,7 +140,7 @@
 - project:
     name: acos-client
     github-url: https://github.com/a10networks/acos-client
-    node: bare-trusty
+    node: bare-xenial
 
     jobs:
         - python-jobs
@@ -153,7 +153,7 @@
 - project:
     name: acos-client-double-dsvm
     github-url: https://github.com/a10networks/acos-client
-    node: devstack-trusty
+    node: devstack-xenial
 
     a10-neutron-lbaas-git: 'https://github.com/a10networks/a10-neutron-lbaas.git'
     acos-client-git: 'https://github.com/a10networks/acos-client.git'
@@ -189,7 +189,7 @@
 - project:
     name: acos-client-dsvm
     github-url: https://github.com/a10networks/acos-client
-    node: devstack-trusty
+    node: devstack-xenial
 
     a10-neutron-lbaas-git: ''
     a10-openstack-lib-git: ''
@@ -243,7 +243,7 @@
 
 - project:
     name: neutron-lbaas
-    node: devstack-trusty
+    node: devstack-xenial
 
     branch-override: default
     job-suffix: ''
@@ -261,7 +261,7 @@
 
 - project:
     name: neutron-lbaas-openstack
-    node: devstack-trusty
+    node: devstack-xenial
 
     jobs:
       - '{pipeline}-neutron-{lbaasversion}-dsvm-{lbaastest}{job-suffix}':
@@ -273,7 +273,7 @@
 
 - project:
     name: octavia
-    node: devstack-trusty
+    node: devstack-xenial
 
     branch-override: default
     job-suffix: ''

@@ -28,6 +28,12 @@ labels:
   - name: bare-trusty
     image: bare-trusty
     ready-script: configure_mirror.sh
+    min-ready: 1 
+    providers:
+      - name: local_02
+  - name: devstack-xenial
+    image: devstack-xenial
+    ready-script: configure_mirror.sh
     min-ready: 4
     providers:
       - name: local_02
@@ -55,6 +61,22 @@ diskimages:
       DIB_IMAGE_CACHE: /opt/dib_cache
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
+  - name: bare-xenial
+    elements:
+      - ubuntu-minimal
+      - vm
+      - simple-init
+      - openstack-repos
+      - nodepool-base
+      - node-devstack
+      - cache-bindep
+      - growroot
+    release: xenial
+    env-vars:
+      TMPDIR: /opt/dib_tmp
+      DIB_IMAGE_CACHE: /opt/dib_cache
+      DIB_APT_LOCAL_CACHE: '0'
+      DIB_DISABLE_APT_CLEANUP: '1'
   - name: devstack-trusty
     elements:
       - ubuntu
@@ -70,6 +92,21 @@ diskimages:
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
       QEMU_IMG_OPTIONS: compat=0.10
+   - name: devstack-xenial
+     elements:
+       - ubuntu
+       - vm
+       - openstack-repos
+       - nodepool-base
+       - node-devstack
+       - cache-bindep
+     release: xenial
+     env-vars:
+       TMPDIR: /opt/dib_tmp
+       DIB_IMAGE_CACHE: /opt/dib_cache
+       DIB_APT_LOCAL_CACHE: '0'
+       DIB_DISABLE_APT_CLEANUP: '1'
+       QEMU_IMG_OPTIONS: compat=0.10
 
 providers:
   - name: local_02
@@ -96,6 +133,20 @@ providers:
         name-filter: jenkins.small
         min-ram: 2000
         diskimage: bare-trusty
+        setup: prepare_node_bare.sh
+        username: jenkins
+        private-key: /home/nodepool/.ssh/id_rsa
+      - name: devstack-xenial
+        name-filter: jenkins.dsvm
+        min-ram: 4000
+        diskimage: devstack-xenial
+        setup: prepare_node_devstack.sh
+        username: jenkins
+        private-key: /home/nodepool/.ssh/id_rsa
+      - name: bare-xenial
+        name-filter: jenkins.small
+        min-ram: 2000
+        diskimage: bare-xenial
         setup: prepare_node_bare.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
