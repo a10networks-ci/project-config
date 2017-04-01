@@ -43,10 +43,10 @@ if [ ! -f /etc/redhat-release ]; then
     LSBDISTCODENAME=$(lsb_release -cs)
     if [ "$LSBDISTID" == "Ubuntu" ] ; then
     sudo dd of=/etc/apt/sources.list <<EOF
-deb http://mirror.boi.a10networks.com/ubuntu trusty main restricted universe multiverse
-deb http://mirror.boi.a10networks.com/ubuntu trusty-security main restricted universe multiverse
-deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted universe multiverse
-deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME-security main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME-updates main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME-backports main restricted universe multiverse
 EOF
     fi
     sudo apt-get -y update

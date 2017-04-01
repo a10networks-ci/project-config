@@ -162,7 +162,7 @@ function setup_puppet_ubuntu {
     fi
 
     lsbdistcodename=`lsb_release -c -s`
-    if [ $lsbdistcodename != 'trusty' ] ; then
+    if [ $lsbdistcodename != 'trusty' || $lsbdistcodename != 'xenial' ] ; then
         rubypkg=rubygems
     else
         rubypkg=ruby
