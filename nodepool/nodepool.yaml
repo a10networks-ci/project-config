@@ -19,28 +19,16 @@ gearman-servers:
   - host: 127.0.0.1
 
 labels:
-  - name: devstack-trusty
-    image: devstack-trusty
-    ready-script: configure_mirror.sh
-    min-ready: 18
-    providers:
-      - name: local_02
-  - name: bare-trusty
-    image: bare-trusty
-    ready-script: configure_mirror.sh
-    min-ready: 2 
-    providers:
-      - name: local_02
   - name: devstack-xenial
     image: devstack-xenial
     ready-script: configure_mirror.sh
-    min-ready: 4
+    min-ready: 18 
     providers:
       - name: local_02
   - name: bare-xenial
     image: bare-xenial
     ready-script: configure_mirror.sh
-    min-ready: 2 
+    min-ready: 4 
     providers:
       - name: local_02
 
@@ -52,22 +40,6 @@ labels:
       - name: local_02
 
 diskimages:
-  - name: bare-trusty
-    elements:
-      - ubuntu-minimal
-      - vm
-      - simple-init
-      - openstack-repos
-      - nodepool-base
-      - node-devstack
-      - cache-bindep
-      - growroot
-    release: trusty
-    env-vars:
-      TMPDIR: /opt/dib_tmp
-      DIB_IMAGE_CACHE: /opt/dib_cache
-      DIB_APT_LOCAL_CACHE: '0'
-      DIB_DISABLE_APT_CLEANUP: '1'
   - name: bare-xenial
     elements:
       # xenial's ubuntu-minimal is a little too minimal
@@ -85,21 +57,6 @@ diskimages:
       DIB_IMAGE_CACHE: /opt/dib_cache
       DIB_APT_LOCAL_CACHE: '0'
       DIB_DISABLE_APT_CLEANUP: '1'
-  - name: devstack-trusty
-    elements:
-      - ubuntu
-      - vm
-      - openstack-repos
-      - nodepool-base
-      - node-devstack
-      - cache-bindep
-    release: trusty
-    env-vars:
-      TMPDIR: /opt/dib_tmp
-      DIB_IMAGE_CACHE: /opt/dib_cache
-      DIB_APT_LOCAL_CACHE: '0'
-      DIB_DISABLE_APT_CLEANUP: '1'
-      QEMU_IMG_OPTIONS: compat=0.10
   - name: devstack-xenial
     elements:
       - ubuntu
@@ -137,6 +94,7 @@ providers:
         setup: prepare_node_devstack.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
+        pause: True
       - name: bare-trusty
         name-filter: jenkins.small
         min-ram: 2000
@@ -144,6 +102,7 @@ providers:
         setup: prepare_node_bare.sh
         username: jenkins
         private-key: /home/nodepool/.ssh/id_rsa
+        pause: True
       - name: devstack-xenial
         name-filter: jenkins.dsvm
         min-ram: 4000
