@@ -87,22 +87,6 @@ providers:
       - name: 'quarantine3-net'
         public: True
     images:
-      - name: devstack-trusty
-        name-filter: jenkins.dsvm
-        min-ram: 4000
-        diskimage: devstack-trusty
-        setup: prepare_node_devstack.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
-        pause: True
-      - name: bare-trusty
-        name-filter: jenkins.small
-        min-ram: 2000
-        diskimage: bare-trusty
-        setup: prepare_node_bare.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
-        pause: True
       - name: devstack-xenial
         name-filter: jenkins.dsvm
         min-ram: 4000
