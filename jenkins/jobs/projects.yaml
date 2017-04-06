@@ -2,7 +2,7 @@
 - project:
     name: a10-neutron-lbaas
     github-url: https://github.com/a10networks/a10-neutron-lbaas
-    node: bare-xenial
+    node: bare-trusty
 
     jobs:
         - python-jobs
