@@ -10,7 +10,7 @@ cron:
 # party ci systems start building images at the same time.
 # Doing so is easy: update the first '17' below with a random number between 0 to 23
 # This references the hour of the day when images will be built.
-  image-update: '0 5 * * *'
+  image-update: '3 5 * * *'
 
 zmq-publishers:
   - tcp://localhost:8888
@@ -28,7 +28,7 @@ labels:
   - name: bare-trusty
     image: bare-trusty
     ready-script: configure_mirror.sh
-    min-ready: 1 
+    min-ready: 2 
     providers:
       - name: local_02
   - name: devstack-xenial
@@ -40,7 +40,7 @@ labels:
   - name: bare-xenial
     image: bare-xenial
     ready-script: configure_mirror.sh
-    min-ready: 1
+    min-ready: 2 
     providers:
       - name: local_02
 
