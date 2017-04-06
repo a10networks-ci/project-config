@@ -70,7 +70,8 @@ diskimages:
       DIB_DISABLE_APT_CLEANUP: '1'
   - name: bare-xenial
     elements:
-      - ubuntu-minimal
+      # xenial's ubuntu-minimal is a little too minimal
+      - ubuntu
       - vm
       - simple-init
       - openstack-repos

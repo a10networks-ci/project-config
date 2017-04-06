@@ -30,6 +30,8 @@ if [ -n "$HOSTNAME" ] && ! grep -q $HOSTNAME /etc/hosts ; then
     echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
     echo "10.48.7.97 mirror.boi.a10networks.com mirror" | sudo tee -a /etc/hosts
     echo "10.48.7.121 git-openstack.boi.a10networks.com git-openstack" | sudo tee -a /etc/hosts
+else
+    echo "hosts file failed" | sudo tee -a /etc/hosts.failed
 fi
 
 echo $HOSTNAME > /tmp/image-hostname.txt
@@ -42,14 +44,17 @@ if [ ! -f /etc/redhat-release ]; then
     LSBDISTID=$(lsb_release -is)
     LSBDISTCODENAME=$(lsb_release -cs)
     if [ "$LSBDISTID" == "Ubuntu" ] ; then
-    sudo dd of=/etc/apt/sources.list <<EOF
-deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME main restricted universe multiverse
-deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME-security main restricted universe multiverse
-deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME-updates main restricted universe multiverse
-deb http://mirror.boi.a10networks.com/ubuntu $LSBDISTCODENAME-backports main restricted universe multiverse
+      sudo dd of=/etc/apt/sources.list <<EOF
+deb http://mirror.boi.a10networks.com/ubuntu trusty main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu trusty-security main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu trusty-updates main restricted universe multiverse
+deb http://mirror.boi.a10networks.com/ubuntu trusty-backports main restricted universe multiverse
+>>>>>>> less minimal ubuntu
 EOF
     fi
     sudo apt-get -y update
+else
+    echo "Failed release check for" `lsb_release -cs` | sudo tee -a /etc/lsbrelease.failure
 fi
 
 # Fedora image doesn't come with wget
