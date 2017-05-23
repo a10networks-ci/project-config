@@ -22,4 +22,4 @@ if [ ${DIB_DEBUG_TRACE:-0} -gt 0 ]; then
 fi
 set -e
 
-sudo sed -i 's/^GRUB_CMDLINE_LINUX=/GRUB_CMDLINE_LINUX=\"net.ifnames=0\"/g' /etc/default/grub
+sudo sed -i 's/^GRUB_CMDLINE_LINUX=/GRUB_CMDLINE_LINUX=\"net.ifnames=0 bios.devname=0 quiet\"/g' /etc/default/grub
