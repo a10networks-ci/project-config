@@ -72,7 +72,7 @@ set +e
 if [ -z "$NODEPOOL_SSH_KEY" ] ; then
     sudo puppet apply --detailed-exitcodes --color=false \
         --modulepath=/root/system-config/modules:/etc/puppet/modules \
-        -e "class {'openstack_project::single_use_slave':
+        -e "class {'openstack_project::slave':
                     sudo => $SUDO,
                     thin => $THIN,
                     all_mysql_privs => $ALL_MYSQL_PRIVS,
@@ -81,7 +81,7 @@ if [ -z "$NODEPOOL_SSH_KEY" ] ; then
 else
     sudo puppet apply --detailed-exitcodes --color=false \
         --modulepath=/root/system-config/modules:/etc/puppet/modules \
-        -e "class {'openstack_project::single_use_slave':
+        -e "class {'openstack_project::slave':
                     install_users => false,
                     sudo => $SUDO,
                     thin => $THIN,
