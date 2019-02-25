@@ -1,48 +1,25 @@
 script-dir: /etc/nodepool/scripts
 elements-dir: /etc/nodepool/elements
-images-dir: /space/nodepool_dib
+images-dir: /opt/nodepool_dib
 
-cron:
-  cleanup: '*/1 * * * *'
-  check: '*/15 * * * *'
-# TODO: Please choose a random hour for nodepool image updates.
-# This will help reduce the load on upstream git farms & mirros where all 3rd
-# party ci systems start building images at the same time.
-# Doing so is easy: update the first '17' below with a random number between 0 to 23
-# This references the hour of the day when images will be built.
-  image-update: '3 5 * * *'
-
-zmq-publishers:
-  - tcp://localhost:8888
-
-gearman-servers:
-  - host: 127.0.0.1
+zookeeper-servers:
+  - host: localhost
+    port: 2181
 
 labels:
   - name: devstack-xenial
     image: devstack-xenial
-    ready-script: configure_mirror.sh
-    min-ready: 4 
-    providers:
-      - name: local_02
+    min-ready: 4
   - name: bare-xenial
     image: bare-xenial
-    ready-script: configure_mirror.sh
-    min-ready: 4 
-    providers:
-      - name: local_02
-
+    min-ready: 4
   - name: prod-icehouse
     image: prod-icehouse
-    ready-script: configure_mirror.sh
     min-ready: 1
-    providers:
-      - name: local_02
 
 diskimages:
   - name: bare-xenial
     elements:
-      # xenial's ubuntu-minimal is a little too minimal
       - ubuntu
       - vm
       - simple-init
@@ -75,39 +52,21 @@ diskimages:
 
 providers:
   - name: local_02
+    driver: openstack
     cloud: local_02
     boot-timeout: 600
-    launch-timeout: 1800
-    auth-url: 'http://10.48.1.6:5000/v2.0'
-    username: os-jenkins
-    password: 0e8d15309ea30a8aebfa2f098ad4d121
-    project-id: 3b9cd8bc8bc94ba9aea326990aba7f7a
-    max-servers: 40
-    networks:
-      - name: 'quarantine3-net'
-        public: True
-    images:
-      - name: devstack-xenial
-        name-filter: jenkins.dsvm
-        min-ram: 4000
-        diskimage: devstack-xenial
-        setup: prepare_node_devstack.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
-      - name: bare-xenial
-        name-filter: jenkins.small
-        min-ram: 2000
-        diskimage: bare-xenial
-        setup: prepare_node_bare.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
-      - name: prod-icehouse
-        name-filter: jenkins.osprod
-        min-ram: 4096
-        base-image: 'bf327f61-0450-48de-8837-f717c314ec3e'
-        setup: prepare_node_osprod.sh
-        username: jenkins
-        private-key: /home/nodepool/.ssh/id_rsa
-
-targets:
-  - name: jenkins1
+    launch-timeout: 900
+    pools:
+      - name: main
+        max-servers: 40
+        networks:
+          - quarantine3-net
+        labels:
+          - name: devstack-xenial
+            min-ram: 4000
+            diskimage: devstack-xenial
+          - name: bare-xenial
+            min-ram: 2000
+            diskimage: bare-xenial
+          - name: prod-icehouse
+            min-ram: 4000

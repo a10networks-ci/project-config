@@ -1,0 +1,7 @@
+clouds:
+  local_02:
+    profile: local_02
+    auth:
+      username: os-jenkins
+      project_name: os-jenkins
+      auth_url: 'http://10.48.1.6:5000/v2.0'
