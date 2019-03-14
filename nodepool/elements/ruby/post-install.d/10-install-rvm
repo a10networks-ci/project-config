@@ -1,0 +1,22 @@
+#!/bin/bash
+sudo -H -i -u jenkins gpg --keyserver hkp://pool.sks-keyservers.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | sudo -H -i -u jenkins bash -s stable --rails
+ruby=2.6.1
+sudo -H -i -u jenkins rvm use "$ruby"
+if [ $? -ne 0 ]; then
+    sudo -H -i -u jenkins rvm install "$ruby"
+    if [ $? -ne 0 ]; then
+	echo "ERROR: ruby install failed"
+	exit 1
+    fi
+fi
+sudo -H -i -u jenkins rvm use "$ruby"
+if [ $? -ne 0 ]; then
+    echo "ERROR: ruby use failed"
+    exit 1
+fi
+
+z=`sudo -H -i -u jenkins which bundle`
+if [ -z "$z" ]; then
+    sudo -H -i -u jenkins gem install bundler
+fi

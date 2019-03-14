@@ -9,6 +9,9 @@ set -o pipefail
 # Add jenkins user and group.  Note we don't want to rely on
 # "useradd"'s group adding behaviour, because it might differ across
 # distros.
+
+# Need to install OpenJDK 8
+apt-get install -y openjdk-8-jdk
 groupadd jenkins
 useradd -g jenkins -m jenkins -s /bin/bash
 
