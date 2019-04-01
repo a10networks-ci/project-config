@@ -18,25 +18,15 @@
 
 source /etc/nodepool/provider
 
-echo "10.48.1.51 area51.boi.a10networks.com area51" | sudo tee -a /etc/hosts
-echo "10.48.7.97 mirror.boi.a10networks.com mirror" | sudo tee -a /etc/hosts
-echo "10.48.7.121 git-openstack.boi.a10networks.com git-openstack" | sudo tee -a /etc/hosts
+# Add our gpg key to apt
+wget -qO - http://mirror.boi.a10networks.com/apt_pub.gpg | sudo apt-key add -
 
-NODEPOOL_PYPI_MIRROR=${NODEPOOL_PYPI_MIRROR:-http://mirror.boi.a10networks.com:81/simple/}
-
-sudo dd of=/etc/pip.conf <<EOF
-[global]
-index-url = $NODEPOOL_PYPI_MIRROR
-
-[install]
-trusted-host = mirror.boi.a10networks.com
-EOF
-
-cat >/home/jenkins/.pydistutils.cfg <<EOF
-[easy_install]
-index_url = $NODEPOOL_PYPI_MIRROR
-allow_hosts = *.boi.a10networks.com,*.boi.a10networks.com:81
-EOF
+# Configure nameservers
+sudo bash -c 'cat <<EOF > /etc/resolv.conf
+search boi.a10networks.com
+nameserver 172.18.61.2
+nameserver 172.18.61.3
+EOF'
 
 # Double check that when the node is made ready it is able
 # to resolve names against DNS.
@@ -54,6 +44,5 @@ EOF
 fi
 sudo apt-get -y update
 
-GIT_BASE=${GIT_BASE:-git://git.openstack.org}
-GIT_MIRROR_BASE=${GIT_MIRROR_BASE:-http://git-openstack.boi.a10networks.com}
-git config --global url.${GIT_MIRROR_BASE}/.insteadOf ${GIT_BASE}/
+# Install java 8 jdk as it's needed by jenkins
+sudo apt-get -y install openjdk-8-jdk
